@@ -15,6 +15,11 @@
 		4C7ED46B1B7AE7F800633581 /* WBMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ED46A1B7AE7F800633581 /* WBMessageViewController.m */; };
 		4C7ED46E1B7AE81300633581 /* WBDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ED46D1B7AE81300633581 /* WBDiscoverViewController.m */; };
 		4C7ED4711B7AE82300633581 /* WBProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ED4701B7AE82300633581 /* WBProfileViewController.m */; };
+		4C7ED4741B7AF5B300633581 /* WBTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ED4731B7AF5B300633581 /* WBTabBarViewController.m */; };
+		4C7ED4781B7AF7D000633581 /* WBTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ED4761B7AF7D000633581 /* WBTest1ViewController.m */; };
+		4C7ED4791B7AF7D000633581 /* WBTest1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7ED4771B7AF7D000633581 /* WBTest1ViewController.xib */; };
+		4C7ED47D1B7B1A9000633581 /* WBTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ED47B1B7B1A9000633581 /* WBTest2ViewController.m */; };
+		4C7ED47E1B7B1A9000633581 /* WBTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7ED47C1B7B1A9000633581 /* WBTest2ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,14 @@
 		4C7ED46D1B7AE81300633581 /* WBDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDiscoverViewController.m; sourceTree = "<group>"; };
 		4C7ED46F1B7AE82300633581 /* WBProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBProfileViewController.h; sourceTree = "<group>"; };
 		4C7ED4701B7AE82300633581 /* WBProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBProfileViewController.m; sourceTree = "<group>"; };
+		4C7ED4721B7AF5B300633581 /* WBTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBarViewController.h; sourceTree = "<group>"; };
+		4C7ED4731B7AF5B300633581 /* WBTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBarViewController.m; sourceTree = "<group>"; };
+		4C7ED4751B7AF7D000633581 /* WBTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTest1ViewController.h; sourceTree = "<group>"; };
+		4C7ED4761B7AF7D000633581 /* WBTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTest1ViewController.m; sourceTree = "<group>"; };
+		4C7ED4771B7AF7D000633581 /* WBTest1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBTest1ViewController.xib; sourceTree = "<group>"; };
+		4C7ED47A1B7B1A9000633581 /* WBTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBTest2ViewController.h; path = WeiBoM/WBTest2ViewController.h; sourceTree = SOURCE_ROOT; };
+		4C7ED47B1B7B1A9000633581 /* WBTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBTest2ViewController.m; path = WeiBoM/WBTest2ViewController.m; sourceTree = SOURCE_ROOT; };
+		4C7ED47C1B7B1A9000633581 /* WBTest2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WBTest2ViewController.xib; path = WeiBoM/WBTest2ViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +146,15 @@
 				4C7ED46D1B7AE81300633581 /* WBDiscoverViewController.m */,
 				4C7ED46F1B7AE82300633581 /* WBProfileViewController.h */,
 				4C7ED4701B7AE82300633581 /* WBProfileViewController.m */,
+				4C7ED4721B7AF5B300633581 /* WBTabBarViewController.h */,
+				4C7ED4731B7AF5B300633581 /* WBTabBarViewController.m */,
 				4C7ED4611B79E30300633581 /* main.m */,
+				4C7ED4751B7AF7D000633581 /* WBTest1ViewController.h */,
+				4C7ED4761B7AF7D000633581 /* WBTest1ViewController.m */,
+				4C7ED4771B7AF7D000633581 /* WBTest1ViewController.xib */,
+				4C7ED47A1B7B1A9000633581 /* WBTest2ViewController.h */,
+				4C7ED47B1B7B1A9000633581 /* WBTest2ViewController.m */,
+				4C7ED47C1B7B1A9000633581 /* WBTest2ViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -220,6 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1273141B78B37D00C4B970 /* Images.xcassets in Resources */,
+				4C7ED47E1B7B1A9000633581 /* WBTest2ViewController.xib in Resources */,
+				4C7ED4791B7AF7D000633581 /* WBTest1ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +263,10 @@
 				4C7ED46E1B7AE81300633581 /* WBDiscoverViewController.m in Sources */,
 				4C7ED4711B7AE82300633581 /* WBProfileViewController.m in Sources */,
 				4C7ED4681B7AE7DC00633581 /* WBHomeViewController.m in Sources */,
+				4C7ED47D1B7B1A9000633581 /* WBTest2ViewController.m in Sources */,
+				4C7ED4781B7AF7D000633581 /* WBTest1ViewController.m in Sources */,
 				4C7ED46B1B7AE7F800633581 /* WBMessageViewController.m in Sources */,
+				4C7ED4741B7AF5B300633581 /* WBTabBarViewController.m in Sources */,
 				4C7ED4631B79E30300633581 /* main.m in Sources */,
 				4C7ED4621B79E30300633581 /* AppDelegate.m in Sources */,
 			);

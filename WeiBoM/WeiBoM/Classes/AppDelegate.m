@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "WBDiscoverViewController.h"
-#import "WBMessageViewController.h"
-#import "WBHomeViewController.h"
-#import "WBProfileViewController.h"
+#import "WBTabBarViewController.h"
+
+
+
 
 @interface AppDelegate ()
 
@@ -22,46 +22,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    UITabBarController *tabbar=[[UITabBarController alloc] init];
+    WBTabBarViewController *tabbar=[[WBTabBarViewController alloc] init];
     self.window.rootViewController=tabbar;
-    
-    WBHomeViewController *home=[[WBHomeViewController alloc] init];
-    [self childController:home WithTitle:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    WBMessageViewController *message=[[WBMessageViewController alloc] init];
-    [self childController:message WithTitle:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-    
-    WBDiscoverViewController *discover=[[WBDiscoverViewController alloc] init];
-    [self childController:discover WithTitle:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-    
-    WBProfileViewController *profile=[[WBProfileViewController alloc] init];
-    [self childController:profile WithTitle:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
-    
-    [tabbar addChildViewController:home];
-    [tabbar addChildViewController:message];
-    [tabbar addChildViewController:discover];
-    [tabbar addChildViewController:profile];
     
     [self.window makeKeyAndVisible];
     
     return YES;
 }
 
--(void)childController:(UIViewController *)vControl WithTitle:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
-{
-    NSMutableDictionary *dic=[NSMutableDictionary dictionary];
-    dic[NSForegroundColorAttributeName]=WBColor(123, 123, 123);
-    NSMutableDictionary *dictSelect=[NSMutableDictionary dictionary];
-    dictSelect[NSForegroundColorAttributeName]=[UIColor orangeColor];
 
-    vControl.tabBarItem.title=title;
-    vControl.tabBarItem.image=[UIImage imageNamed:image];
-    vControl.tabBarItem.selectedImage=[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vControl.view.backgroundColor=WBRandomColor;
-    [vControl.tabBarItem setTitleTextAttributes:dic forState:UIControlStateNormal];
-    [vControl.tabBarItem setTitleTextAttributes:dictSelect forState:UIControlStateSelected ];
-
-}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
