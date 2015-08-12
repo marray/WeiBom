@@ -1,0 +1,15 @@
+//
+//  WeiBoM-Prefix.pch
+//  WeiBoM
+//
+//  Created by Michael on 8/11/15.
+//  Copyright (c) 2015 agIce. All rights reserved.
+//
+
+#ifndef WeiBoM_WeiBoM_Prefix_pch
+#define WeiBoM_WeiBoM_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
