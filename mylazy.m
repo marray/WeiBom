@@ -1,6 +1,7 @@
 // myLazy
 // 
 //
+// IDECodeSnippetCompletionPrefix: Lazy
 // IDECodeSnippetCompletionScopes: [All]
 // IDECodeSnippetIdentifier: 64660BBF-9E91-4AEB-A151-623FDB4258EE
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
