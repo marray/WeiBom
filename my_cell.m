@@ -1,6 +1,7 @@
 // My Cell
 // 
 //
+// IDECodeSnippetCompletionPrefix: createCell
 // IDECodeSnippetCompletionScopes: [All]
 // IDECodeSnippetIdentifier: 2067103B-9DF1-489D-BF1D-CDDA5E323CDA
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
