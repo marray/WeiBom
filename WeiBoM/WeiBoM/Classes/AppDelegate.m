@@ -1,10 +1,9 @@
+// 
+// AppDelegate.m
 //
-//  AppDelegate.m
-//  WeiBoM
-//
-//  Created by Michael on 8/10/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: BC4BF60F-9BC3-4FF8-802C-576604AD8595
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "AppDelegate.h"
 #import "WBTabBarViewController.h"

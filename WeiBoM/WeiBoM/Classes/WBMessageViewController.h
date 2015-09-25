@@ -1,10 +1,9 @@
+// 
+// WBMessageViewController.h
 //
-//  WBMessageViewController.h
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 600CEEC6-558F-4B5E-9272-FCD9D3091DD5
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

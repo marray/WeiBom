@@ -1,10 +1,9 @@
+// 
+// WBProfileViewController.m
 //
-//  WBProfileViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 2557DB98-36A4-4D98-A740-45878874B8BB
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBProfileViewController.h"
 
