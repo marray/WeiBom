@@ -1,0 +1,24 @@
+//
+//  WeiBoM-Prefix.pch
+//  WeiBoM
+//
+//  Created by Michael on 8/11/15.
+//  Copyright (c) 2015 agIce. All rights reserved.
+//
+
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#define WBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define WBRandomColor WBColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
+
+#endif
