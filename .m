@@ -1,14 +1,17 @@
 // 
-// WBDiscoverViewController.h
+// main.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 4D4D8137-F147-4A09-8A59-D77F3D2270DD
+// IDECodeSnippetIdentifier: 67AB6608-9AF5-4E20-93AA-17DD36932EF1
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface WBDiscoverViewController : UITableViewController
-
-@end
+int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
