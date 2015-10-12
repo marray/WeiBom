@@ -1,79 +1,101 @@
 // 
-// WBTabBarViewController.m
+// WBDiscoverViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 7920269D-D20B-4C59-9CA1-B825992A2198
+// IDECodeSnippetIdentifier: B22A61D0-963F-4D93-AC0B-1CD03F1F5E43
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBTabBarViewController.h"
 #import "WBDiscoverViewController.h"
-#import "WBMessageViewController.h"
-#import "WBHomeViewController.h"
-#import "WBProfileViewController.h"
 
-@interface WBTabBarViewController ()
+@interface WBDiscoverViewController ()
 
 @end
 
-@implementation WBTabBarViewController
+@implementation WBDiscoverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
     
-    WBHomeViewController *home=[[WBHomeViewController alloc] init];
-    [self childController:home WithTitle:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    
-    WBMessageViewController *message=[[WBMessageViewController alloc] init];
-    [self childController:message WithTitle:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-    
-    WBDiscoverViewController *discover=[[WBDiscoverViewController alloc] init];
-    [self childController:discover WithTitle:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-    
-    WBProfileViewController *profile=[[WBProfileViewController alloc] init];
-    [self childController:profile WithTitle:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
-    
-    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
-/**
- *  添加一个子控制器
- *
- *  @param vControl      控制器
- *  @param title         标题
- *  @param image         图片
- *  @param selectedImage 选中市的图片
- */
--(void)childController:(UIViewController *)vControl WithTitle:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
-{
-//    vControl.tabBarItem.title=title;   //设置tabBarItem的标题
-//    vControl.navigationItem.title=title;  //设置导航栏控制器的标题
-    //设置标题
-    vControl.title=title;   //相当于上面两句  设置导航栏和tabBarItem的标题
-    //设置图片
-    vControl.tabBarItem.image=[UIImage imageNamed:image];
-    vControl.tabBarItem.selectedImage=[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vControl.view.backgroundColor=WBRandomColor;
-    
-    //设置tabBarItem字体颜色
-    NSMutableDictionary *dic=[NSMutableDictionary dictionary];
-    dic[NSForegroundColorAttributeName]=WBColor(123, 123, 123);
-    NSMutableDictionary *dictSelect=[NSMutableDictionary dictionary];
-    dictSelect[NSForegroundColorAttributeName]=[UIColor orangeColor];
-    [vControl.tabBarItem setTitleTextAttributes:dic forState:UIControlStateNormal];
-    [vControl.tabBarItem setTitleTextAttributes:dictSelect forState:UIControlStateSelected ];
-    
-    //包装控制器为导航控制器
-    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:vControl];
-    [self addChildViewController:nav];
-    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
+}
 
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
