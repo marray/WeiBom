@@ -1,18 +1,34 @@
 // 
-// AppDelegate.h
+// WBTest1ViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: C2FCA759-71EC-40BF-8D31-32BCCE40FEF1
+// IDECodeSnippetIdentifier: 198DA858-A0CF-446E-A029-19700909C5FB
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import <UIKit/UIKit.h>
+#import "WBTest1ViewController.h"
+#import "WBTest2ViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface WBTest1ViewController ()
 
 @end
 
+@implementation WBTest1ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
+    WBTest2ViewController *test2=[[WBTest2ViewController alloc] init];
+    test2.title=@"测试2控制器";
+    [self.navigationController pushViewController:test2 animated:YES];
+    
+}
+
+
+
+@end
