@@ -1,14 +1,9 @@
 // 
-// WBTest2ViewController.h
+// 
 //
-// IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 969474E1-55E5-4E28-A226-A642BC3C82B0
-// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetCompletionScopes: [ClassInterfaceMethods]
+// IDECodeSnippetIdentifier: A4A52D3F-9163-40C0-90D1-9024AF478633
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C-Plus-Plus
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
-
-#import <UIKit/UIKit.h>
-
-@interface WBTest2ViewController : UIViewController
-
-@end
+@property(nonatomic,assign) CGPoint origin;
