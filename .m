@@ -1,60 +1,59 @@
 // 
-// WBMessageViewController.m
+// AppDelegate.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 73CF9958-7FC9-4E1C-A819-C40C3FF09786
+// IDECodeSnippetIdentifier: BC4BF60F-9BC3-4FF8-802C-576604AD8595
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBMessageViewController.h"
-#import "WBTest1ViewController.h"
+#import "AppDelegate.h"
+#import "WBTabBarViewController.h"
 
-@interface WBMessageViewController ()
+
+
+
+@interface AppDelegate ()
 
 @end
 
-@implementation WBMessageViewController
+@implementation AppDelegate
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    WBTabBarViewController *tabbar=[[WBTabBarViewController alloc] init];
+    self.window.rootViewController=tabbar;
+    
+    [self.window makeKeyAndVisible];
+    
+    return YES;
 }
 
 
 
-#pragma mark - Table view data source
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 10;
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *ID=@"cell";
-    
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-        
-    }
-    
-    cell.textLabel.text=[NSString stringWithFormat:@"test--message--%ld",(long)indexPath.row];
-    
-    return cell;
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    WBTest1ViewController *test1=[[WBTest1ViewController alloc] init];
-    test1.title=@"测试1控制器";
-    //当从tabbarcontroller跳转到其他控制器，自动隐藏tabbarItem
-    test1.hidesBottomBarWhenPushed=YES;
-    [self.navigationController pushViewController:test1 animated:YES];
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
 
 @end
