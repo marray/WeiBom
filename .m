@@ -1,34 +1,38 @@
 // 
-// WBTest1ViewController.m
+// WBTest2ViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 198DA858-A0CF-446E-A029-19700909C5FB
+// IDECodeSnippetIdentifier: 43846246-03AF-46F9-8488-DB10713B6357
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBTest1ViewController.h"
 #import "WBTest2ViewController.h"
 
-@interface WBTest1ViewController ()
+@interface WBTest2ViewController ()
 
 @end
 
-@implementation WBTest1ViewController
+@implementation WBTest2ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-
-    WBTest2ViewController *test2=[[WBTest2ViewController alloc] init];
-    test2.title=@"测试2控制器";
-    [self.navigationController pushViewController:test2 animated:YES];
-    
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
 
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
