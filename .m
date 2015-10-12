@@ -1,14 +1,14 @@
 // 
-// WBTest2ViewController.h
+// WBDiscoverViewController.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 969474E1-55E5-4E28-A226-A642BC3C82B0
+// IDECodeSnippetIdentifier: 4D4D8137-F147-4A09-8A59-D77F3D2270DD
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBTest2ViewController : UIViewController
+@interface WBDiscoverViewController : UITableViewController
 
 @end
