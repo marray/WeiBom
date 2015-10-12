@@ -1,14 +1,14 @@
 // 
-// WBMessageViewController.h
+// WBTabBarViewController.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 600CEEC6-558F-4B5E-9272-FCD9D3091DD5
+// IDECodeSnippetIdentifier: B8D6FA50-E6F3-4B28-9F5F-3AED100DBA38
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBMessageViewController : UITableViewController
+@interface WBTabBarViewController : UITabBarController
 
 @end
