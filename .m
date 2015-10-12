@@ -1,14 +1,17 @@
 // 
-// WBTest1ViewController.h
+// main.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 738B00DE-6085-4197-B71A-E92520FE9EC4
+// IDECodeSnippetIdentifier: 67AB6608-9AF5-4E20-93AA-17DD36932EF1
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
-@interface WBTest1ViewController : UIViewController
-
-@end
+int main(int argc, char * argv[]) {
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
+}
