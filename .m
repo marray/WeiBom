@@ -1,34 +1,14 @@
 // 
-// WBTest1ViewController.m
+// WBMessageViewController.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 198DA858-A0CF-446E-A029-19700909C5FB
+// IDECodeSnippetIdentifier: 600CEEC6-558F-4B5E-9272-FCD9D3091DD5
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBTest1ViewController.h"
-#import "WBTest2ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface WBTest1ViewController ()
-
-@end
-
-@implementation WBTest1ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-
-    WBTest2ViewController *test2=[[WBTest2ViewController alloc] init];
-    test2.title=@"测试2控制器";
-    [self.navigationController pushViewController:test2 animated:YES];
-    
-}
-
-
+@interface WBMessageViewController : UITableViewController
 
 @end
