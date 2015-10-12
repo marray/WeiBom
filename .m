@@ -1,38 +1,14 @@
 // 
-// WBTest2ViewController.m
+// WBHomeViewController.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 43846246-03AF-46F9-8488-DB10713B6357
+// IDECodeSnippetIdentifier: 7A13BCF1-4B61-41A0-B8C8-35E64F9BFCE3
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBTest2ViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface WBTest2ViewController ()
-
-@end
-
-@implementation WBTest2ViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+@interface WBHomeViewController : UITableViewController
 
 @end
