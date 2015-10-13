@@ -1,10 +1,9 @@
+// 
+// main.m
 //
-//  main.m
-//  WeiBoM
-//
-//  Created by Michael on 8/10/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: A78455E3-E2F6-4F73-B830-DFD32C761D91
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
