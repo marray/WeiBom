@@ -1,10 +1,9 @@
+// 
+// WBHomeViewController.h
 //
-//  WBHomeViewController.h
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 7A13BCF1-4B61-41A0-B8C8-35E64F9BFCE3
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

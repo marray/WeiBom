@@ -1,10 +1,9 @@
+// 
+// WBNavigationController.m
 //
-//  WBNavigationController.m
-//  WeiBoM
-//
-//  Created by Michael on 10/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 2399BE09-32AC-4C9D-A0A9-004B61A4E9F4
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBNavigationController.h"
 

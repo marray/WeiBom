@@ -1,10 +1,9 @@
+// 
+// UIView+Extension.m
 //
-//  UIView+Extension.m
-//  WeiBoM
-//
-//  Created by Michael on 10/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 065E028E-5D2A-43B9-BA88-B0A062CC04DD
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "UIView+Extension.h"
 

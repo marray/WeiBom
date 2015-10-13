@@ -1,10 +1,9 @@
+// 
+// WBTest1ViewController.m
 //
-//  WBTest1ViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 198DA858-A0CF-446E-A029-19700909C5FB
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBTest1ViewController.h"
 #import "WBTest2ViewController.h"

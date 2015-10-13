@@ -1,17 +1,17 @@
 // 
-// WBProfileViewController.m
+// WBDiscoverViewController.m
 //
-// IDECodeSnippetIdentifier: 2557DB98-36A4-4D98-A740-45878874B8BB
+// IDECodeSnippetIdentifier: B22A61D0-963F-4D93-AC0B-1CD03F1F5E43
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 
-#import "WBProfileViewController.h"
+#import "WBDiscoverViewController.h"
 
-@interface WBProfileViewController ()
+@interface WBDiscoverViewController ()
 
 @end
 
-@implementation WBProfileViewController
+@implementation WBDiscoverViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

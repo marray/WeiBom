@@ -1,10 +1,9 @@
+// 
+// WBDiscoverViewController.m
 //
-//  WBDiscoverViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: C05F39AD-F1DB-4AD3-BC02-FBC43F0E7468
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBDiscoverViewController.h"
 #import "WBSearchBar.h"

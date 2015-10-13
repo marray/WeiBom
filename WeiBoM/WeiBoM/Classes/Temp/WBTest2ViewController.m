@@ -1,10 +1,9 @@
+// 
+// WBTest2ViewController.m
 //
-//  WBTest2ViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 43846246-03AF-46F9-8488-DB10713B6357
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBTest2ViewController.h"
 

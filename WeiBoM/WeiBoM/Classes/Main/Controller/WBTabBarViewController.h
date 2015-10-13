@@ -1,10 +1,9 @@
+// 
+// WBTabBarViewController.h
 //
-//  WBTabBarViewController.h
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: B8D6FA50-E6F3-4B28-9F5F-3AED100DBA38
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

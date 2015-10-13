@@ -1,10 +1,9 @@
+// 
+// AppDelegate.h
 //
-//  AppDelegate.h
-//  WeiBoM
-//
-//  Created by Michael on 8/10/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: C2FCA759-71EC-40BF-8D31-32BCCE40FEF1
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

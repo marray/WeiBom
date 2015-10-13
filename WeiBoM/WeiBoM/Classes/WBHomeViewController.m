@@ -1,17 +1,17 @@
 // 
-// WBProfileViewController.m
+// WBHomeViewController.m
 //
-// IDECodeSnippetIdentifier: 2557DB98-36A4-4D98-A740-45878874B8BB
+// IDECodeSnippetIdentifier: 6C1A14B9-86C1-4312-9369-0F760C4B311B
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 
-#import "WBProfileViewController.h"
+#import "WBHomeViewController.h"
 
-@interface WBProfileViewController ()
+@interface WBHomeViewController ()
 
 @end
 
-@implementation WBProfileViewController
+@implementation WBHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

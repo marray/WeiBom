@@ -1,10 +1,9 @@
+// 
+// UIBarButtonItem+Extension.m
 //
-//  UIBarButtonItem+Extension.m
-//  WeiBoM
-//
-//  Created by Michael on 10/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: DEE9B126-F1CB-4CF0-9821-A1F08E24135B
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "UIBarButtonItem+Extension.h"
 

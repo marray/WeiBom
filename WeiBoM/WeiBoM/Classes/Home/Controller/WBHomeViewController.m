@@ -1,10 +1,9 @@
+// 
+// WBHomeViewController.m
 //
-//  WBHomeViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 8/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 1871363C-B6E3-4BA5-B580-EBC2D38FD3FF
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBHomeViewController.h"
 #import "WBDropDownMenu.h"

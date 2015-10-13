@@ -1,9 +1,11 @@
 // 
 // main.m
 //
-// IDECodeSnippetIdentifier: A78455E3-E2F6-4F73-B830-DFD32C761D91
+// IDECodeSnippetCompletionScopes: [All]
+// IDECodeSnippetIdentifier: 67AB6608-9AF5-4E20-93AA-17DD36932EF1
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
+// IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
