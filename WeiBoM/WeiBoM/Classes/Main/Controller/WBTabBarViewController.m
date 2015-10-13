@@ -11,6 +11,7 @@
 #import "WBMessageViewController.h"
 #import "WBHomeViewController.h"
 #import "WBProfileViewController.h"
+#import "WBNavigationController.h"
 
 @interface WBTabBarViewController ()
 
@@ -20,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     WBHomeViewController *home=[[WBHomeViewController alloc] init];
     [self childController:home WithTitle:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
@@ -55,7 +55,7 @@
     //设置图片
     vControl.tabBarItem.image=[UIImage imageNamed:image];
     vControl.tabBarItem.selectedImage=[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vControl.view.backgroundColor=WBRandomColor;
+//    vControl.view.backgroundColor=WBRandomColor;  //调用view属性 导致控制器提前创建了
     
     //设置tabBarItem字体颜色
     NSMutableDictionary *dic=[NSMutableDictionary dictionary];
@@ -66,7 +66,7 @@
     [vControl.tabBarItem setTitleTextAttributes:dictSelect forState:UIControlStateSelected ];
     
     //包装控制器为导航控制器
-    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:vControl];
+    WBNavigationController *nav=[[WBNavigationController alloc] initWithRootViewController:vControl];
     [self addChildViewController:nav];
     
 }

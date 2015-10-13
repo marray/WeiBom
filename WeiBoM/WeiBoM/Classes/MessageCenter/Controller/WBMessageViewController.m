@@ -18,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"写私信" style:0 target:nil action:nil];
+    
+    self.navigationItem.rightBarButtonItem.enabled=NO;
 }
 
 
@@ -50,8 +53,6 @@
 {
     WBTest1ViewController *test1=[[WBTest1ViewController alloc] init];
     test1.title=@"测试1控制器";
-    //当从tabbarcontroller跳转到其他控制器，自动隐藏tabbarItem
-    test1.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:test1 animated:YES];
 }
 
