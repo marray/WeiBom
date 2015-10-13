@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4C1273141B78B37D00C4B970 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1273131B78B37D00C4B970 /* Images.xcassets */; };
 		4C1273231B78B37E00C4B970 /* WeiBoMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1273221B78B37E00C4B970 /* WeiBoMTests.m */; };
+		4C99B7F71BCCAE1E00287B95 /* WBSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C99B7F61BCCAE1E00287B95 /* WBSearchBar.m */; };
+		4C99B7FA1BCCF33300287B95 /* WBDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C99B7F91BCCF33300287B95 /* WBDropDownMenu.m */; };
+		4C99B8041BCD0D8500287B95 /* WBTitleMenueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C99B8031BCD0D8500287B95 /* WBTitleMenueViewController.m */; };
 		4CA078331BCB8EE500008320 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA078031BCB8EE500008320 /* UIView+Extension.m */; };
 		4CA078341BCB8EE500008320 /* WBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA078061BCB8EE500008320 /* WBNavigationController.m */; };
 		4CA078351BCB8EE500008320 /* WBTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA078081BCB8EE500008320 /* WBTabBarViewController.m */; };
@@ -43,6 +46,12 @@
 		4C1273211B78B37E00C4B970 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C1273221B78B37E00C4B970 /* WeiBoMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeiBoMTests.m; sourceTree = "<group>"; };
 		4C7ED4651B79E9B800633581 /* WeiBoM-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiBoM-Prefix.pch"; sourceTree = "<group>"; };
+		4C99B7F51BCCAE1E00287B95 /* WBSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSearchBar.h; sourceTree = "<group>"; };
+		4C99B7F61BCCAE1E00287B95 /* WBSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSearchBar.m; sourceTree = "<group>"; };
+		4C99B7F81BCCF33300287B95 /* WBDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBDropDownMenu.h; sourceTree = "<group>"; };
+		4C99B7F91BCCF33300287B95 /* WBDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBDropDownMenu.m; sourceTree = "<group>"; };
+		4C99B8021BCD0D8500287B95 /* WBTitleMenueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleMenueViewController.h; sourceTree = "<group>"; };
+		4C99B8031BCD0D8500287B95 /* WBTitleMenueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleMenueViewController.m; sourceTree = "<group>"; };
 		4CA078021BCB8EE500008320 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		4CA078031BCB8EE500008320 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		4CA078051BCB8EE500008320 /* WBNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNavigationController.h; sourceTree = "<group>"; };
@@ -155,15 +164,35 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		4C99B7F41BCCAE1E00287B95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C99B7F51BCCAE1E00287B95 /* WBSearchBar.h */,
+				4C99B7F61BCCAE1E00287B95 /* WBSearchBar.m */,
+				4C99B7F81BCCF33300287B95 /* WBDropDownMenu.h */,
+				4C99B7F91BCCF33300287B95 /* WBDropDownMenu.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C99B8011BCD0D8500287B95 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C99B8021BCD0D8500287B95 /* WBTitleMenueViewController.h */,
+				4C99B8031BCD0D8500287B95 /* WBTitleMenueViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4CA078001BCB8EE500008320 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4C99B7F41BCCAE1E00287B95 /* View */,
 				4CA078011BCB8EE500008320 /* Category */,
 				4CA078041BCB8EE500008320 /* Controller */,
 				4CA078091BCB8EE500008320 /* Lib */,
 				4CA0780A1BCB8EE500008320 /* Model */,
 				4CA0780B1BCB8EE500008320 /* Other */,
-				4CA0780F1BCB8EE500008320 /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -212,13 +241,6 @@
 				4CA0780E1BCB8EE500008320 /* main.m */,
 			);
 			path = Other;
-			sourceTree = "<group>";
-		};
-		4CA0780F1BCB8EE500008320 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4CA078101BCB8EE500008320 /* Temp */ = {
@@ -336,9 +358,9 @@
 		4CA078291BCB8EE500008320 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4C99B8011BCD0D8500287B95 /* View */,
 				4CA0782A1BCB8EE500008320 /* Controller */,
 				4CA0782D1BCB8EE500008320 /* Model */,
-				4CA0782E1BCB8EE500008320 /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -357,13 +379,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		4CA0782E1BCB8EE500008320 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,12 +484,15 @@
 			files = (
 				4CA078421BCB967800008320 /* UIBarButtonItem+Extension.m in Sources */,
 				4CA0783E1BCB8EE500008320 /* WBMessageViewController.m in Sources */,
+				4C99B7FA1BCCF33300287B95 /* WBDropDownMenu.m in Sources */,
 				4CA078381BCB8EE500008320 /* WBTest1ViewController.m in Sources */,
 				4CA078341BCB8EE500008320 /* WBNavigationController.m in Sources */,
 				4CA078371BCB8EE500008320 /* main.m in Sources */,
 				4CA078331BCB8EE500008320 /* UIView+Extension.m in Sources */,
 				4CA0783A1BCB8EE500008320 /* WBTest2ViewController.m in Sources */,
+				4C99B7F71BCCAE1E00287B95 /* WBSearchBar.m in Sources */,
 				4CA0783D1BCB8EE500008320 /* WBProfileViewController.m in Sources */,
+				4C99B8041BCD0D8500287B95 /* WBTitleMenueViewController.m in Sources */,
 				4CA0783F1BCB8EE500008320 /* WBHomeViewController.m in Sources */,
 				4CA078351BCB8EE500008320 /* WBTabBarViewController.m in Sources */,
 				4CA078361BCB8EE500008320 /* AppDelegate.m in Sources */,
