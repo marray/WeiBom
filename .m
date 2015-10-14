@@ -1,62 +1,60 @@
 // 
-// WBNavigationController.m
+// WBMessageViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 2399BE09-32AC-4C9D-A0A9-004B61A4E9F4
+// IDECodeSnippetIdentifier: 73CF9958-7FC9-4E1C-A819-C40C3FF09786
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBNavigationController.h"
+#import "WBMessageViewController.h"
+#import "WBTest1ViewController.h"
 
-@interface WBNavigationController ()
+@interface WBMessageViewController ()
 
 @end
 
-@implementation WBNavigationController
+@implementation WBMessageViewController
 
--(void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    //设置导航栏按钮主题
-    UIBarButtonItem *item=[UIBarButtonItem appearance];
+    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"写私信" style:0 target:nil action:nil];
     
-    NSMutableDictionary *customItem=[NSMutableDictionary dictionary];
-    customItem[NSForegroundColorAttributeName]=[UIColor orangeColor];
-    customItem[NSFontAttributeName]=[UIFont systemFontOfSize:13];
-    [item setTitleTextAttributes:customItem forState:UIControlStateNormal];
-    
-    NSMutableDictionary *disableItem=[NSMutableDictionary dictionary];
-    disableItem[NSForegroundColorAttributeName]=[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.7];
-    disableItem[NSFontAttributeName]=[UIFont systemFontOfSize:13];
-    [item setTitleTextAttributes:disableItem forState:UIControlStateDisabled];
-    
+    self.navigationItem.rightBarButtonItem.enabled=NO;
 }
 
 
--(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+
+#pragma mark - Table view data source
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return 10;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.viewControllers.count>0){//不是根控制器
-        viewController.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"navigationbar_back" highImage:@"navigationbar_back_highlighted"];
-        viewController.navigationItem.rightBarButtonItem=[UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" highImage:@"navigationbar_more_highlighted"];
+    static NSString *ID=@"cell";
+    
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
         
-        //当从tabbarcontroller跳转到其他控制器，自动隐藏tabbarItem
-        viewController.hidesBottomBarWhenPushed=YES;
     }
-    [super pushViewController:viewController animated:animated];
+    
+    cell.textLabel.text=[NSString stringWithFormat:@"test--message--%ld",(long)indexPath.row];
+    
+    return cell;
 }
 
 
-
--(void)back
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self popViewControllerAnimated:YES];
-}
-
--(void)more
-{
-    [self popToRootViewControllerAnimated:YES];
+    WBTest1ViewController *test1=[[WBTest1ViewController alloc] init];
+    test1.title=@"测试1控制器";
+    [self.navigationController pushViewController:test1 animated:YES];
 }
 
 
