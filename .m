@@ -1,17 +1,39 @@
 // 
-// main.m
+// WBDiscoverViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 67AB6608-9AF5-4E20-93AA-17DD36932EF1
+// IDECodeSnippetIdentifier: C05F39AD-F1DB-4AD3-BC02-FBC43F0E7468
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+#import "WBDiscoverViewController.h"
+#import "WBSearchBar.h"
 
-int main(int argc, char * argv[]) {
-    @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-    }
+@interface WBDiscoverViewController ()
+
+@end
+
+@implementation WBDiscoverViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //系统自带的搜索框  不能随意设置高度
+    
+    //自定义搜索框
+    WBSearchBar *searchBar=[WBSearchBar searchBar];
+    searchBar.width=300;
+    searchBar.height=30;
+    self.navigationItem.titleView=searchBar;
+    
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+}
+
+
+
+@end
