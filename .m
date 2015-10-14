@@ -1,14 +1,14 @@
 // 
-// WBHomeViewController.h
+// WBTest1ViewController.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 7A13BCF1-4B61-41A0-B8C8-35E64F9BFCE3
+// IDECodeSnippetIdentifier: 738B00DE-6085-4197-B71A-E92520FE9EC4
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBHomeViewController : UITableViewController
+@interface WBTest1ViewController : UIViewController
 
 @end
