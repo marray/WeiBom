@@ -1,14 +1,14 @@
 // 
-// WBTest2ViewController.h
+// WBProfileViewController.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 969474E1-55E5-4E28-A226-A642BC3C82B0
+// IDECodeSnippetIdentifier: 1197993E-F243-4BA2-80EA-5A5E965D6C79
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBTest2ViewController : UIViewController
+@interface WBProfileViewController : UITableViewController
 
 @end
