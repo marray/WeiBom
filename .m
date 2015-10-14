@@ -1,14 +1,14 @@
 // 
-// UIBarButtonItem+Extension.h
+// WBSearchBar.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: B8CE53D9-0D78-4660-BB0A-7CEB2931CE8A
+// IDECodeSnippetIdentifier: 413AB834-4138-4CF9-9F28-84B40DE9F07B
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface UIBarButtonItem (Extension)
-+(UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image highImage:(NSString *)highImage;
+@interface WBSearchBar : UITextField
++(instancetype)searchBar;
 @end
