@@ -1,97 +1,101 @@
 // 
-// WBDropDownMenu.m
+// WBProfileViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: B3C20DE5-9778-4FAB-83B6-1CDADAD19DAF
+// IDECodeSnippetIdentifier: 2557DB98-36A4-4D98-A740-45878874B8BB
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBDropDownMenu.h"
+#import "WBProfileViewController.h"
 
-@interface WBDropDownMenu()
-@property(nonatomic,weak) UIImageView *containerView;
+@interface WBProfileViewController ()
 
 @end
 
-@implementation WBDropDownMenu
+@implementation WBProfileViewController
 
--(UIImageView *)containerView
-{
-    if(!_containerView){
-        UIImageView *containerView=[[UIImageView alloc] init];
-        containerView.image=[UIImage imageNamed:@"popover_background"];
-        containerView.width=217;
-        containerView.height=217;
-        containerView.userInteractionEnabled=YES;
-        [self addSubview:containerView];
-        self.containerView=containerView;
-        
-    }
-    return _containerView;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(instancetype)initWithFrame:(CGRect)frame
-{
-    self=[super initWithFrame:frame];
-    if(self){
-        //挡板的图片
-        [self setBackgroundColor:[UIColor clearColor]];
-    }
-    return self;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-+(instancetype)menue
-{
-    return [[self alloc] init];
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
-
--(void)showFrom:(UIView *)from
-{
-    //保证弹出的界面在最上面
-    UIWindow *window=[[UIApplication sharedApplication].windows lastObject];
-    
-    [window addSubview:self];
-    
-    self.frame=window.bounds;
-    
-    //坐标系转换
-    CGRect newFrame=[from convertRect:from.bounds toView:window];
-    
-    self.containerView.centerX=CGRectGetMidX(newFrame);
-    self.containerView.y=CGRectGetMaxY(newFrame);
-    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
--(void)dismiss
-{
-    [self removeFromSuperview];
-}
-
--(void)setContent:(UIView *)content
-{
-    _content=content;
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    content.x=10;
-    content.y=15;
-    self.containerView.height=CGRectGetMaxY(content.frame)+11;
-    self.containerView.width=CGRectGetMaxX(content.frame)+10;
+    // Configure the cell...
     
-    //[_containerView addSubview:_content]出错，懒加载，此时_containerView为空.
-    [self.containerView addSubview:_content];
+    return cell;
 }
+*/
 
--(void)setContentController:(UIViewController *)contentController
-{
-    _contentController=contentController;
-    
-    self.content=contentController.view;
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
 }
+*/
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [self dismiss];
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
 }
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
