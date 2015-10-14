@@ -1,14 +1,22 @@
 // 
-// WBProfileViewController.h
+// UIView+Extension.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 1197993E-F243-4BA2-80EA-5A5E965D6C79
+// IDECodeSnippetIdentifier: 56C80F6F-3A5A-4C00-A1D8-CEC2DDB0E82E
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBProfileViewController : UITableViewController
+@interface UIView (Extension)
+@property(nonatomic,assign) CGFloat x;
+@property(nonatomic,assign) CGFloat y;
+@property(nonatomic,assign) CGFloat centerX;
+@property(nonatomic,assign) CGFloat centerY;
+@property(nonatomic,assign) CGFloat width;
+@property(nonatomic,assign) CGFloat height;
+@property(nonatomic,assign) CGSize size;
+@property(nonatomic,assign) CGPoint origin;
 
 @end
