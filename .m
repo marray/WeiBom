@@ -1,22 +1,63 @@
 // 
-// UIView+Extension.h
+// WBNavigationController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 56C80F6F-3A5A-4C00-A1D8-CEC2DDB0E82E
+// IDECodeSnippetIdentifier: 2399BE09-32AC-4C9D-A0A9-004B61A4E9F4
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import <UIKit/UIKit.h>
+#import "WBNavigationController.h"
 
-@interface UIView (Extension)
-@property(nonatomic,assign) CGFloat x;
-@property(nonatomic,assign) CGFloat y;
-@property(nonatomic,assign) CGFloat centerX;
-@property(nonatomic,assign) CGFloat centerY;
-@property(nonatomic,assign) CGFloat width;
-@property(nonatomic,assign) CGFloat height;
-@property(nonatomic,assign) CGSize size;
-@property(nonatomic,assign) CGPoint origin;
+@interface WBNavigationController ()
+
+@end
+
+@implementation WBNavigationController
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    //设置导航栏按钮主题
+    UIBarButtonItem *item=[UIBarButtonItem appearance];
+    
+    NSMutableDictionary *customItem=[NSMutableDictionary dictionary];
+    customItem[NSForegroundColorAttributeName]=[UIColor orangeColor];
+    customItem[NSFontAttributeName]=[UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:customItem forState:UIControlStateNormal];
+    
+    NSMutableDictionary *disableItem=[NSMutableDictionary dictionary];
+    disableItem[NSForegroundColorAttributeName]=[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.7];
+    disableItem[NSFontAttributeName]=[UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:disableItem forState:UIControlStateDisabled];
+    
+}
+
+
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if(self.viewControllers.count>0){//不是根控制器
+        viewController.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"navigationbar_back" highImage:@"navigationbar_back_highlighted"];
+        viewController.navigationItem.rightBarButtonItem=[UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" highImage:@"navigationbar_more_highlighted"];
+        
+        //当从tabbarcontroller跳转到其他控制器，自动隐藏tabbarItem
+        viewController.hidesBottomBarWhenPushed=YES;
+    }
+    [super pushViewController:viewController animated:animated];
+}
+
+
+
+-(void)back
+{
+    [self popViewControllerAnimated:YES];
+}
+
+-(void)more
+{
+    [self popToRootViewControllerAnimated:YES];
+}
+
 
 @end
