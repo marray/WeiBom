@@ -1,34 +1,14 @@
 // 
-// WBDropDownMenu.h
+// UIBarButtonItem+Extension.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 5CA29FB0-5F1B-41B5-82DC-5BFCFAB38887
+// IDECodeSnippetIdentifier: B8CE53D9-0D78-4660-BB0A-7CEB2931CE8A
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBDropDownMenu : UIView
-
-/**
- *  创建菜单
- *
- *  @return 返回对象
- */
-+(instancetype)menue;
-/**
- *  显示菜单
- */
--(void)showFrom:(UIView *)from;
-
-/**
- *  销毁
- */
--(void)dismiss;
-
-@property(nonatomic,strong) UIView *content;
-
-@property(nonatomic,strong) UIViewController *contentController;
-
+@interface UIBarButtonItem (Extension)
++(UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action image:(NSString *)image highImage:(NSString *)highImage;
 @end
