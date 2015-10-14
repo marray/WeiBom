@@ -1,10 +1,9 @@
+// 
+// WBDropDownMenu.h
 //
-//  WBDropDownMenu.h
-//  WeiBoM
-//
-//  Created by Michael on 10/13/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 5CA29FB0-5F1B-41B5-82DC-5BFCFAB38887
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 
