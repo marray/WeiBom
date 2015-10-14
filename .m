@@ -1,61 +1,39 @@
 // 
-// WBMessageViewController.m
+// WBSearchBar.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 73CF9958-7FC9-4E1C-A819-C40C3FF09786
+// IDECodeSnippetIdentifier: 6C6F1F48-A238-4C43-9F9E-F5C418CAE624
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBMessageViewController.h"
-#import "WBTest1ViewController.h"
+#import "WBSearchBar.h"
 
-@interface WBMessageViewController ()
+@implementation WBSearchBar
 
-@end
-
-@implementation WBMessageViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"写私信" style:0 target:nil action:nil];
-    
-    self.navigationItem.rightBarButtonItem.enabled=NO;
-}
-
-
-
-#pragma mark - Table view data source
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 10;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(instancetype)initWithFrame:(CGRect)frame
 {
-    static NSString *ID=@"cell";
-    
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.font=[UIFont systemFontOfSize:13];
+        self.placeholder=@"请输入搜索内容";
+        self.background=[UIImage imageNamed:@"searchbar_textfield_background"];
         
+        //搜索图标
+        //这种方法在创建UIImageView时就没有设置尺寸 所以显示不出来内容
+        UIImageView *searchIcon=[[UIImageView alloc] init];
+        searchIcon.image=[UIImage imageNamed:@"searchbar_textfield_search_icon"];
+        searchIcon.width=30;
+        searchIcon.height=30;
+        searchIcon.contentMode=UIViewContentModeCenter;  //图片没有UIImageView所设置的宽高30那么大  防止图片因填充整个区域而放大图片
+        self.leftView=searchIcon;
+        self.leftViewMode=UITextFieldViewModeAlways;  //设置左边图片显示的模式
     }
-    
-    cell.textLabel.text=[NSString stringWithFormat:@"test--message--%ld",(long)indexPath.row];
-    
-    return cell;
+    return self;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
++(instancetype)searchBar
 {
-    WBTest1ViewController *test1=[[WBTest1ViewController alloc] init];
-    test1.title=@"测试1控制器";
-    [self.navigationController pushViewController:test1 animated:YES];
+    return [[self alloc] init];
 }
-
-
 @end
