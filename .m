@@ -1,117 +1,38 @@
 // 
-// UIView+Extension.m
+// WBTest2ViewController.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 065E028E-5D2A-43B9-BA88-B0A062CC04DD
+// IDECodeSnippetIdentifier: 43846246-03AF-46F9-8488-DB10713B6357
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "UIView+Extension.h"
+#import "WBTest2ViewController.h"
 
-@implementation UIView (Extension)
+@interface WBTest2ViewController ()
 
--(void)setX:(CGFloat)x
-{
-    CGRect frame=self.frame;
-    frame.origin.x=x;
-    self.frame=frame;
-    
+@end
+
+@implementation WBTest2ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
 }
 
--(CGFloat)x
-{
-    return self.frame.origin.x;
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
--(void)setY:(CGFloat)y
-{
-    CGRect frame=self.frame;
-    frame.origin.y=y;
-    self.frame=frame;
-    
-}
+/*
+#pragma mark - Navigation
 
--(CGFloat)y
-{
-    return self.frame.origin.y;
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
-
--(void)setCenterX:(CGFloat)centerX
-{
-    CGPoint center=self.center;
-    center.x=centerX;
-    self.center=center;
-    
-}
-
--(CGFloat)centerX
-{
-    return self.center.x;
-}
-
--(void)setCenterY:(CGFloat)centerY
-{
-    CGPoint center=self.center;
-    center.y=centerY;
-    self.center=center;
-    
-}
-
--(CGFloat)centerY
-{
-    return self.center.y;
-}
-
-
--(void)setWidth:(CGFloat)width
-{
-    CGRect frame=self.frame;
-    frame.size.width=width;
-    self.frame=frame;
-    
-}
-
--(CGFloat)width
-{
-    return self.frame.size.width;
-}
-
--(void)setHeight:(CGFloat)height
-{
-    CGRect frame=self.frame;
-    frame.size.height=height;
-    self.frame=frame;
-}
-
--(CGFloat)height
-{
-    return self.frame.size.height;
-}
-
--(void)setSize:(CGSize)size
-{
-    CGRect frame=self.frame;
-    frame.size=size;
-    self.frame=frame;
-    
-}
--(CGSize)size
-{
-    return self.frame.size;
-}
-
--(void)setOrigin:(CGPoint)origin
-{
-    CGRect frame=self.frame;
-    frame.origin=origin;
-    self.frame=frame;
-    
-}
--(CGPoint)origin
-{
-    return self.frame.origin;
-}
+*/
 
 @end
