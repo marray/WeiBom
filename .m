@@ -1,14 +1,18 @@
 // 
-// WBTabBarViewController.h
+// AppDelegate.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: B8D6FA50-E6F3-4B28-9F5F-3AED100DBA38
+// IDECodeSnippetIdentifier: C2FCA759-71EC-40BF-8D31-32BCCE40FEF1
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
 
-@interface WBTabBarViewController : UITabBarController
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
 
 @end
+
