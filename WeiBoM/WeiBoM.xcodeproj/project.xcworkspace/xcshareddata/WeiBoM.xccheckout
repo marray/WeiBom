@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>159D4DC5-05F3-4F6A-8FF6-902916D081F9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WeiBoM</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>85DB9472B4F57C06C7387F4AC728595BEEA444B3</key>
+		<string>https://github.com/marray/WeiBom.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WeiBoM/WeiBoM.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>85DB9472B4F57C06C7387F4AC728595BEEA444B3</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/marray/WeiBom.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>85DB9472B4F57C06C7387F4AC728595BEEA444B3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>85DB9472B4F57C06C7387F4AC728595BEEA444B3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WeiBom</string>
+		</dict>
+	</array>
+</dict>
+</plist>
