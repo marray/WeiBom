@@ -11,8 +11,9 @@
 #import "WBHomeViewController.h"
 #import "WBProfileViewController.h"
 #import "WBNavigationController.h"
+#import "WBTabBar.h"
 
-@interface WBTabBarViewController ()
+@interface WBTabBarViewController ()<WBTabBarDelegate>
 
 @end
 
@@ -26,13 +27,20 @@
     
     WBMessageViewController *message=[[WBMessageViewController alloc] init];
     [self childController:message WithTitle:@"消息" image:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-    
+
     WBDiscoverViewController *discover=[[WBDiscoverViewController alloc] init];
     [self childController:discover WithTitle:@"发现" image:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
     
     WBProfileViewController *profile=[[WBProfileViewController alloc] init];
     [self childController:profile WithTitle:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
     
+    //KVC
+    WBTabBar *wbTabBar=[WBTabBar tabBar];
+    [self setValue:wbTabBar forKeyPath:@"tabBar"];
+    //替换系统自带的tabBar  ，这行代码过后 tabBar的delegate就是WBTabBarViewController
+    //不用再设置  wbTabBar.delegate=self;
+    //如果tabBar设置完delegate后，再执行这行代码修改delegate，就会报错
+    //不允许修改TabBar的Delegate属性 （这个Tabbar是被WBTabBarViewController所管理的）
     
 }
 
@@ -70,6 +78,13 @@
     
 }
 
+
+-(void)tabBarDidPlusClick:(WBTabBar *)tabBar
+{
+    UIViewController *vc=[[UIViewController alloc] init];
+    vc.view.backgroundColor=[UIColor whiteColor];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 
 

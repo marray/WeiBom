@@ -1,11 +1,18 @@
-// 
-// WBDropDownMenu.h
 //
-// IDECodeSnippetIdentifier: 5CA29FB0-5F1B-41B5-82DC-5BFCFAB38887
-// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
-// IDECodeSnippetUserSnippet: 1
+//  WBDropDownMenu.h
+//  WeiBoM
+//
+//  Created by Michael on 10/13/15.
+//  Copyright (c) 2015 agIce. All rights reserved.
+//
 
 #import <UIKit/UIKit.h>
+@class WBDropDownMenu;
+@protocol WBDropDownMenuDelegate <NSObject>
+@optional
+-(void)dropDownMenuDidDismiss:(WBDropDownMenu *)menu;
+-(void)dropDownMenuDidShow:(WBDropDownMenu *)menu;
+@end
 
 @interface WBDropDownMenu : UIView
 
@@ -28,5 +35,7 @@
 @property(nonatomic,strong) UIView *content;
 
 @property(nonatomic,strong) UIViewController *contentController;
+
+@property(nonatomic,weak) id<WBDropDownMenuDelegate> delegate;
 
 @end

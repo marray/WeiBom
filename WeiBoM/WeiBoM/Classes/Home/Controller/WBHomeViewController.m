@@ -9,7 +9,7 @@
 #import "WBDropDownMenu.h"
 #import "WBTitleMenueViewController.h"
 
-@interface WBHomeViewController ()
+@interface WBHomeViewController ()<WBDropDownMenuDelegate>
 
 @end
 
@@ -28,34 +28,44 @@
     [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btn.titleLabel.font=[UIFont boldSystemFontOfSize:17];
     [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     btn.imageEdgeInsets=UIEdgeInsetsMake(0, 70, 0, 0);
     btn.titleEdgeInsets=UIEdgeInsetsMake(0, 0, 0, 40);
     [btn addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.titleView=btn;
 
-    UIButton *btn2=[UIButton buttonWithType:UIButtonTypeCustom];
-    btn2.width=150;
-    btn2.height=30;
-    btn2.x=80;
-    btn2.y=30;
-    [btn2 setBackgroundColor:[UIColor redColor]];
-    [btn2 addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn2];
 }
 
 -(void)titleClick:(UIButton *)button
 {
+    //创建下拉菜单
     WBDropDownMenu *menu=[WBDropDownMenu menue];
+    menu.delegate=self;
     
+    //设置下拉菜单内容 位置
     WBTitleMenueViewController *tableview=[[WBTitleMenueViewController alloc] init];
     tableview.view.height=200;
     tableview.view.width=200;
     menu.contentController=tableview;
     
+    //显示菜单
     [menu showFrom:button];
+}
+
+#pragma mark --WBDropDownMenuDelegate 菜单显示和销毁时的通知代理
+-(void)dropDownMenuDidShow:(WBDropDownMenu *)menu
+{
+    UIButton *titleButton=(UIButton *)self.navigationItem.titleView;
     
+    titleButton.selected=YES;
+}
+
+-(void)dropDownMenuDidDismiss:(WBDropDownMenu *)menu
+{
+    UIButton *titleButton=(UIButton *)self.navigationItem.titleView;
     
+    titleButton.selected=NO;
 }
 
 

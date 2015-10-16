@@ -1,7 +1,7 @@
 // 
 // WBTitleMenueViewController.m
 //
-// IDECodeSnippetIdentifier: 556F221E-0C58-4119-9E8B-7751174536C3
+// IDECodeSnippetIdentifier: 56929FB1-6CAE-46DE-B7FD-44B4634C7762
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 

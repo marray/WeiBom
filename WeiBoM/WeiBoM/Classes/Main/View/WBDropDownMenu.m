@@ -1,9 +1,10 @@
-// 
-// WBDropDownMenu.m
 //
-// IDECodeSnippetIdentifier: B3C20DE5-9778-4FAB-83B6-1CDADAD19DAF
-// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
-// IDECodeSnippetUserSnippet: 1
+//  WBDropDownMenu.m
+//  WeiBoM
+//
+//  Created by Michael on 10/13/15.
+//  Copyright (c) 2015 agIce. All rights reserved.
+//
 
 #import "WBDropDownMenu.h"
 
@@ -19,8 +20,6 @@
     if(!_containerView){
         UIImageView *containerView=[[UIImageView alloc] init];
         containerView.image=[UIImage imageNamed:@"popover_background"];
-        containerView.width=217;
-        containerView.height=217;
         containerView.userInteractionEnabled=YES;
         [self addSubview:containerView];
         self.containerView=containerView;
@@ -55,16 +54,28 @@
     self.frame=window.bounds;
     
     //坐标系转换
-    CGRect newFrame=[from convertRect:from.bounds toView:window];
+//    CGRect newFrame=[from convertRect:from.bounds toView:window];
+    CGRect newFrame=[from.superview convertRect:from.frame toView:window];
+    
     
     self.containerView.centerX=CGRectGetMidX(newFrame);
     self.containerView.y=CGRectGetMaxY(newFrame);
     
+    //显示时 发出通知
+    if([self.delegate respondsToSelector:@selector(dropDownMenuDidShow:)]){
+        [self.delegate dropDownMenuDidShow:self];
+    }
 }
 
 -(void)dismiss
 {
     [self removeFromSuperview];
+    
+    //销毁时 发出通知
+    if([self.delegate respondsToSelector:@selector(dropDownMenuDidDismiss:)]){
+        [self.delegate dropDownMenuDidDismiss:self];
+    }
+    
 }
 
 -(void)setContent:(UIView *)content

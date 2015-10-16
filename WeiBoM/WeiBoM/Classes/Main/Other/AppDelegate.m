@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "WBTabBarViewController.h"
+#import "WBNewFeatrueViewController.h"
 
 
 
@@ -21,8 +22,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    WBTabBarViewController *tabbar=[[WBTabBarViewController alloc] init];
-    self.window.rootViewController=tabbar;
+//    WBTabBarViewController *tabbar=[[WBTabBarViewController alloc] init];
+//    self.window.rootViewController=tabbar;
+
+    WBNewFeatrueViewController *feature=[[WBNewFeatrueViewController alloc] init];
+    self.window.rootViewController=feature;
     
     [self.window makeKeyAndVisible];
     
