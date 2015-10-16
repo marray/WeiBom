@@ -6,5 +6,5 @@
 // IDECodeSnippetIdentifier: 7BA51A4F-9C33-4FD8-A7D2-E50C90C7CEF5
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
-// IDECodeSnippetVersion: 0
+// IDECodeSnippetVersion: 2
 @property(nonatomic,strong) <#type#> *<#name#>;
