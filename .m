@@ -1,24 +1,14 @@
 // 
-// WBTabBar.h
+// WBSearchBar.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: AF66DAD2-B2EB-47A9-92C0-A1D1F1941918
+// IDECodeSnippetIdentifier: 7B0F11E1-5D26-44EA-88F4-E9E23E031A6E
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
-@class WBTabBar;
 
-@protocol WBTabBarDelegate <UITabBarDelegate>
-
-@optional
--(void)tabBarDidPlusClick:(WBTabBar *)tabBar;
-
-@end
-
-@interface WBTabBar : UITabBar
-+(instancetype)tabBar;
-
-@property(nonatomic,weak) id<WBTabBarDelegate> delegate;
+@interface WBSearchBar : UITextField
++(instancetype)searchBar;
 @end
