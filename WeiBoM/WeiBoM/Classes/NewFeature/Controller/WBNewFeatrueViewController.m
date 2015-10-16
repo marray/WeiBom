@@ -6,6 +6,7 @@
 // IDECodeSnippetUserSnippet: 1
 
 #import "WBNewFeatrueViewController.h"
+#import "WBTabBarViewController.h"
 
 #define WBNewFeatrueNumber 4
 
@@ -93,7 +94,14 @@
 
 -(void)startClick:(UIButton *)startBtn
 {
-    
+    //更换根控制器才能销毁新特性控制器 ，这种方式跳转界面不可逆
+    UIWindow *window=[UIApplication sharedApplication].keyWindow;
+    window.rootViewController=[[WBTabBarViewController alloc] init];
+}
+
+-(void)dealloc
+{
+    WBLOG(@"WBNewFeatrueViewController dealloc");
 }
 
 

@@ -9,7 +9,7 @@
 #import "WBTabBarViewController.h"
 #import "WBNewFeatrueViewController.h"
 
-
+#define WBVersionKey @"CFBundleVersion"
 
 
 @interface AppDelegate ()
@@ -22,18 +22,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    WBTabBarViewController *tabbar=[[WBTabBarViewController alloc] init];
-//    self.window.rootViewController=tabbar;
 
-    WBNewFeatrueViewController *feature=[[WBNewFeatrueViewController alloc] init];
-    self.window.rootViewController=feature;
+    //上一个版本号（沙盒中）
+    NSString *cachVersion=[[NSUserDefaults standardUserDefaults] objectForKey:WBVersionKey];
+    //当前版本号
+    NSString *currentVersion=[[NSBundle mainBundle] objectForInfoDictionaryKey:WBVersionKey];
     
+    if ([cachVersion isEqualToString:currentVersion]) {
+            self.window.rootViewController=[[WBTabBarViewController alloc] init];
+    }else{
+        self.window.rootViewController=[[WBNewFeatrueViewController alloc] init];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:WBVersionKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
-
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
