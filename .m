@@ -1,14 +1,24 @@
 // 
-// WBTitleMenueViewController.h
+// WBTabBar.h
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 688EE6E4-05A4-48D7-9DB3-26282225D842
+// IDECodeSnippetIdentifier: AF66DAD2-B2EB-47A9-92C0-A1D1F1941918
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
 #import <UIKit/UIKit.h>
+@class WBTabBar;
 
-@interface WBTitleMenueViewController : UITableViewController
+@protocol WBTabBarDelegate <UITabBarDelegate>
 
+@optional
+-(void)tabBarDidPlusClick:(WBTabBar *)tabBar;
+
+@end
+
+@interface WBTabBar : UITabBar
++(instancetype)tabBar;
+
+@property(nonatomic,weak) id<WBTabBarDelegate> delegate;
 @end
