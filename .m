@@ -1,77 +1,46 @@
 // 
-// WBTabBar.m
+// UIButton+WBButton.m
 //
 // IDECodeSnippetCompletionScopes: [All]
-// IDECodeSnippetIdentifier: 3C5D0A24-A161-405E-8350-1D97FEDE6699
+// IDECodeSnippetIdentifier: F15C8DB5-74EC-4F04-9D8D-89ADE69EDDCA
 // IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
 // IDECodeSnippetUserSnippet: 1
 // IDECodeSnippetVersion: 2
 
-#import "WBTabBar.h"
+#import "UIButton+WBButton.h"
 
-@interface WBTabBar()
-@property(nonatomic,weak) UIButton *composeBtn;
-@end
+@implementation UIButton (WBButton)
 
-@implementation WBTabBar
-
--(instancetype)initWithFrame:(CGRect)frame
++(UIButton *)buttonWithTarget:(id)target Width:(CGFloat)width height:(CGFloat)height centerX:(CGFloat)centerX centerY:(CGFloat)centerY title:(NSString *)title color:(UIColor *)color font:(UIFont *)font image:(NSString *)image selectImage:(NSString *)selectImage action:(SEL)action
 {
-    self=[super initWithFrame:frame];
-    if(self){
-        [self addPlusButton];
-    }
-    return self;
-}
-
-+(instancetype)tabBar
-{
-    return [[self alloc] init];
-}
-
--(void)layoutSubviews
-{
-    [super layoutSubviews];
+    UIButton *button=[[UIButton alloc] init];
+    button.width=width;
+    button.height=height;
+    button.centerX=centerX;
+    button.centerY=centerY;
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setTitleColor:color forState:UIControlStateNormal];
+    button.titleLabel.font=font;
+    [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:selectImage] forState:UIControlStateSelected];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    //1.调整中间按钮的位置
-    _composeBtn.centerX=self.width*0.5;
-    _composeBtn.centerY=self.height*0.5;
+    return button;
+}
+
+
++(UIButton *)buttonWithTarget:(id)target size:(CGSize)size centerX:(CGFloat)centerX centerY:(CGFloat)centerY title:(NSString *)title backImage:(NSString *)backImage backHighImage:(NSString *)backHighImage action:(SEL)action
+{
+    UIButton *button=[[UIButton alloc] init];
+    button.size=size;
+    button.centerX=centerX;
+    button.centerY=centerY;
+    [button setTitle:title forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:backImage] forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:backHighImage] forState:UIControlStateHighlighted];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    //2.调整其他四个按钮的位置
-    NSInteger index=0;
-    Class class=NSClassFromString(@"UITabBarButton");
-    for (UIView *sub in self.subviews) {
-        if([sub isKindOfClass:class]){
-            sub.width=self.width/5;
-            sub.x=(self.width/5) * index;
-            index++;
-            if (index==2) {
-                index++;
-            }
-        }
-    }
+    return button;
 }
-
--(void)plusClick
-{
-    if([self.delegate respondsToSelector:@selector(tabBarDidPlusClick:)]){
-        [self.delegate tabBarDidPlusClick:self];
-    }
-}
-
-
--(void)addPlusButton
-{
-    UIButton *composeBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [composeBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
-    [composeBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
-    [composeBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
-    [composeBtn setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
-    [composeBtn addTarget:self action:@selector(plusClick) forControlEvents:UIControlEventTouchUpInside];
-    composeBtn.size=composeBtn.currentBackgroundImage.size;
-    [self addSubview:composeBtn];
-    self.composeBtn=composeBtn;
-}
-
 
 @end
