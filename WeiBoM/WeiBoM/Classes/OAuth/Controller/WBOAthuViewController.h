@@ -1,10 +1,9 @@
+// 
+// WBOAthuViewController.h
 //
-//  WBOAthuViewController.h
-//  WeiBoM
-//
-//  Created by Michael on 10/16/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 86980E41-DBD1-4859-8F1B-BC86FEA32C7E
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

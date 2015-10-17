@@ -1,10 +1,9 @@
+// 
+// WBOAthuViewController.m
 //
-//  WBOAthuViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 10/16/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 65251F3E-1B29-4BD2-9E8E-668492AFCE9C
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBOAthuViewController.h"
 #import "AFNetworking.h"
