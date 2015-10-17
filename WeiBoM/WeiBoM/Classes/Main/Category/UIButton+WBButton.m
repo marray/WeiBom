@@ -1,10 +1,9 @@
+// 
+// UIButton+WBButton.m
 //
-//  UIButton+WBButton.m
-//  WeiBoM
-//
-//  Created by Michael on 10/15/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: F15C8DB5-74EC-4F04-9D8D-89ADE69EDDCA
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "UIButton+WBButton.h"
 

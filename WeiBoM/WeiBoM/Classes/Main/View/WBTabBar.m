@@ -1,10 +1,9 @@
+// 
+// WBTabBar.m
 //
-//  WBTabBar.m
-//  WeiBoM
-//
-//  Created by Michael on 10/14/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 3C5D0A24-A161-405E-8350-1D97FEDE6699
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBTabBar.h"
 
