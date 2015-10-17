@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "WBTabBarViewController.h"
 #import "WBNewFeatrueViewController.h"
+#import "WBOAthuViewController.h"
 
 #define WBVersionKey @"CFBundleVersion"
 
@@ -29,7 +30,8 @@
     NSString *currentVersion=[[NSBundle mainBundle] objectForInfoDictionaryKey:WBVersionKey];
     
     if ([cachVersion isEqualToString:currentVersion]) {
-            self.window.rootViewController=[[WBTabBarViewController alloc] init];
+//        self.window.rootViewController=[[WBTabBarViewController alloc] init];
+        self.window.rootViewController=[[WBOAthuViewController alloc] init];
     }else{
         self.window.rootViewController=[[WBNewFeatrueViewController alloc] init];
         
