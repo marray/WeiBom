@@ -8,6 +8,9 @@
 
 #import "WBOAthuViewController.h"
 #import "AFNetworking.h"
+#import "WBAccount.h"
+#import "MBProgressHUD+MJ.h"
+#import "WBAccountManager.h"
 
 @interface WBOAthuViewController ()<UIWebViewDelegate>
 
@@ -28,7 +31,7 @@
      client_id	true	string	申请应用时分配的AppKey。
      redirect_uri	true	string	授权回调地址，站外应用需与设置的回调地址一致，站内应用需填写canvas page
      */
-    NSURL *url=[NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1707832585&redirect_uri=http://xb.weibom.com"];
+    NSURL *url=[NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1707832585&redirect_uri=http://www.baidu.com"];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [webview loadRequest:request];
     webview.delegate=self;
@@ -39,26 +42,30 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView
 {
-//    WBLOG(@"webViewDidStartLoad");
+    [MBProgressHUD showMessage:@"正在加载中..."];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    WBLOG(@"webViewDidFinishLoad");
+    [MBProgressHUD hideHUD];
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [MBProgressHUD hideHUD];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"%@",request.URL);
     NSString *url=request.URL.absoluteString;
     NSRange range=[url rangeOfString:@"code="];
     
-    WBLOG(@"range:%lu",(unsigned long)range.length);
     if(range.length!=0){
         NSInteger index=range.location+range.length;
         NSString *code=[url substringFromIndex:index];
-        WBLOG(@"code:%@",code);
         [self getAccessTokenWithCode:code];
+        
+        return NO;  //屏蔽回调地址
     }
     
     return YES;
@@ -75,19 +82,28 @@
      redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
      */
     AFHTTPRequestOperationManager *requestManager=[AFHTTPRequestOperationManager manager];
-    requestManager.responseSerializer=[AFHTTPResponseSerializer serializer];
+//    requestManager.responseSerializer=[AFHTTPResponseSerializer serializer];
     
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"client_id"]=@"1707832585";
     params[@"client_secret"]=@"7b6d1a6aee7ce1efeeb3d0ab826d000c";
     params[@"grant_type"]=@"authorization_code";
-    params[@"code"]=@"1707832585";
-    params[@"redirect_uri"]=@"http://xb.weibom.com";
+    params[@"code"]=code;
+    params[@"redirect_uri"]=@"http://www.baidu.com";
 
-    [requestManager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        WBLOG(@"%@",responseObject);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    [requestManager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        [MBProgressHUD hideHUD];
+        //对象存储到沙盒
+        WBAccount *account=[WBAccount accountWithDict:responseObject];
+        [WBAccountManager save:account];
         
+        //切换根控制器
+        UIWindow *window=[UIApplication sharedApplication].keyWindow;
+        [window changeRootViewController];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
+        WBLOG(@"ERROR:%@",error);
     }];
 }
 
