@@ -6,9 +6,9 @@
 // IDECodeSnippetUserSnippet: 1
 
 #import "AppDelegate.h"
-#import "WBTabBarViewController.h"
-#import "WBNewFeatrueViewController.h"
 #import "WBOAthuViewController.h"
+#import "WBAccount.h"
+#import "WBAccountManager.h"
 
 #define WBVersionKey @"CFBundleVersion"
 
@@ -23,22 +23,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-
-    //上一个版本号（沙盒中）
-    NSString *cachVersion=[[NSUserDefaults standardUserDefaults] objectForKey:WBVersionKey];
-    //当前版本号
-    NSString *currentVersion=[[NSBundle mainBundle] objectForInfoDictionaryKey:WBVersionKey];
     
-    if ([cachVersion isEqualToString:currentVersion]) {
-//        self.window.rootViewController=[[WBTabBarViewController alloc] init];
-        self.window.rootViewController=[[WBOAthuViewController alloc] init];
-    }else{
-        self.window.rootViewController=[[WBNewFeatrueViewController alloc] init];
+    //从沙盒中获取用户信息
+    WBAccount *account=[WBAccountManager account];
+    
+    if(account){
+        [self.window changeRootViewController];
         
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:WBVersionKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    }else{
+        self.window.rootViewController=[[WBOAthuViewController alloc] init];
     }
+    
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
