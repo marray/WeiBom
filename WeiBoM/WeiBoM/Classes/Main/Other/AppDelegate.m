@@ -7,7 +7,6 @@
 
 #import "AppDelegate.h"
 #import "WBOAthuViewController.h"
-#import "WBAccount.h"
 #import "WBAccountManager.h"
 
 #define WBVersionKey @"CFBundleVersion"
