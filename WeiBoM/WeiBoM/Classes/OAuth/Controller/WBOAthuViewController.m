@@ -7,7 +7,6 @@
 
 #import "WBOAthuViewController.h"
 #import "AFNetworking.h"
-#import "WBAccount.h"
 #import "MBProgressHUD+MJ.h"
 #import "WBAccountManager.h"
 

@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-@class WBAccount;
+#import "WBAccount.h"
+
 @interface WBAccountManager : NSObject
 /**
  将对象存储到沙盒中

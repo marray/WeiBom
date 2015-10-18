@@ -8,6 +8,8 @@
 #import "WBHomeViewController.h"
 #import "WBDropDownMenu.h"
 #import "WBTitleMenueViewController.h"
+#import "AFNetworking.h"
+#import "WBAccountManager.h"
 
 @interface WBHomeViewController ()<WBDropDownMenuDelegate>
 
@@ -18,6 +20,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //设置导航栏位置
+    [self setTitlePosition];
+    
+    //设置导航栏标题内容
+    [self setTitleUserInfo];
+
+}
+
+-(void)setTitleUserInfo
+{
+    /**
+     access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+     uid	false	int64	需要查询的用户ID。*/
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    
+    WBAccount *account=[WBAccountManager account];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    params[@"access_token"]=account.access_token;
+    params[@"uid"]=account.uid;
+    
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        WBLOG(@"%@",responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        WBLOG(@"%@",error);
+    }];
+}
+
+/**设置导航栏位置*/
+-(void)setTitlePosition
+{
     self.navigationItem.leftBarButtonItem=[UIBarButtonItem itemWithTarget:self action:@selector(friendSearch) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem=[UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
     
@@ -34,7 +66,6 @@
     [btn addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.titleView=btn;
-
 }
 
 -(void)titleClick:(UIButton *)button
