@@ -6,10 +6,10 @@
 // IDECodeSnippetUserSnippet: 1
 
 #import "AppDelegate.h"
-#import "WBTabBarViewController.h"
-#import "WBNewFeatrueViewController.h"
+#import "WBOAthuViewController.h"
+#import "WBAccountManager.h"
 
-
+#define WBVersionKey @"CFBundleVersion"
 
 
 @interface AppDelegate ()
@@ -22,18 +22,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    WBTabBarViewController *tabbar=[[WBTabBarViewController alloc] init];
-//    self.window.rootViewController=tabbar;
-
-    WBNewFeatrueViewController *feature=[[WBNewFeatrueViewController alloc] init];
-    self.window.rootViewController=feature;
+    
+    //从沙盒中获取用户信息
+    WBAccount *account=[WBAccountManager account];
+    
+    if(account){
+        [self.window changeRootViewController];
+        
+    }else{
+        self.window.rootViewController=[[WBOAthuViewController alloc] init];
+    }
     
     [self.window makeKeyAndVisible];
     
     return YES;
 }
-
-
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
