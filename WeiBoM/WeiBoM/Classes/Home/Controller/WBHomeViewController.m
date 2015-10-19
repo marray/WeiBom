@@ -13,7 +13,8 @@
 #import "WBTitleButton.h"
 
 @interface WBHomeViewController ()<WBDropDownMenuDelegate>
-
+/**存*/
+@property(nonatomic,strong) NSArray *status;
 @end
 
 @implementation WBHomeViewController
@@ -39,10 +40,10 @@
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
-    params[@"count"]=@1;
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        WBLOG(@"%@",responseObject);
+        self.status=responseObject[@"statuses"];
+        [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         WBLOG(@"%@",error);
     }];
@@ -141,5 +142,21 @@
     WBLOG(@"pop");
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.status.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID=@"cell";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:ID];
+    if(!cell){
+        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell.textLabel.text=self.status[indexPath.row][@"user"][@"name"];
+        cell.detailTextLabel.text=self.status[indexPath.row][@"text"];
+    }
+    return cell;
+}
 
 @end
