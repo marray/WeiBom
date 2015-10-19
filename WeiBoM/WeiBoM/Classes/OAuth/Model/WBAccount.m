@@ -15,6 +15,9 @@
     account.access_token=dic[@"access_token"];
     account.expires_in=dic[@"expires_in"];
     account.uid=dic[@"uid"];
+    //存储accessToken创建的时间 确保是accessToken创建的时间
+    NSDate *createTime=[NSDate date];
+    account.create_time=createTime;
     return account;
 }
 /**
@@ -26,6 +29,7 @@
     [enCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [enCoder encodeObject:self.uid forKey:@"uid"];
     [enCoder encodeObject:self.create_time forKey:@"create_time"];
+    [enCoder encodeObject:self.name forKey:@"name"];
 
 }
 /**
@@ -38,6 +42,7 @@
         self.expires_in=[decoder decodeObjectForKey:@"expires_in"];
         self.uid=[decoder decodeObjectForKey:@"uid"];
         self.create_time=[decoder decodeObjectForKey:@"create_time"];
+        self.name=[decoder decodeObjectForKey:@"name"];
     }
     return self;
 }

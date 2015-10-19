@@ -39,6 +39,8 @@
 		4CA0783E1BCB8EE500008320 /* WBMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA078261BCB8EE500008320 /* WBMessageViewController.m */; };
 		4CA0783F1BCB8EE500008320 /* WBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA0782C1BCB8EE500008320 /* WBHomeViewController.m */; };
 		4CA078421BCB967800008320 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA078411BCB967800008320 /* UIBarButtonItem+Extension.m */; };
+		4CB1B6721BD4984F00A3B0F6 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1B6711BD4984F00A3B0F6 /* Foundation+Log.m */; settings = {ASSET_TAGS = (); }; };
+		4CB1B6751BD4C84600A3B0F6 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1B6741BD4C84600A3B0F6 /* WBTitleButton.m */; settings = {ASSET_TAGS = (); }; };
 		DE3FB9801BD38A2A00246EB9 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3FB97C1BD38A2A00246EB9 /* MBProgressHUD+MJ.m */; settings = {ASSET_TAGS = (); }; };
 		DE3FB9811BD38A2A00246EB9 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE3FB97D1BD38A2A00246EB9 /* MBProgressHUD.bundle */; settings = {ASSET_TAGS = (); }; };
 		DE3FB9821BD38A2A00246EB9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = DE3FB97F1BD38A2A00246EB9 /* MBProgressHUD.m */; settings = {ASSET_TAGS = (); }; };
@@ -123,6 +125,9 @@
 		4CA0782C1BCB8EE500008320 /* WBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBHomeViewController.m; sourceTree = "<group>"; };
 		4CA078401BCB967800008320 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		4CA078411BCB967800008320 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		4CB1B6711BD4984F00A3B0F6 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		4CB1B6731BD4C84600A3B0F6 /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
+		4CB1B6741BD4C84600A3B0F6 /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
 		DE3FB97B1BD38A2A00246EB9 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		DE3FB97C1BD38A2A00246EB9 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
 		DE3FB97D1BD38A2A00246EB9 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -303,6 +308,8 @@
 			children = (
 				4C99B8021BCD0D8500287B95 /* WBTitleMenueViewController.h */,
 				4C99B8031BCD0D8500287B95 /* WBTitleMenueViewController.m */,
+				4CB1B6731BD4C84600A3B0F6 /* WBTitleButton.h */,
+				4CB1B6741BD4C84600A3B0F6 /* WBTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +330,7 @@
 		4CA078011BCB8EE500008320 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				4CB1B6711BD4984F00A3B0F6 /* Foundation+Log.m */,
 				4CA078021BCB8EE500008320 /* UIView+Extension.h */,
 				4CA078031BCB8EE500008320 /* UIView+Extension.m */,
 				4CA078401BCB967800008320 /* UIBarButtonItem+Extension.h */,
@@ -660,11 +668,13 @@
 				DE3FB98A1BD39A0300246EB9 /* WBAccountManager.m in Sources */,
 				4C99B7F71BCCAE1E00287B95 /* WBSearchBar.m in Sources */,
 				4CA0783D1BCB8EE500008320 /* WBProfileViewController.m in Sources */,
+				4CB1B6751BD4C84600A3B0F6 /* WBTitleButton.m in Sources */,
 				4C3C43621BD0FCB6006FAAEB /* AFHTTPRequestOperationManager.m in Sources */,
 				4C1043D91BCE2587007F22D6 /* WBTabBar.m in Sources */,
 				4C3C43611BD0FCB6006FAAEB /* AFHTTPRequestOperation.m in Sources */,
 				4C3C43691BD0FCB6006FAAEB /* AFURLSessionManager.m in Sources */,
 				4C99B8041BCD0D8500287B95 /* WBTitleMenueViewController.m in Sources */,
+				4CB1B6721BD4984F00A3B0F6 /* Foundation+Log.m in Sources */,
 				4C3C43641BD0FCB6006FAAEB /* AFNetworkReachabilityManager.m in Sources */,
 				4C3C43681BD0FCB6006FAAEB /* AFURLResponseSerialization.m in Sources */,
 				4C3C43671BD0FCB6006FAAEB /* AFURLRequestSerialization.m in Sources */,

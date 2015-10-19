@@ -15,10 +15,6 @@
 
 +(void)save:(WBAccount *)account
 {
-    //存储accessToken创建的时间
-    NSDate *createTime=[NSDate date];
-    account.create_time=createTime;
-    
     [NSKeyedArchiver archiveRootObject:account toFile:WBAccountPath];
 
 }
