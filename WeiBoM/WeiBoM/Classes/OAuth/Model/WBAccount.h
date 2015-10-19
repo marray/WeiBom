@@ -22,5 +22,8 @@
 /**create_time	NSDate	创建accessToken时的时间 */
 @property(nonatomic,copy) NSDate *create_time;
 
+/**name	NSString 用户名 */
+@property(nonatomic,copy) NSString *name;
+
 +(instancetype)accountWithDict:(NSDictionary *)dic;
 @end
