@@ -1,10 +1,9 @@
+// 
+// WBTitleMenueViewController.h
 //
-//  WBTitleMenueViewController.h
-//  WeiBoM
-//
-//  Created by Michael on 10/13/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 688EE6E4-05A4-48D7-9DB3-26282225D842
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

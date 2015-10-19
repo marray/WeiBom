@@ -1,10 +1,9 @@
+// 
+// WBSearchBar.h
 //
-//  WBSearchBar.h
-//  WeiBoM
-//
-//  Created by Michael on 10/13/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 7B0F11E1-5D26-44EA-88F4-E9E23E031A6E
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

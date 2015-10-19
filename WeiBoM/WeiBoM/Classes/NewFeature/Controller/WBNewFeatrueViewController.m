@@ -1,10 +1,9 @@
+// 
+// WBNewFeatrueViewController.m
 //
-//  WBNewFeatrueViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 10/14/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: EEE41A1F-3BF0-4A39-8899-10250B6AB666
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBNewFeatrueViewController.h"
 #import "WBTabBarViewController.h"
