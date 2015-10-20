@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "WBOAthuViewController.h"
 #import "WBAccountManager.h"
+#import "SDWebImageManager.h"
 
 #define WBVersionKey @"CFBundleVersion"
 
@@ -59,6 +60,16 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    SDWebImageManager *mgr=[SDWebImageManager sharedManager];
+    //取消下载
+    [mgr cancelAll];
+    
+    //清掉所有图片缓存
+    [mgr.imageCache clearMemory];
 }
 
 @end
