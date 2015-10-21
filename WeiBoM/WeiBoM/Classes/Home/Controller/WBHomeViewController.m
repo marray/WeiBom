@@ -46,14 +46,48 @@
     
     //添加上拉刷新
     [self refreshOldWeiBoData];
+    
+    //未读微博数
+    NSTimer *thread=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(unReadWeiboRemind) userInfo:nil repeats:YES];  //添加定时器，过三秒发一次请求
+    [[NSRunLoop mainRunLoop] addTimer:thread forMode:NSRunLoopCommonModes];  //更改主线程运行模式 让主线程也抽时间处理thread线程
 
 }
+
+/**获取未读微博数 显示*/
+-(void)unReadWeiboRemind
+{
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    
+    WBAccount *account=[WBAccountManager account];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    params[@"access_token"]=account.access_token;
+    params[@"uid"]=account.uid;
+    
+    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *status=[responseObject[@"status"] description];  //NSNUmber 转成 NSString 用 description
+        
+        if ([status isEqualToString:@"0"]) {
+            self.tabBarItem.badgeValue=nil;
+            [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+        }else{
+            self.tabBarItem.badgeValue=status;
+            [UIApplication sharedApplication].applicationIconBadgeNumber=status.intValue;
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        WBLOG(@"%@",error);
+    }];
+    
+}
+
 
 /** 添加上拉刷新 */
 -(void)refreshOldWeiBoData
 {
     //添加上拉刷新代码
-    self.tableView.tableFooterView=[WBLoadDataFooter load];
+    WBLoadDataFooter *footer=[WBLoadDataFooter load];
+    footer.hidden=YES;
+    self.tableView.tableFooterView=footer;
+    
 }
 
 /** 刷新最新微博数据 */
@@ -72,11 +106,41 @@
     
 }
 
+/** 加载更多微博数据*/
+-(void)loadMoreWeiboData
+{
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    
+    /** max_id	false	int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。*/
+    WBAccount *account=[WBAccountManager account];
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    params[@"access_token"]=account.access_token;
+    
+    WBStatus *lastStatus=[self.statuses lastObject];
+    if(lastStatus){
+        long long idstr=lastStatus.idstr.longLongValue - 1;  //减一是因为有一条数据重复读取
+        params[@"max_id"]=@(idstr);
+    }
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        [self.statuses addObjectsFromArray:arrayStatus];
+        
+        [self.tableView reloadData];
+        
+        self.tableView.tableFooterView.hidden=YES;
+       
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        WBLOG(@"%@",error);
+        self.tableView.tableFooterView.hidden=YES;
+    }];
+}
+
+/** 下拉刷新新的微博数据*/
 -(void)refreshNewData:(UIRefreshControl *)control
 {
     AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     /** since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。*/
-    /** max_id	false	int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。*/
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
@@ -85,10 +149,7 @@
     if(firstStatus){
         params[@"since_id"]=firstStatus.idstr;
     }
-//    WBStatus *lastStatus=[self.statuses lastObject];
-//    if(lastStatus){
-//        params[@"max_id"]=lastStatus.idstr;
-//    }
+    
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
@@ -113,6 +174,10 @@
 /**提示增加的新微博数*/
 -(void)showNewDataCount:(NSUInteger)count
 {
+    //刷新后清空未读提示
+    self.tabBarItem.badgeValue=nil;
+    [UIApplication sharedApplication].applicationIconBadgeNumber=0;
+    
     UILabel *label=[[UILabel alloc] init];
     label.text=[NSString stringWithFormat:@"%lu条新微博",(unsigned long)count];
     label.textColor=[UIColor whiteColor];
@@ -234,6 +299,7 @@
     WBLOG(@"pop");
 }
 
+#pragma mark TableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.statuses.count;
@@ -253,6 +319,24 @@
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     return cell;
+}
+
+#pragma mark SctrollView
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (self.statuses.count == 0 || self.tableView.tableFooterView.hidden == NO ) return;
+    
+    CGFloat contentY=scrollView.contentOffset.y;  //-64
+    CGFloat scrollY=scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height ;
+    
+    if (contentY > scrollY) {  //滚动到最后一个cell完全出现时加载数据
+        
+        self.tableView.tableFooterView.hidden=NO;
+        
+        [self loadMoreWeiboData]; //加载更多数据
+        
+    }
+    
 }
 
 @end

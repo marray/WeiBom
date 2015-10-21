@@ -21,7 +21,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    //用户通知设置  针对8.0以后的系统
+    float sysVersion=[[UIDevice currentDevice]systemVersion].floatValue;
+    if (sysVersion>=8.0) {
+        UIUserNotificationType type=UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:type categories:nil];
+        [[UIApplication sharedApplication]registerUserNotificationSettings:setting];
+    }
+
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //从沙盒中获取用户信息
@@ -36,6 +43,8 @@
     
     [self.window makeKeyAndVisible];
     
+    
+    
     return YES;
 }
 
@@ -46,8 +55,17 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    //想操作系统申请后台运行的资格，能维持多久，是不确定的
+    UIBackgroundTaskIdentifier task=[application beginBackgroundTaskWithExpirationHandler:^{
+        
+        //当申请的后台运行时间已经结束（过期），就会调用这个blok
+        
+        //赶紧结束任务
+        [application endBackgroundTask:task];
+        
+    }];
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
