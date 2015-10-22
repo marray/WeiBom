@@ -13,23 +13,25 @@
 #import "WBTitleButton.h"
 #import "UIImageView+WebCache.h"
 #import "WBUser.h"
-#import "WBStatus.h"
+#import "WBStatusFrame.h"
 #import "MJExtension.h"
 #import "WBLoadDataFooter.h"
+#import "WBStatusCell.h"
+#import "WBStatus.h"
 
 @interface WBHomeViewController ()<WBDropDownMenuDelegate>
-/**存*/
-@property(nonatomic,strong) NSMutableArray *statuses;
+/**存每条微博的数组*/
+@property(nonatomic,strong) NSMutableArray *statusFrames;
 @end
 
 @implementation WBHomeViewController
 
--(NSMutableArray *)statuses
+-(NSMutableArray *)statusFrames
 {
-    if (!_statuses) {
-        self.statuses=[[NSMutableArray alloc] init];
+    if (!_statusFrames) {
+        self.statusFrames=[[NSMutableArray alloc] init];
     }
-    return _statuses;
+    return _statusFrames;
 }
 
 - (void)viewDidLoad {
@@ -106,6 +108,19 @@
     
 }
 
+/** 将WBStatus模型转成WBStatusFrame模型 */
+-(NSArray *)statusFrameWithStatusArray:(NSArray *)statusArray
+{
+    NSMutableArray *statusFrameArray=[NSMutableArray array];
+    for (WBStatus *status in statusArray) {
+        WBStatusFrame *statusFrame=[[WBStatusFrame alloc] init];
+        statusFrame.status=status;
+        [statusFrameArray addObject:statusFrame];
+    }
+    return statusFrameArray;
+}
+
+
 /** 加载更多微博数据*/
 -(void)loadMoreWeiboData
 {
@@ -116,15 +131,17 @@
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
     
-    WBStatus *lastStatus=[self.statuses lastObject];
-    if(lastStatus){
-        long long idstr=lastStatus.idstr.longLongValue - 1;  //减一是因为有一条数据重复读取
+    WBStatusFrame *lastStatusFrame=[self.statusFrames lastObject];
+    if(lastStatusFrame){
+        long long idstr=lastStatusFrame.status.idstr.longLongValue - 1;  //减一是因为有一条数据重复读取
         params[@"max_id"]=@(idstr);
     }
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        //转换模型
+        NSArray *statusFrameArray=[self statusFrameWithStatusArray:arrayStatus];
         
-        [self.statuses addObjectsFromArray:arrayStatus];
+        [self.statusFrames addObjectsFromArray:statusFrameArray];
         
         [self.tableView reloadData];
         
@@ -145,17 +162,20 @@
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
     
-    WBStatus *firstStatus=[self.statuses firstObject];
-    if(firstStatus){
-        params[@"since_id"]=firstStatus.idstr;
+    WBStatusFrame *firstStatusFrame=[self.statusFrames firstObject];
+    if(firstStatusFrame){
+        params[@"since_id"]=firstStatusFrame.status.idstr;
     }
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         
+        //转换模型
+        NSArray *statusFrameArray=[self statusFrameWithStatusArray:arrayStatus];
+        
         NSRange range=NSMakeRange(0, arrayStatus.count);
         NSIndexSet *set=[NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:arrayStatus atIndexes:set];
+        [self.statusFrames insertObjects:statusFrameArray atIndexes:set];
         
         [self.tableView reloadData];
         
@@ -302,29 +322,29 @@
 #pragma mark TableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.statuses.count;
+    return self.statusFrames.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID=@"cell";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:ID];
-    if(!cell){
-        cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    WBStatus *status=self.statuses[indexPath.row];
-    WBUser *user=status.user;
-    cell.textLabel.text=user.name;
-    cell.detailTextLabel.text=status.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    WBStatusCell *cell=[WBStatusCell cellwithTableView:tableView];
+    
+    cell.statusFrame=self.statusFrames[indexPath.row];
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    WBStatusFrame *frame=self.statusFrames[indexPath.row];
+    
+    return frame.cellHeigh;
 }
 
 #pragma mark SctrollView
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (self.statuses.count == 0 || self.tableView.tableFooterView.hidden == NO ) return;
+    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.hidden == NO ) return;
     
     CGFloat contentY=scrollView.contentOffset.y;  //-64
     CGFloat scrollY=scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height ;

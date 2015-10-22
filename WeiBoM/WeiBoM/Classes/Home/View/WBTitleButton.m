@@ -22,18 +22,24 @@
     return self;
 }
 
+-(void)setFrame:(CGRect)frame
+{
+    frame.size.width += 10;
+    [super setFrame:frame];
+}
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];
     //改变按钮内部的位置，只需调整x值即可
     self.titleLabel.x=self.imageView.x;
-    self.imageView.x=CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x=CGRectGetMaxX(self.titleLabel.frame) + 10;
 }
 
 -(void)setTitle:(NSString *)title forState:(UIControlState)state
 {
     [super setTitle:title forState:state];
-    [self layoutIfNeeded];
+    [self layoutIfNeeded]; 
     [self sizeToFit];
 }
 

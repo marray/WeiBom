@@ -56,6 +56,8 @@
 		4CA078421BCB967800008320 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA078411BCB967800008320 /* UIBarButtonItem+Extension.m */; };
 		4CB1B6721BD4984F00A3B0F6 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1B6711BD4984F00A3B0F6 /* Foundation+Log.m */; };
 		4CB1B6751BD4C84600A3B0F6 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB1B6741BD4C84600A3B0F6 /* WBTitleButton.m */; };
+		4CF47AA01BD8BC9100CA18E6 /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */; };
+		4CF47AA31BD8C13F00CA18E6 /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF47AA21BD8C13F00CA18E6 /* WBStatusFrame.m */; };
 		4CF53D771BD5D46800D1895A /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF53D571BD5D46800D1895A /* MKAnnotationView+WebCache.m */; };
 		4CF53D781BD5D46800D1895A /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF53D591BD5D46800D1895A /* NSData+ImageContentType.m */; };
 		4CF53D791BD5D46800D1895A /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF53D5B1BD5D46800D1895A /* SDImageCache.m */; };
@@ -189,6 +191,10 @@
 		4CB1B6711BD4984F00A3B0F6 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		4CB1B6731BD4C84600A3B0F6 /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
 		4CB1B6741BD4C84600A3B0F6 /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
+		4CF47A9E1BD8BC9100CA18E6 /* WBStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusCell.h; sourceTree = "<group>"; };
+		4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusCell.m; sourceTree = "<group>"; };
+		4CF47AA11BD8C13F00CA18E6 /* WBStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusFrame.h; sourceTree = "<group>"; };
+		4CF47AA21BD8C13F00CA18E6 /* WBStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusFrame.m; sourceTree = "<group>"; };
 		4CF53D561BD5D46800D1895A /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		4CF53D571BD5D46800D1895A /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		4CF53D581BD5D46800D1895A /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -437,6 +443,8 @@
 				4C2432161BD6547000E66841 /* WBLoadDataFooter.h */,
 				4C2432171BD6547000E66841 /* WBLoadDataFooter.m */,
 				4C2432191BD6549E00E66841 /* WBLoadDataFooter.xib */,
+				4CF47A9E1BD8BC9100CA18E6 /* WBStatusCell.h */,
+				4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -647,6 +655,8 @@
 				4C193F961BD5E4DC00A1367D /* WBUser.m */,
 				4C193F981BD5E4E800A1367D /* WBStatus.h */,
 				4C193F991BD5E4E800A1367D /* WBStatus.m */,
+				4CF47AA11BD8C13F00CA18E6 /* WBStatusFrame.h */,
+				4CF47AA21BD8C13F00CA18E6 /* WBStatusFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -828,6 +838,7 @@
 				4C24320F1BD5F02600E66841 /* MJMember.m in Sources */,
 				4C193F9A1BD5E4E800A1367D /* WBStatus.m in Sources */,
 				DE3FB9801BD38A2A00246EB9 /* MBProgressHUD+MJ.m in Sources */,
+				4CF47AA01BD8BC9100CA18E6 /* WBStatusCell.m in Sources */,
 				4CA078421BCB967800008320 /* UIBarButtonItem+Extension.m in Sources */,
 				4CA0783E1BCB8EE500008320 /* WBMessageViewController.m in Sources */,
 				4C99B7FA1BCCF33300287B95 /* WBDropDownMenu.m in Sources */,
@@ -861,6 +872,7 @@
 				4CB1B6751BD4C84600A3B0F6 /* WBTitleButton.m in Sources */,
 				4CF53D841BD5D46800D1895A /* UIImageView+HighlightedWebCache.m in Sources */,
 				4C3C43621BD0FCB6006FAAEB /* AFHTTPRequestOperationManager.m in Sources */,
+				4CF47AA31BD8C13F00CA18E6 /* WBStatusFrame.m in Sources */,
 				4C24320C1BD5F02600E66841 /* MJConst.m in Sources */,
 				4C1043D91BCE2587007F22D6 /* WBTabBar.m in Sources */,
 				4C3C43611BD0FCB6006FAAEB /* AFHTTPRequestOperation.m in Sources */,
