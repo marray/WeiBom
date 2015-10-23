@@ -10,12 +10,11 @@
 
 @implementation WBUser
 
-+(instancetype)userWithDict:(NSDictionary *)dictionary
+-(void)setMbtype:(int)mbtype
 {
-    WBUser *user=[[WBUser alloc] init];
-    user.idstr=dictionary[@"idstr"];
-    user.name=dictionary[@"name"];
-    user.profile_image_url=dictionary[@"profile_image_url"];
-    return user;
+    _mbtype=mbtype;
+    
+    self.vip=mbtype > 2;
 }
+
 @end

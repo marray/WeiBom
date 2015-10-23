@@ -7,6 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//昵称字体
+#define WbStatusNameLabelFont [UIFont systemFontOfSize:14]
+//发布时间字体
+#define WbStatusTimeLabelFont [UIFont systemFontOfSize:12]
+//发布来源字体
+#define WbStatusSourceLabelFont WbStatusTimeLabelFont
+//原创正文字体
+#define WbStatusContentLabelFont [UIFont systemFontOfSize:13]
+//转发正文字体
+#define WbStatusRetweetContentLabelFont WbStatusContentLabelFont
+
 @class WBStatus;
 
 @interface WBStatusFrame : NSObject
@@ -36,6 +48,20 @@
 
 /**原创微博图片*/
 @property(nonatomic,assign) CGRect contentImageViewFrame;
+
+
+/** 转发微博整体 */
+@property(nonatomic,assign) CGRect retweetViewFrame;
+
+/** 转发微博正文 + 昵称 */
+@property(nonatomic,assign) CGRect retweetContentLabelFrame;
+
+/** 转发微博图片 */
+@property(nonatomic,assign) CGRect retweetContentImageViewFrame;
+
+
+/** 工具条 */
+@property(nonatomic,assign) CGRect toolBarViewFrame;
 
 /**cell的高度*/
 @property(nonatomic,assign) CGFloat cellHeigh;

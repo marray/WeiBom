@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0053DC1BDA088F002EDB45 /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053DB1BDA088F002EDB45 /* WBPhoto.m */; settings = {ASSET_TAGS = (); }; };
 		4C1043D91BCE2587007F22D6 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043D81BCE2587007F22D6 /* WBTabBar.m */; };
 		4C1043DE1BCE6786007F22D6 /* WBNewFeatrueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043DD1BCE6786007F22D6 /* WBNewFeatrueViewController.m */; };
 		4C1043E11BCF9E37007F22D6 /* UIButton+WBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043E01BCF9E37007F22D6 /* UIButton+WBButton.m */; };
@@ -93,6 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0053DA1BDA088F002EDB45 /* WBPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhoto.h; sourceTree = "<group>"; };
+		4C0053DB1BDA088F002EDB45 /* WBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhoto.m; sourceTree = "<group>"; };
 		4C1043D71BCE2587007F22D6 /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
 		4C1043D81BCE2587007F22D6 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
 		4C1043DC1BCE6786007F22D6 /* WBNewFeatrueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNewFeatrueViewController.h; sourceTree = "<group>"; };
@@ -657,6 +660,8 @@
 				4C193F991BD5E4E800A1367D /* WBStatus.m */,
 				4CF47AA11BD8C13F00CA18E6 /* WBStatusFrame.h */,
 				4CF47AA21BD8C13F00CA18E6 /* WBStatusFrame.m */,
+				4C0053DA1BDA088F002EDB45 /* WBPhoto.h */,
+				4C0053DB1BDA088F002EDB45 /* WBPhoto.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -893,6 +898,7 @@
 				4CF53D7C1BD5D46800D1895A /* SDWebImageDownloader.m in Sources */,
 				4CA078361BCB8EE500008320 /* AppDelegate.m in Sources */,
 				4CF53D811BD5D46800D1895A /* UIImage+GIF.m in Sources */,
+				4C0053DC1BDA088F002EDB45 /* WBPhoto.m in Sources */,
 				DE3FB9861BD38A7500246EB9 /* WBAccount.m in Sources */,
 				4CF53D791BD5D46800D1895A /* SDImageCache.m in Sources */,
 				4CF53D781BD5D46800D1895A /* NSData+ImageContentType.m in Sources */,
