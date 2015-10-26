@@ -72,6 +72,7 @@
     if (self) {
         
         //初始化cell的内容
+        self.backgroundColor=[UIColor clearColor];
         
         //原创微博模型初始化
         [self setupOrigin];
@@ -129,6 +130,7 @@
 {
     /** 原创微博整体 */
     UIView *originalView=[[UIView alloc] init];
+    originalView.backgroundColor=[UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView=originalView;
     

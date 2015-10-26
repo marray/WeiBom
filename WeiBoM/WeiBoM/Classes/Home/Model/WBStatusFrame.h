@@ -18,6 +18,8 @@
 #define WbStatusContentLabelFont [UIFont systemFontOfSize:13]
 //转发正文字体
 #define WbStatusRetweetContentLabelFont WbStatusContentLabelFont
+//cell之间的间距
+#define WBStautsCellMargin 15
 
 @class WBStatus;
 

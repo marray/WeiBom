@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.backgroundColor=WBColor(217, 217, 217);
+    
     //设置导航栏位置
     [self setTitlePosition];
     
@@ -52,7 +54,7 @@
     //未读微博数
     NSTimer *thread=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(unReadWeiboRemind) userInfo:nil repeats:YES];  //添加定时器，过三秒发一次请求
     [[NSRunLoop mainRunLoop] addTimer:thread forMode:NSRunLoopCommonModes];  //更改主线程运行模式 让主线程也抽时间处理thread线程
-
+    
 }
 
 /**获取未读微博数 显示*/

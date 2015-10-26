@@ -89,7 +89,7 @@
     /** 原创微博整体 */
     CGFloat originW=widthScreen;
     CGFloat originH=MAX( CGRectGetMaxY(self.contentLabelFrame) , CGRectGetMaxY(self.contentImageViewFrame) ) + WBStautsCellBoundsW;
-    self.originalViewFrame=CGRectMake(0, 0, originW, originH);
+    self.originalViewFrame=CGRectMake(0, WBStautsCellMargin, originW, originH);
     
     
     CGFloat toolBarY=0;
@@ -113,7 +113,7 @@
         }
         
         /** 转发微博整体 */
-        CGFloat retweetY=CGRectGetMaxY(self.originalViewFrame) + WBStautsCellBoundsW;
+        CGFloat retweetY=CGRectGetMaxY(self.originalViewFrame);
         CGFloat retweetW=widthScreen;
         CGFloat retweetH=MAX( CGRectGetMaxY(self.retweetContentLabelFrame) , CGRectGetMaxY(self.retweetContentImageViewFrame) ) + WBStautsCellBoundsW;
         self.retweetViewFrame=CGRectMake(0, retweetY, retweetW, retweetH);
@@ -129,7 +129,7 @@
     self.toolBarViewFrame=CGRectMake(0, toolBarY, toolBarW, toolBarH);
     
     /**cell的高度*/
-    self.cellHeigh=CGRectGetMaxY(self.toolBarViewFrame) + WBStautsCellBoundsW;
+    self.cellHeigh=CGRectGetMaxY(self.toolBarViewFrame);
 }
 
 

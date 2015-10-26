@@ -21,8 +21,8 @@
 }
 
 
--(void)setCreated_at:(NSString *)created_at
-{
+//-(void)setCreated_at:(NSString *)created_at
+//{
 //    NSDateFormatter *inputFormatter =[[NSDateFormatter alloc] init];
 //    [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
 //    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -30,6 +30,6 @@
 //    NSLog(@"date = %@", inputDate);
 //    
 //    _created_at=[NSString stringWithFormat:@"%@",inputDate];
-}
+//}
 
 @end
