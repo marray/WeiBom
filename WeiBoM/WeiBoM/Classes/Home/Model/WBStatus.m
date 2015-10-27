@@ -20,16 +20,9 @@
     return @{@"pic_urls" : [WBPhoto class]};
 }
 
-
-//-(void)setCreated_at:(NSString *)created_at
-//{
-//    NSDateFormatter *inputFormatter =[[NSDateFormatter alloc] init];
-//    [inputFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-//    [inputFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-//    NSDate* inputDate = [inputFormatter dateFromString:created_at];
-//    NSLog(@"date = %@", inputDate);
-//    
-//    _created_at=[NSString stringWithFormat:@"%@",inputDate];
-//}
+-(NSString *)created_at
+{
+    return @"刚刚";
+}
 
 @end

@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.backgroundColor=WBColor(217, 217, 217);
+    self.tableView.backgroundColor=WBColor(245, 245, 245);
     
     //设置导航栏位置
     [self setTitlePosition];

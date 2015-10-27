@@ -19,7 +19,7 @@
 //转发正文字体
 #define WbStatusRetweetContentLabelFont WbStatusContentLabelFont
 //cell之间的间距
-#define WBStautsCellMargin 15
+#define WBStautsCellMargin 10
 
 @class WBStatus;
 

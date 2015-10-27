@@ -12,6 +12,7 @@
 #import "WBStatusFrame.h"
 #import "UIImageView+WebCache.h"
 #import "WBPhoto.h"
+#import "WBStatusToolBar.h"
 
 @interface WBStatusCell()
 
@@ -50,7 +51,7 @@
 @property(nonatomic,weak)  UIImageView *retweetContentImageView;
 
 /** 工具条 */
-@property(nonatomic,weak) UIView *toolBarView;
+@property(nonatomic,weak) WBStatusToolBar *toolBarView;
 
 @end
 
@@ -73,6 +74,7 @@
         
         //初始化cell的内容
         self.backgroundColor=[UIColor clearColor];
+        self.selectionStyle=UITableViewCellAccessoryNone;
         
         //原创微博模型初始化
         [self setupOrigin];
@@ -93,9 +95,8 @@
 -(void)setupToolBar
 {
     /** 工具条 */
-    UIView *toolBarView=[[UIView alloc] init];
+    WBStatusToolBar *toolBarView=[WBStatusToolBar toolbar];
     [self.contentView addSubview:toolBarView];
-    toolBarView.backgroundColor=[UIColor lightGrayColor];
     self.toolBarView=toolBarView;
 }
 
@@ -266,6 +267,7 @@
     
     /**工具条*/
     self.toolBarView.frame=statusFrame.toolBarViewFrame;
+    self.toolBarView.status=status;
     
 }
 
