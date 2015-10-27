@@ -211,18 +211,18 @@
     
     /** 创建时间 */
     self.timeLabel.frame=statusFrame.timeLabelFrame;
-    self.timeLabel.font=WbStatusTimeLabelFont;
     self.timeLabel.text=status.created_at;
+    self.timeLabel.font=WbStatusTimeLabelFont;
     
     /** 发布来源 */
     self.sourceLabel.frame=statusFrame.sourceLabelFrame;
-    self.sourceLabel.font=WbStatusSourceLabelFont;
     self.sourceLabel.text=status.source;
+    self.sourceLabel.font=WbStatusSourceLabelFont;
     
     /** 原创微博正文 */
     self.contentLabel.frame=statusFrame.contentLabelFrame;
-    self.contentLabel.font=WbStatusContentLabelFont;
     self.contentLabel.text=status.text;
+    self.contentLabel.font=WbStatusContentLabelFont;
     
     /**原创微博图片*/
     if (status.pic_urls.count) {

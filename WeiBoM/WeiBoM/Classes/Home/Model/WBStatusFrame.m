@@ -25,7 +25,7 @@
 
 -(CGSize)widthWithText:(NSString *)text font:(UIFont *)font
 {
-    return [self widthWithText:text font:font maxW:0];
+    return [self widthWithText:text font:font maxW:MAXFLOAT];
     
 }
 
