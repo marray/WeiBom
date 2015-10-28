@@ -171,7 +171,6 @@
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-//        WBLOG(@"%@",responseObject[@"statuses"]);
         //转换模型
         NSArray *statusFrameArray=[self statusFrameWithStatusArray:arrayStatus];
         

@@ -10,6 +10,8 @@
 		4C0053DC1BDA088F002EDB45 /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053DB1BDA088F002EDB45 /* WBPhoto.m */; settings = {ASSET_TAGS = (); }; };
 		4C0053DF1BDF283C002EDB45 /* WBStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053DE1BDF283C002EDB45 /* WBStatusToolBar.m */; settings = {ASSET_TAGS = (); }; };
 		4C0053E21BDF8378002EDB45 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		4C0053E51BE0787C002EDB45 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053E41BE0787C002EDB45 /* NSString+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		4C0053E81BE0AFD3002EDB45 /* WBStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053E71BE0AFD3002EDB45 /* WBStatusPhotosView.m */; settings = {ASSET_TAGS = (); }; };
 		4C1043D91BCE2587007F22D6 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043D81BCE2587007F22D6 /* WBTabBar.m */; };
 		4C1043DE1BCE6786007F22D6 /* WBNewFeatrueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043DD1BCE6786007F22D6 /* WBNewFeatrueViewController.m */; };
 		4C1043E11BCF9E37007F22D6 /* UIButton+WBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043E01BCF9E37007F22D6 /* UIButton+WBButton.m */; };
@@ -102,6 +104,10 @@
 		4C0053DE1BDF283C002EDB45 /* WBStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusToolBar.m; sourceTree = "<group>"; };
 		4C0053E01BDF8378002EDB45 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		4C0053E31BE0787C002EDB45 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		4C0053E41BE0787C002EDB45 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		4C0053E61BE0AFD3002EDB45 /* WBStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusPhotosView.h; sourceTree = "<group>"; };
+		4C0053E71BE0AFD3002EDB45 /* WBStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusPhotosView.m; sourceTree = "<group>"; };
 		4C1043D71BCE2587007F22D6 /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
 		4C1043D81BCE2587007F22D6 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
 		4C1043DC1BCE6786007F22D6 /* WBNewFeatrueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNewFeatrueViewController.h; sourceTree = "<group>"; };
@@ -456,6 +462,8 @@
 				4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */,
 				4C0053DD1BDF283C002EDB45 /* WBStatusToolBar.h */,
 				4C0053DE1BDF283C002EDB45 /* WBStatusToolBar.m */,
+				4C0053E61BE0AFD3002EDB45 /* WBStatusPhotosView.h */,
+				4C0053E71BE0AFD3002EDB45 /* WBStatusPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +495,8 @@
 				DE3FB98C1BD3C4BE00246EB9 /* UIWindow+Extension.m */,
 				4C0053E01BDF8378002EDB45 /* NSDate+Extension.h */,
 				4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */,
+				4C0053E31BE0787C002EDB45 /* NSString+Extension.h */,
+				4C0053E41BE0787C002EDB45 /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -854,6 +864,7 @@
 				4C193F9A1BD5E4E800A1367D /* WBStatus.m in Sources */,
 				DE3FB9801BD38A2A00246EB9 /* MBProgressHUD+MJ.m in Sources */,
 				4CF47AA01BD8BC9100CA18E6 /* WBStatusCell.m in Sources */,
+				4C0053E51BE0787C002EDB45 /* NSString+Extension.m in Sources */,
 				4CA078421BCB967800008320 /* UIBarButtonItem+Extension.m in Sources */,
 				4CA0783E1BCB8EE500008320 /* WBMessageViewController.m in Sources */,
 				4C99B7FA1BCCF33300287B95 /* WBDropDownMenu.m in Sources */,
@@ -876,6 +887,7 @@
 				4C1043E11BCF9E37007F22D6 /* UIButton+WBButton.m in Sources */,
 				4C2432131BD5F02600E66841 /* NSObject+MJCoding.m in Sources */,
 				4CA078331BCB8EE500008320 /* UIView+Extension.m in Sources */,
+				4C0053E81BE0AFD3002EDB45 /* WBStatusPhotosView.m in Sources */,
 				4CA0783A1BCB8EE500008320 /* WBTest2ViewController.m in Sources */,
 				4CF53D831BD5D46800D1895A /* UIImage+WebP.m in Sources */,
 				DE3FB98A1BD39A0300246EB9 /* WBAccountManager.m in Sources */,

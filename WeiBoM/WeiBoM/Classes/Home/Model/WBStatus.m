@@ -39,14 +39,13 @@
     NSDateComponents *ndc=[calendar components:component fromDate:create_date toDate:now options:0];
     
     //时间比较
-    
-    if ([NSDate isThisYear:create_date]) {  //今年
-        if ([NSDate isYesterday:create_date]){  //昨天
+    if ([create_date isThisYear]) {  //今年
+        if ([create_date isYesterday]){  //昨天
             
             fmt.dateFormat=@"昨天 HH:mm";
             return [fmt stringFromDate:create_date];
             
-        }else if([NSDate isToday:create_date]){  //今天
+        }else if([create_date isToday]){  //今天
             if(ndc.hour >= 1){
                 
                 return [NSString stringWithFormat:@"%ld小时前",(long)ndc.hour];
@@ -72,11 +71,16 @@
     return _created_at;
 }
 
--(NSString *)source
+-(void)setSource:(NSString *)source
 {
-    NSArray *array=[_source componentsSeparatedByString:@">"];
-    NSString *sourceStr=[array[1] componentsSeparatedByString:@"<"][0];
-    return [NSString stringWithFormat:@"来自 %@",sourceStr];
+    _source=source;
+    
+    if (source.length) {
+        NSRange range;
+        range.location=[source rangeOfString:@">"].location + 1;
+        range.length=[source rangeOfString:@"</"].location -range.location;
+        _source=[NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
+    }
 }
 
 

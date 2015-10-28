@@ -12,14 +12,14 @@
 /**
  *  判断是否为今年
  */
-+(BOOL)isThisYear:(NSDate *)date;
+-(BOOL)isThisYear;
 /**
  *  判断是否为昨天
  */
-+(BOOL)isYesterday:(NSDate *)date;
+-(BOOL)isYesterday;
 /**
  *  判断是否为今天
  */
-+(BOOL)isToday:(NSDate *)date;
+-(BOOL)isToday;
 
 @end
