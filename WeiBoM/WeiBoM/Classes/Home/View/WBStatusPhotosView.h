@@ -10,4 +10,10 @@
 
 @interface WBStatusPhotosView : UIView
 
+@property(nonatomic,strong) NSArray *photos;
+/**
+ *   根据图片数计算总体的尺寸
+ */
++(CGSize)sizeWithCount:(int)count;
+
 @end

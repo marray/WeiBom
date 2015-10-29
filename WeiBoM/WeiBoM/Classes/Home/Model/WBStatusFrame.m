@@ -11,22 +11,7 @@
 #import "WBUser.h"
 #import "WBStatusPhotosView.h"
 
-#define WBStatusPhotosWH 60
-#define WBStatusPhotosB 10
-
 @implementation WBStatusFrame
-
--(CGSize)photosSizeWithCount:(int)count
-{
-    
-    
-    CGFloat onePhotoWH=60;
-    int hcount=(int)(count / 3+0.5);
-    CGFloat photosH=hcount * onePhotoWH;
-    CGFloat photosW=MAX((count * onePhotoWH), (3 * onePhotoWH));
-    
-    return (CGSize){photosW,photosH};
-}
 
 
 -(void)setStatus:(WBStatus *)status
@@ -82,7 +67,7 @@
     if (status.pic_urls.count) {
         CGFloat contentPhotosX=contentX;
         CGFloat contentPhotosY=CGRectGetMaxY(self.contentLabelFrame) + WBStautsCellBoundsW;
-        CGSize contentPhotosSize=[self photosSizeWithCount:status.pic_urls.count];
+        CGSize contentPhotosSize=[WBStatusPhotosView sizeWithCount:status.pic_urls.count];
         self.contentPhotosViewFrame=(CGRect){{contentPhotosX, contentPhotosY}, contentPhotosSize};
     }
     
@@ -108,7 +93,7 @@
         if (retweet.pic_urls.count) {
             CGFloat retweetContentPhotosX=retweetContentX;
             CGFloat retweetContentPhotosY=CGRectGetMaxY(self.retweetContentLabelFrame) + WBStautsCellBoundsW;
-            CGSize retweetContentPhotosSize=[self photosSizeWithCount:retweet.pic_urls.count];
+            CGSize retweetContentPhotosSize=[WBStatusPhotosView sizeWithCount:retweet.pic_urls.count];
             self.retweetContentPhotosViewFrame=(CGRect){{retweetContentPhotosX, retweetContentPhotosY}, retweetContentPhotosSize};
         }
         

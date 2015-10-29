@@ -8,6 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    WBUserVerifiedTypeNone = -1, // 没有任何认证
+    
+    WBUserVerifiedPersonal = 0,  // 个人认证
+    
+    WBUserVerifiedOrgEnterprice = 2, // 企业官方：CSDN、EOE、搜狐新闻客户端
+    WBUserVerifiedOrgMedia = 3, // 媒体官方：程序员杂志、苹果汇
+    WBUserVerifiedOrgWebsite = 5, // 网站官方：猫扑
+    
+    WBUserVerifiedDaren = 220 // 微博达人
+}WBUserVerifiedType;
+
 @interface WBUser : NSObject
 
 /** string	字符串型的用户UID */
@@ -27,4 +39,7 @@
 
 /** 是否为会员 */
 @property(nonatomic,assign,getter=isVip) BOOL vip;
+
+/** 认证类型 */
+@property(nonatomic,assign) WBUserVerifiedType verified_type;
 @end

@@ -14,6 +14,7 @@
 #import "WBPhoto.h"
 #import "WBStatusToolBar.h"
 #import "WBStatusPhotosView.h"
+#import "WBIconView.h"
 
 @interface WBStatusCell()
 
@@ -21,7 +22,7 @@
 @property(nonatomic,weak) UIView *originalView;
 
 /** 用户头像 */
-@property(nonatomic,weak)  UIImageView *iconImageView;
+@property(nonatomic,weak)  WBIconView *iconImageView;
 
 /** vip图片 */
 @property(nonatomic,weak)  UIImageView *vipImageView;
@@ -138,7 +139,7 @@
     self.originalView=originalView;
     
     /** 用户头像 */
-    UIImageView *iconImageView=[[UIImageView alloc] init];
+    WBIconView *iconImageView=[[WBIconView alloc] init];
     [originalView addSubview:iconImageView];
     self.iconImageView=iconImageView;
     
@@ -194,7 +195,7 @@
     
     /** 用户头像 */
     self.iconImageView.frame=statusFrame.iconImageFrame;
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconImageView.user=user;
     
     /** vip图片 */
     
@@ -240,9 +241,7 @@
         self.contentPhotosView.hidden=NO;
         
         self.contentPhotosView.frame=statusFrame.contentPhotosViewFrame;
-        WBPhoto *photo=[status.pic_urls firstObject];
-#warning 设置图片
-//        [self.contentPhotosView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.contentPhotosView.photos=status.pic_urls;
     }else{
         self.contentPhotosView.hidden=YES;
     }
@@ -266,8 +265,7 @@
             self.retweetContentPhotosView.hidden=NO;
             
             self.retweetContentPhotosView.frame=statusFrame.retweetContentPhotosViewFrame;
-            WBPhoto *photo=[retweet.pic_urls firstObject];  //这里只取了一张图片
-//            [self.retweetContentPhotosView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.retweetContentPhotosView.photos=retweet.pic_urls;
         }else{
             self.retweetContentPhotosView.hidden=YES;
         }
