@@ -13,22 +13,25 @@
 
 @implementation WBNavigationController
 
--(void)viewDidLoad
++ (void)initialize
 {
-    [super viewDidLoad];
-    
     //设置导航栏按钮主题
     UIBarButtonItem *item=[UIBarButtonItem appearance];
     
     NSMutableDictionary *customItem=[NSMutableDictionary dictionary];
     customItem[NSForegroundColorAttributeName]=[UIColor orangeColor];
-    customItem[NSFontAttributeName]=[UIFont systemFontOfSize:13];
+    customItem[NSFontAttributeName]=[UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:customItem forState:UIControlStateNormal];
     
     NSMutableDictionary *disableItem=[NSMutableDictionary dictionary];
     disableItem[NSForegroundColorAttributeName]=[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.7];
-    disableItem[NSFontAttributeName]=[UIFont systemFontOfSize:13];
+    disableItem[NSFontAttributeName]=[UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:disableItem forState:UIControlStateDisabled];
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
     
 }
 
