@@ -12,6 +12,9 @@
 #import "WBStatusFrame.h"
 #import "UIImageView+WebCache.h"
 #import "WBPhoto.h"
+#import "WBStatusToolBar.h"
+#import "WBStatusPhotosView.h"
+#import "WBIconView.h"
 
 @interface WBStatusCell()
 
@@ -19,7 +22,7 @@
 @property(nonatomic,weak) UIView *originalView;
 
 /** 用户头像 */
-@property(nonatomic,weak)  UIImageView *iconImageView;
+@property(nonatomic,weak)  WBIconView *iconImageView;
 
 /** vip图片 */
 @property(nonatomic,weak)  UIImageView *vipImageView;
@@ -37,7 +40,7 @@
 @property(nonatomic,weak) UILabel *contentLabel;
 
 /**原创微博图片*/
-@property(nonatomic,weak)  UIImageView *contentImageView;
+@property(nonatomic,weak)  WBStatusPhotosView *contentPhotosView;
 
 
 /** 转发微博整体 */
@@ -47,10 +50,10 @@
 @property(nonatomic,weak) UILabel *retweetContentLabel;
 
 /** 转发微博图片 */
-@property(nonatomic,weak)  UIImageView *retweetContentImageView;
+@property(nonatomic,weak)  WBStatusPhotosView *retweetContentPhotosView;
 
 /** 工具条 */
-@property(nonatomic,weak) UIView *toolBarView;
+@property(nonatomic,weak) WBStatusToolBar *toolBarView;
 
 @end
 
@@ -72,6 +75,8 @@
     if (self) {
         
         //初始化cell的内容
+        self.backgroundColor=[UIColor clearColor];
+        self.selectionStyle=UITableViewCellAccessoryNone;
         
         //原创微博模型初始化
         [self setupOrigin];
@@ -92,9 +97,8 @@
 -(void)setupToolBar
 {
     /** 工具条 */
-    UIView *toolBarView=[[UIView alloc] init];
+    WBStatusToolBar *toolBarView=[WBStatusToolBar toolbar];
     [self.contentView addSubview:toolBarView];
-    toolBarView.backgroundColor=[UIColor lightGrayColor];
     self.toolBarView=toolBarView;
 }
 
@@ -112,13 +116,14 @@
     /** 转发微博正文 + 昵称 */
     UILabel *retweetContentLabel=[[UILabel alloc] init];
     retweetContentLabel.numberOfLines=0;
+    retweetContentLabel.font=WbStatusRetweetContentLabelFont;
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel=retweetContentLabel;
     
     /** 转发微博图片 */
-    UIImageView *retweetContentImageView=[[UIImageView alloc] init];
-    [retweetView addSubview:retweetContentImageView];
-    self.retweetContentImageView=retweetContentImageView;
+    WBStatusPhotosView *retweetContentPhotosView=[[WBStatusPhotosView alloc] init];
+    [retweetView addSubview:retweetContentPhotosView];
+    self.retweetContentPhotosView=retweetContentPhotosView;
     
 }
 
@@ -129,11 +134,12 @@
 {
     /** 原创微博整体 */
     UIView *originalView=[[UIView alloc] init];
+    originalView.backgroundColor=[UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView=originalView;
     
     /** 用户头像 */
-    UIImageView *iconImageView=[[UIImageView alloc] init];
+    WBIconView *iconImageView=[[WBIconView alloc] init];
     [originalView addSubview:iconImageView];
     self.iconImageView=iconImageView;
     
@@ -144,29 +150,35 @@
     
     /** 用户昵称 */
     UILabel *nameLabel=[[UILabel alloc] init];
+    nameLabel.font=WbStatusNameLabelFont;
     [originalView addSubview:nameLabel];
     self.nameLabel=nameLabel;
     
     /** 创建时间 */
     UILabel *timeLabel=[[UILabel alloc] init];
+    timeLabel.textColor=[UIColor orangeColor];
+    timeLabel.font=WbStatusTimeLabelFont;
     [originalView addSubview:timeLabel];
     self.timeLabel=timeLabel;
     
     /** 发布来源 */
     UILabel *sourceLabel=[[UILabel alloc] init];
+    sourceLabel.textColor=WBColor(137, 137, 137);
+    sourceLabel.font=WbStatusSourceLabelFont;
     [originalView addSubview:sourceLabel];
     self.sourceLabel=sourceLabel;
     
     /** 原创微博正文 */
     UILabel *contentLabel=[[UILabel alloc] init];
     contentLabel.numberOfLines=0;
+    contentLabel.font=WbStatusContentLabelFont;
     [originalView addSubview:contentLabel];
     self.contentLabel=contentLabel;
     
     /**原创微博图片*/
-    UIImageView *contentImageView=[[UIImageView alloc] init];
-    [originalView addSubview:contentImageView];
-    self.contentImageView=contentImageView;
+    WBStatusPhotosView *contentPhotosView=[[WBStatusPhotosView alloc] init];
+    [originalView addSubview:contentPhotosView];
+    self.contentPhotosView=contentPhotosView;
 }
 
 
@@ -183,7 +195,7 @@
     
     /** 用户头像 */
     self.iconImageView.frame=statusFrame.iconImageFrame;
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconImageView.user=user;
     
     /** vip图片 */
     
@@ -203,33 +215,35 @@
     
     /** 用户昵称 */
     self.nameLabel.frame=statusFrame.nameLabelFrame;
-    self.nameLabel.font=WbStatusNameLabelFont;
     self.nameLabel.text=user.name;
     
     /** 创建时间 */
-    self.timeLabel.frame=statusFrame.timeLabelFrame;
-    self.timeLabel.font=WbStatusTimeLabelFont;
-    self.timeLabel.text=status.created_at;
+    NSString *time=status.created_at;
+    CGFloat timeX=statusFrame.nameLabelFrame.origin.x;
+    CGFloat timeY=CGRectGetMaxY(statusFrame.nameLabelFrame) + WBStautsCellBoundsW;
+    CGSize timeSize=[time widthWithFont:WbStatusTimeLabelFont];
+    self.timeLabel.frame=(CGRect){{timeX,timeY},timeSize};
+    self.timeLabel.text=time;
     
     /** 发布来源 */
-    self.sourceLabel.frame=statusFrame.sourceLabelFrame;
-    self.sourceLabel.font=WbStatusSourceLabelFont;
+    CGFloat sourceX=CGRectGetMaxX(self.timeLabel.frame) + WBStautsCellBoundsW;
+    CGFloat sourceY=timeY;
+    CGSize sourceSize=[status.source widthWithFont:WbStatusTimeLabelFont];
+    self.sourceLabel.frame=(CGRect){{sourceX,sourceY},sourceSize};
     self.sourceLabel.text=status.source;
     
     /** 原创微博正文 */
     self.contentLabel.frame=statusFrame.contentLabelFrame;
-    self.contentLabel.font=WbStatusContentLabelFont;
     self.contentLabel.text=status.text;
     
     /**原创微博图片*/
     if (status.pic_urls.count) {
-        self.contentImageView.hidden=NO;
+        self.contentPhotosView.hidden=NO;
         
-        self.contentImageView.frame=statusFrame.contentImageViewFrame;
-        WBPhoto *photo=[status.pic_urls firstObject];
-        [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.contentPhotosView.frame=statusFrame.contentPhotosViewFrame;
+        self.contentPhotosView.photos=status.pic_urls;
     }else{
-        self.contentImageView.hidden=YES;
+        self.contentPhotosView.hidden=YES;
     }
     
     
@@ -243,19 +257,17 @@
         
         /** 转发微博正文 + 昵称 */
         self.retweetContentLabel.frame=statusFrame.retweetContentLabelFrame;
-        self.retweetContentLabel.font=WbStatusRetweetContentLabelFont;
         NSString *content=[NSString stringWithFormat:@"@%@:%@",retweet.user.name,retweet.text];
         self.retweetContentLabel.text=content;
         
         /** 转发微博图片 */
         if (retweet.pic_urls.count) {
-            self.retweetContentImageView.hidden=NO;
+            self.retweetContentPhotosView.hidden=NO;
             
-            self.retweetContentImageView.frame=statusFrame.retweetContentImageViewFrame;
-            WBPhoto *photo=[retweet.pic_urls firstObject];
-            [self.retweetContentImageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.retweetContentPhotosView.frame=statusFrame.retweetContentPhotosViewFrame;
+            self.retweetContentPhotosView.photos=retweet.pic_urls;
         }else{
-            self.retweetContentImageView.hidden=YES;
+            self.retweetContentPhotosView.hidden=YES;
         }
         
     }else{
@@ -264,6 +276,7 @@
     
     /**工具条*/
     self.toolBarView.frame=statusFrame.toolBarViewFrame;
+    self.toolBarView.status=status;  //设置工具条
     
 }
 

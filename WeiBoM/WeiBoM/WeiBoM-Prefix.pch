@@ -20,6 +20,8 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIButton+WBButton.h"
 #import "UIWindow+Extension.h"
+#import "NSDate+Extension.h"
+#import "NSString+Extension.h"
 
 #ifdef DEBUG // 处于开发阶段
 #define WBLOG(...) NSLog(__VA_ARGS__)

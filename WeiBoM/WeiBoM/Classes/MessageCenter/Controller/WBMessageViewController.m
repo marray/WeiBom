@@ -19,7 +19,7 @@
     
     self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"写私信" style:0 target:nil action:nil];
     
-    self.navigationItem.rightBarButtonItem.enabled=NO;
+    self.navigationItem.rightBarButtonItem.enabled=YES;
 }
 
 

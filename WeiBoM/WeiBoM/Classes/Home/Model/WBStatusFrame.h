@@ -11,13 +11,17 @@
 //昵称字体
 #define WbStatusNameLabelFont [UIFont systemFontOfSize:14]
 //发布时间字体
-#define WbStatusTimeLabelFont [UIFont systemFontOfSize:12]
+#define WbStatusTimeLabelFont [UIFont systemFontOfSize:11]
 //发布来源字体
 #define WbStatusSourceLabelFont WbStatusTimeLabelFont
 //原创正文字体
 #define WbStatusContentLabelFont [UIFont systemFontOfSize:13]
 //转发正文字体
 #define WbStatusRetweetContentLabelFont WbStatusContentLabelFont
+//cell之间的间距
+#define WBStautsCellMargin 10
+//边距
+#define WBStautsCellBoundsW 10
 
 @class WBStatus;
 
@@ -47,7 +51,7 @@
 @property(nonatomic,assign) CGRect contentLabelFrame;
 
 /**原创微博图片*/
-@property(nonatomic,assign) CGRect contentImageViewFrame;
+@property(nonatomic,assign) CGRect contentPhotosViewFrame;
 
 
 /** 转发微博整体 */
@@ -57,7 +61,7 @@
 @property(nonatomic,assign) CGRect retweetContentLabelFrame;
 
 /** 转发微博图片 */
-@property(nonatomic,assign) CGRect retweetContentImageViewFrame;
+@property(nonatomic,assign) CGRect retweetContentPhotosViewFrame;
 
 
 /** 工具条 */

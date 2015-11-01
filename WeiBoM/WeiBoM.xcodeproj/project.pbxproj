@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C0053DC1BDA088F002EDB45 /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053DB1BDA088F002EDB45 /* WBPhoto.m */; settings = {ASSET_TAGS = (); }; };
+		4C0053DC1BDA088F002EDB45 /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053DB1BDA088F002EDB45 /* WBPhoto.m */; };
+		4C0053DF1BDF283C002EDB45 /* WBStatusToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053DE1BDF283C002EDB45 /* WBStatusToolBar.m */; };
+		4C0053E21BDF8378002EDB45 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */; };
+		4C0053E51BE0787C002EDB45 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053E41BE0787C002EDB45 /* NSString+Extension.m */; };
+		4C0053E81BE0AFD3002EDB45 /* WBStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053E71BE0AFD3002EDB45 /* WBStatusPhotosView.m */; };
+		4C0053EB1BE21DBF002EDB45 /* WBStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053EA1BE21DBF002EDB45 /* WBStatusPhotoView.m */; };
+		4C0053EE1BE22B67002EDB45 /* WBIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053ED1BE22B67002EDB45 /* WBIconView.m */; };
+		4C0053F31BE34190002EDB45 /* WBComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0053F21BE34190002EDB45 /* WBComposeViewController.m */; };
+		4C0956551BE35BD500160DDD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0956541BE35BD500160DDD /* UIKit.framework */; };
 		4C1043D91BCE2587007F22D6 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043D81BCE2587007F22D6 /* WBTabBar.m */; };
 		4C1043DE1BCE6786007F22D6 /* WBNewFeatrueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043DD1BCE6786007F22D6 /* WBNewFeatrueViewController.m */; };
 		4C1043E11BCF9E37007F22D6 /* UIButton+WBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1043E01BCF9E37007F22D6 /* UIButton+WBButton.m */; };
@@ -96,6 +104,21 @@
 /* Begin PBXFileReference section */
 		4C0053DA1BDA088F002EDB45 /* WBPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhoto.h; sourceTree = "<group>"; };
 		4C0053DB1BDA088F002EDB45 /* WBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhoto.m; sourceTree = "<group>"; };
+		4C0053DD1BDF283C002EDB45 /* WBStatusToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusToolBar.h; sourceTree = "<group>"; };
+		4C0053DE1BDF283C002EDB45 /* WBStatusToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusToolBar.m; sourceTree = "<group>"; };
+		4C0053E01BDF8378002EDB45 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		4C0053E31BE0787C002EDB45 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		4C0053E41BE0787C002EDB45 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		4C0053E61BE0AFD3002EDB45 /* WBStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusPhotosView.h; sourceTree = "<group>"; };
+		4C0053E71BE0AFD3002EDB45 /* WBStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusPhotosView.m; sourceTree = "<group>"; };
+		4C0053E91BE21DBF002EDB45 /* WBStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusPhotoView.h; sourceTree = "<group>"; };
+		4C0053EA1BE21DBF002EDB45 /* WBStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusPhotoView.m; sourceTree = "<group>"; };
+		4C0053EC1BE22B67002EDB45 /* WBIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBIconView.h; sourceTree = "<group>"; };
+		4C0053ED1BE22B67002EDB45 /* WBIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBIconView.m; sourceTree = "<group>"; };
+		4C0053F11BE34190002EDB45 /* WBComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBComposeViewController.h; sourceTree = "<group>"; };
+		4C0053F21BE34190002EDB45 /* WBComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBComposeViewController.m; sourceTree = "<group>"; };
+		4C0956541BE35BD500160DDD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4C1043D71BCE2587007F22D6 /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
 		4C1043D81BCE2587007F22D6 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
 		4C1043DC1BCE6786007F22D6 /* WBNewFeatrueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBNewFeatrueViewController.h; sourceTree = "<group>"; };
@@ -249,6 +272,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0956551BE35BD500160DDD /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +286,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C0053EF1BE34149002EDB45 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				4C0053F01BE34149002EDB45 /* Controller */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		4C0053F01BE34149002EDB45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4C0053F11BE34190002EDB45 /* WBComposeViewController.h */,
+				4C0053F21BE34190002EDB45 /* WBComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		4C1043DA1BCE673F007F22D6 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +323,7 @@
 		4C1272FA1B78B37D00C4B970 = {
 			isa = PBXGroup;
 			children = (
+				4C0956541BE35BD500160DDD /* UIKit.framework */,
 				4C1273051B78B37D00C4B970 /* WeiBoM */,
 				4C12731F1B78B37E00C4B970 /* WeiBoMTests */,
 				4C1273041B78B37D00C4B970 /* Products */,
@@ -411,6 +453,7 @@
 		4C7ED45E1B79E30300633581 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C0053EF1BE34149002EDB45 /* Compose */,
 				4C3C43481BD0FB25006FAAEB /* OAuth */,
 				4C1043DA1BCE673F007F22D6 /* NewFeature */,
 				4CA078001BCB8EE500008320 /* Main */,
@@ -432,6 +475,8 @@
 				4C99B7F91BCCF33300287B95 /* WBDropDownMenu.m */,
 				4C1043D71BCE2587007F22D6 /* WBTabBar.h */,
 				4C1043D81BCE2587007F22D6 /* WBTabBar.m */,
+				4C0053EC1BE22B67002EDB45 /* WBIconView.h */,
+				4C0053ED1BE22B67002EDB45 /* WBIconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +493,12 @@
 				4C2432191BD6549E00E66841 /* WBLoadDataFooter.xib */,
 				4CF47A9E1BD8BC9100CA18E6 /* WBStatusCell.h */,
 				4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */,
+				4C0053DD1BDF283C002EDB45 /* WBStatusToolBar.h */,
+				4C0053DE1BDF283C002EDB45 /* WBStatusToolBar.m */,
+				4C0053E61BE0AFD3002EDB45 /* WBStatusPhotosView.h */,
+				4C0053E71BE0AFD3002EDB45 /* WBStatusPhotosView.m */,
+				4C0053E91BE21DBF002EDB45 /* WBStatusPhotoView.h */,
+				4C0053EA1BE21DBF002EDB45 /* WBStatusPhotoView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,6 +528,10 @@
 				4C1043E01BCF9E37007F22D6 /* UIButton+WBButton.m */,
 				DE3FB98B1BD3C4BE00246EB9 /* UIWindow+Extension.h */,
 				DE3FB98C1BD3C4BE00246EB9 /* UIWindow+Extension.m */,
+				4C0053E01BDF8378002EDB45 /* NSDate+Extension.h */,
+				4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */,
+				4C0053E31BE0787C002EDB45 /* NSString+Extension.h */,
+				4C0053E41BE0787C002EDB45 /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -786,6 +841,7 @@
 				TargetAttributes = {
 					4C1273021B78B37D00C4B970 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = YMUY3ZLRDR;
 					};
 					4C12731B1B78B37D00C4B970 = {
 						CreatedOnToolsVersion = 6.2;
@@ -843,7 +899,9 @@
 				4C24320F1BD5F02600E66841 /* MJMember.m in Sources */,
 				4C193F9A1BD5E4E800A1367D /* WBStatus.m in Sources */,
 				DE3FB9801BD38A2A00246EB9 /* MBProgressHUD+MJ.m in Sources */,
+				4C0053EE1BE22B67002EDB45 /* WBIconView.m in Sources */,
 				4CF47AA01BD8BC9100CA18E6 /* WBStatusCell.m in Sources */,
+				4C0053E51BE0787C002EDB45 /* NSString+Extension.m in Sources */,
 				4CA078421BCB967800008320 /* UIBarButtonItem+Extension.m in Sources */,
 				4CA0783E1BCB8EE500008320 /* WBMessageViewController.m in Sources */,
 				4C99B7FA1BCCF33300287B95 /* WBDropDownMenu.m in Sources */,
@@ -863,12 +921,15 @@
 				4CF53D7B1BD5D46800D1895A /* SDWebImageDecoder.m in Sources */,
 				4C2432181BD6547000E66841 /* WBLoadDataFooter.m in Sources */,
 				4CA078371BCB8EE500008320 /* main.m in Sources */,
+				4C0053EB1BE21DBF002EDB45 /* WBStatusPhotoView.m in Sources */,
 				4C1043E11BCF9E37007F22D6 /* UIButton+WBButton.m in Sources */,
 				4C2432131BD5F02600E66841 /* NSObject+MJCoding.m in Sources */,
 				4CA078331BCB8EE500008320 /* UIView+Extension.m in Sources */,
+				4C0053E81BE0AFD3002EDB45 /* WBStatusPhotosView.m in Sources */,
 				4CA0783A1BCB8EE500008320 /* WBTest2ViewController.m in Sources */,
 				4CF53D831BD5D46800D1895A /* UIImage+WebP.m in Sources */,
 				DE3FB98A1BD39A0300246EB9 /* WBAccountManager.m in Sources */,
+				4C0053F31BE34190002EDB45 /* WBComposeViewController.m in Sources */,
 				4CF53D7D1BD5D46800D1895A /* SDWebImageDownloaderOperation.m in Sources */,
 				4C99B7F71BCCAE1E00287B95 /* WBSearchBar.m in Sources */,
 				4CF53D771BD5D46800D1895A /* MKAnnotationView+WebCache.m in Sources */,
@@ -895,10 +956,12 @@
 				4C3C43671BD0FCB6006FAAEB /* AFURLRequestSerialization.m in Sources */,
 				4CA0783F1BCB8EE500008320 /* WBHomeViewController.m in Sources */,
 				4CA078351BCB8EE500008320 /* WBTabBarViewController.m in Sources */,
+				4C0053E21BDF8378002EDB45 /* NSDate+Extension.m in Sources */,
 				4CF53D7C1BD5D46800D1895A /* SDWebImageDownloader.m in Sources */,
 				4CA078361BCB8EE500008320 /* AppDelegate.m in Sources */,
 				4CF53D811BD5D46800D1895A /* UIImage+GIF.m in Sources */,
 				4C0053DC1BDA088F002EDB45 /* WBPhoto.m in Sources */,
+				4C0053DF1BDF283C002EDB45 /* WBStatusToolBar.m in Sources */,
 				DE3FB9861BD38A7500246EB9 /* WBAccount.m in Sources */,
 				4CF53D791BD5D46800D1895A /* SDImageCache.m in Sources */,
 				4CF53D781BD5D46800D1895A /* NSData+ImageContentType.m in Sources */,
@@ -1010,12 +1073,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WeiBoM/WeiBoM-Prefix.pch";
 				INFOPLIST_FILE = WeiBoM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1025,12 +1091,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WeiBoM/WeiBoM-Prefix.pch";
 				INFOPLIST_FILE = WeiBoM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
