@@ -14,6 +14,6 @@
 /**
  *   根据图片数计算总体的尺寸
  */
-+(CGSize)sizeWithCount:(int)count;
++(CGSize)sizeWithCount:(NSUInteger)count;
 
 @end

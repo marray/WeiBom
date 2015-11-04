@@ -53,9 +53,9 @@
     if(self){
         self.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_card_bottom_background"]];
         
-        self.retweetBtn=[self getBarButton:@"转发" image:@"timeline_icon_retweet"];
-        self.commentBtn=[self getBarButton:@"评论" image:@"timeline_icon_comment"];
-        self.atitudeBtn=[self getBarButton:@"赞" image:@"timeline_icon_unlike"];
+        self.retweetBtn=[self getBarButton:@"转发" image:@"timeline_icon_retweet" type:WBStatusToolBarButtonTypeRetweet];
+        self.commentBtn=[self getBarButton:@"评论" image:@"timeline_icon_comment" type:WBStatusToolBarButtonTypeComment];
+        self.atitudeBtn=[self getBarButton:@"赞" image:@"timeline_icon_unlike" type:WBStatusToolBarButtonTypeAtitude];
         
         [self addCardLine];
         [self addCardLine];
@@ -79,7 +79,7 @@
  *  @param title 按钮文字
  *  @param image 按钮图片
  */
--(UIButton *)getBarButton:(NSString *)title image:(NSString *)image
+-(UIButton *)getBarButton:(NSString *)title image:(NSString *)image type:(WBStatusToolBarButtonType)type
 {
     UIButton *btn=[[UIButton alloc] init];
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
@@ -88,6 +88,8 @@
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setTitleColor:WBColor(137, 137, 137) forState:UIControlStateNormal];
     btn.titleLabel.font=[UIFont systemFontOfSize:12];
+    btn.tag=type;
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
     
     [self.btns addObject:btn];
@@ -147,6 +149,11 @@
     
 }
 
+
+-(void)btnClick:(UIButton *)btn
+{
+    
+}
 
 
 @end

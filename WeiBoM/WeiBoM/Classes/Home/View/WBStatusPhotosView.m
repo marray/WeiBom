@@ -76,13 +76,13 @@
  *
  *  @return 返回尺寸
  */
-+(CGSize)sizeWithCount:(int)count
++(CGSize)sizeWithCount:(NSUInteger)count
 {
     int maxCol=WBStatusPhotosMaxCol(count);
     //列数
-    int col=count >= maxCol ? maxCol : count;
+    NSUInteger col=count >= maxCol ? maxCol : count;
     //行数
-    int row=(count + maxCol - 1) / maxCol;  //行数（页数）计算规律
+    NSUInteger row=(count + maxCol - 1) / maxCol;  //行数（页数）计算规律
     
     CGFloat photosH=row * WBStatusPhotosWH + (row - 1) * WBStatusPhotosB;
     CGFloat photosW=col * WBStatusPhotosWH + (col - 1) * WBStatusPhotosB;

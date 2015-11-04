@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 @class WBStatus;
 
+typedef enum {
+    WBStatusToolBarButtonTypeRetweet,  //转发
+    WBStatusToolBarButtonTypeComment,  //评论
+    WBStatusToolBarButtonTypeAtitude   //点赞
+}WBStatusToolBarButtonType;
+
 @interface WBStatusToolBar : UIView
 +(instancetype)toolbar;
 
