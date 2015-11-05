@@ -8,6 +8,10 @@
 
 #import "WBComposeToolBar.h"
 
+@interface WBComposeToolBar ()
+@property(nonatomic,weak) UIButton *emotionBtn;
+@end
+
 @implementation WBComposeToolBar
 
 -(instancetype)initWithFrame:(CGRect)frame
@@ -20,7 +24,7 @@
         [self buttonWithImage:@"compose_toolbar_picture" highImage:@"compose_toolbar_picture_highlighted" buttonType:composeToolBarButtonTypePicture];
         [self buttonWithImage:@"compose_mentionbutton_background" highImage:@"compose_mentionbutton_background_highlighted" buttonType:composeToolBarButtonTypeMention];
         [self buttonWithImage:@"compose_trendbutton_background" highImage:@"compose_trendbutton_background_highlighted" buttonType:composeToolBarButtonTypeTrend];
-        [self buttonWithImage:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" buttonType:composeToolBarButtonTypeEmotion];
+        self.emotionBtn=[self buttonWithImage:@"compose_emoticonbutton_background" highImage:@"compose_emoticonbutton_background_highlighted" buttonType:composeToolBarButtonTypeEmotion];
     }
     return self;
 }
@@ -28,7 +32,7 @@
 /**
  *创建一个按钮
  */
--(void)buttonWithImage:(NSString *)image highImage:(NSString *)highImage buttonType:(composeToolBarButtonType)type
+-(UIButton *)buttonWithImage:(NSString *)image highImage:(NSString *)highImage buttonType:(composeToolBarButtonType)type
 {
     UIButton *btn=[[UIButton alloc] init];
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
@@ -36,6 +40,7 @@
     [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     btn.tag=type;
     [self addSubview:btn];
+    return btn;
 }
 
 
@@ -61,6 +66,21 @@
     
     if ([self.delegate respondsToSelector:@selector(composeToolBar:buttonDidClick:)]) {
         [self.delegate composeToolBar:self buttonDidClick:btn.tag];
+    }
+}
+
+-(void)setIsChangeKeyborad:(BOOL)isChangeKeyborad
+{
+    _isChangeKeyborad=isChangeKeyborad;
+    
+    if (isChangeKeyborad) {
+        //键盘图片
+        [self.emotionBtn setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+        [self.emotionBtn setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    }else{
+        //表情图片
+        [self.emotionBtn setImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] forState:UIControlStateNormal];
+        [self.emotionBtn setImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] forState:UIControlStateHighlighted];
     }
 }
 

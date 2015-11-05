@@ -13,14 +13,29 @@
 #import "MBProgressHUD+MJ.h"
 #import "WBComposeToolBar.h"
 #import "WBComposePhotosView.h"
+#import "WBComposeKeyboradView.h"
 
 @interface WBComposeViewController ()<UITextViewDelegate,WBComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property(nonatomic,weak) WBTextView *textView;
 @property(nonatomic,weak) WBComposeToolBar *toolbar;
 @property(nonatomic,weak) WBComposePhotosView *photosView;
+@property(nonatomic,assign) BOOL isSwitchKeyborad;
+@property(nonatomic,strong) WBComposeKeyboradView *keyboradView;
+
 @end
 
 @implementation WBComposeViewController
+
+-(WBComposeKeyboradView *)keyboradView
+{
+    if (!_keyboradView) {
+        WBComposeKeyboradView *keyboradView=[[WBComposeKeyboradView alloc] init];
+        keyboradView.width=self.view.width;
+        keyboradView.height=216;
+        self.keyboradView=keyboradView;
+    }
+    return _keyboradView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -99,7 +114,7 @@
     [WBNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
     //键盘frame改变的通知
     [WBNotificationCenter addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
+
 }
 
 /**
@@ -211,11 +226,8 @@
 
 -(void)keyboardChange:(NSNotification *)notification
 {
-    /**
-     UIKeyboardFrameEndUserInfoKey = NSRect: {{0, 315}, {320, 253}},
-     UIKeyboardAnimationDurationUserInfoKey = 0.25,
-     UIKeyboardAnimationCurveUserInfoKey = 7
-     */
+    if (self.isSwitchKeyborad) return;
+    
     NSDictionary *useInfo=notification.userInfo;
     double duration=[useInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     CGRect kayboardFrame=[useInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -266,6 +278,27 @@
 
 -(void)openEmotion
 {
+    if (self.textView.inputView==nil) {
+        //显示表情
+        self.textView.inputView=self.keyboradView;  //创建一次
+        self.toolbar.isChangeKeyborad=YES;
+    }else{
+        //显示键盘
+        self.textView.inputView=nil;
+        self.toolbar.isChangeKeyborad=NO;
+    }
+    
+    self.isSwitchKeyborad=YES;
+    
+    //键盘退下
+    [self.textView endEditing:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //键盘弹出
+        [self.textView becomeFirstResponder];
+    });
+    
+    self.isSwitchKeyborad=NO;
     
 }
 

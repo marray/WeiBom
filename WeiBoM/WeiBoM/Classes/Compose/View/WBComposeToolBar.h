@@ -27,4 +27,6 @@ typedef enum{
 
 @property(nonatomic,strong) id<WBComposeToolBarDelegate> delegate;
 
+@property(nonatomic,assign) BOOL isChangeKeyborad;
+
 @end
