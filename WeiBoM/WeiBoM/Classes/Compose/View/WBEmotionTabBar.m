@@ -49,10 +49,6 @@
         [btn setBackgroundImage:[UIImage imageNamed:@"compose_emotion_table_mid_selected"] forState:UIControlStateDisabled];
 
     }
-    if (type==WBEmotionTabBarButtonTypeDefault) {
-        self.selectedBtn=btn;
-        [self btnClick:self.selectedBtn];
-    }
     return btn;
 }
 
@@ -71,6 +67,14 @@
         btn.width=btnW;
         btn.height=btnH;
     }
+}
+
+//重写setDelegate方法 ，在设置delegate时将默认选中按钮设置好
+-(void)setDelegate:(id<WBEmotionTabBarDelegate>)delegate
+{
+    _delegate=delegate;
+    
+    [self btnClick:(WBComposeEmotionTabBarButton *)[self viewWithTag:WBEmotionTabBarButtonTypeDefault]];
 }
 
 -(void)btnClick:(WBComposeEmotionTabBarButton *)btn

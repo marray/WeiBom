@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WBEmotionListView : UIView
-
+/**表情数组*/
+@property(nonatomic,strong) NSArray *emotions;
 @end

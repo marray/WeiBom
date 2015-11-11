@@ -14,6 +14,7 @@
 #import "WBComposeToolBar.h"
 #import "WBComposePhotosView.h"
 #import "WBComposeKeyboradView.h"
+#import "WBEmotion.h"
 
 @interface WBComposeViewController ()<UITextViewDelegate,WBComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property(nonatomic,weak) WBTextView *textView;
@@ -115,6 +116,7 @@
     //键盘frame改变的通知
     [WBNotificationCenter addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 
+    [WBNotificationCenter addObserver:self selector:@selector(emotionSelected:) name:WBEmotionButtonDidSelectNotification object:nil];
 }
 
 /**
@@ -165,6 +167,45 @@
         [self sendWithoutImage];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)emotionSelected:(NSNotification *)notification
+{
+    WBEmotion *emotion=notification.userInfo[emotionSelectedKey];
+    
+    if (emotion.code) {  //Emoji表情
+        [self.textView insertText:emotion.code.emoji];
+    }else if(emotion.png){  //图片表情
+        
+        //之前文字附加
+        NSMutableAttributedString *attrStr=[[NSMutableAttributedString alloc] init];
+        [attrStr appendAttributedString:self.textView.attributedText];
+        
+        //图片表情附加
+        NSTextAttachment *attach=[[NSTextAttachment alloc] init];
+        attach.image=[UIImage imageNamed:emotion.png];
+        //设置图片插入的大小
+        CGFloat lineHight=self.textView.font.lineHeight;
+        attach.bounds=CGRectMake(0, -4, lineHight, lineHight);
+        NSAttributedString *imageStr=[NSAttributedString attributedStringWithAttachment:attach];
+        
+        //插入图片表情
+        NSUInteger location=self.textView.selectedRange.location;
+        [attrStr insertAttributedString:imageStr atIndex:location];
+        
+        self.textView.attributedText=attrStr;
+        
+        //设置字体
+        [attrStr addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, attrStr.length)];
+        
+        //添加完所有字符之后，移动光标位置到刚添加的表情图片后面一个位置
+        self.textView.selectedRange=NSMakeRange(location + 1, 0);
+    }
+    
+    /**
+      * self.textView.font只对 设置text时有用，对attributedText属性没有用
+      *
+     */
 }
 
 /**
