@@ -78,6 +78,7 @@
 		4CEFCEFA1BF1FA9300E1642B /* WBEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCEF91BF1FA9300E1642B /* WBEmotionPopView.m */; };
 		4CEFCEFC1BF1FAA800E1642B /* WBEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFCEFB1BF1FAA800E1642B /* WBEmotionPopView.xib */; };
 		4CEFCEFF1BF2034B00E1642B /* WBEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCEFE1BF2034B00E1642B /* WBEmotionButton.m */; };
+		4CEFCF021BF43A7C00E1642B /* WBEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCF011BF43A7C00E1642B /* WBEmotionTextView.m */; };
 		4CF47AA01BD8BC9100CA18E6 /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */; };
 		4CF47AA31BD8C13F00CA18E6 /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF47AA21BD8C13F00CA18E6 /* WBStatusFrame.m */; };
 		4CF53D771BD5D46800D1895A /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF53D571BD5D46800D1895A /* MKAnnotationView+WebCache.m */; };
@@ -255,6 +256,8 @@
 		4CEFCEFB1BF1FAA800E1642B /* WBEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBEmotionPopView.xib; sourceTree = "<group>"; };
 		4CEFCEFD1BF2034B00E1642B /* WBEmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionButton.h; sourceTree = "<group>"; };
 		4CEFCEFE1BF2034B00E1642B /* WBEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionButton.m; sourceTree = "<group>"; };
+		4CEFCF001BF43A7C00E1642B /* WBEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionTextView.h; sourceTree = "<group>"; };
+		4CEFCF011BF43A7C00E1642B /* WBEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionTextView.m; sourceTree = "<group>"; };
 		4CF47A9E1BD8BC9100CA18E6 /* WBStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusCell.h; sourceTree = "<group>"; };
 		4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusCell.m; sourceTree = "<group>"; };
 		4CF47AA11BD8C13F00CA18E6 /* WBStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusFrame.h; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				4CEFCEF81BF1FA9300E1642B /* WBEmotionPopView.h */,
 				4CEFCEF91BF1FA9300E1642B /* WBEmotionPopView.m */,
 				4CEFCEFB1BF1FAA800E1642B /* WBEmotionPopView.xib */,
+				4CEFCF001BF43A7C00E1642B /* WBEmotionTextView.h */,
+				4CEFCF011BF43A7C00E1642B /* WBEmotionTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -977,6 +982,7 @@
 			files = (
 				4C2432151BD5F02600E66841 /* NSObject+MJMember.m in Sources */,
 				4C24320F1BD5F02600E66841 /* MJMember.m in Sources */,
+				4CEFCF021BF43A7C00E1642B /* WBEmotionTextView.m in Sources */,
 				4C193F9A1BD5E4E800A1367D /* WBStatus.m in Sources */,
 				DE3FB9801BD38A2A00246EB9 /* MBProgressHUD+MJ.m in Sources */,
 				4C0053EE1BE22B67002EDB45 /* WBIconView.m in Sources */,

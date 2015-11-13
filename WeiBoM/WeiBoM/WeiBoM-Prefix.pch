@@ -40,4 +40,6 @@
 #define WBEmotionButtonDidSelectNotification @"WBEmotionButtonDidSelectNotification"
 #define emotionSelectedKey @"emotionSelectedKey"
 
+#define WBEmotionButtonDidDeleteNotification @"WBEmotionButtonDidDeleteNotification"
+
 #endif

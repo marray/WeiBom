@@ -14,7 +14,7 @@
 
 @interface WBEmotionPageView ()
 @property(nonatomic,strong) WBEmotionPopView *popView;
-
+@property(nonatomic,weak) UIButton *deleteBtn;
 @end
 
 @implementation WBEmotionPageView
@@ -27,6 +27,20 @@
     return _popView;
 }
 
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    self=[super initWithFrame:frame];
+    if (self) {
+        UIButton *deleteBtn=[[UIButton alloc] init];
+        [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        [deleteBtn addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:deleteBtn];
+        self.deleteBtn=deleteBtn;
+    }
+    return self;
+}
+
 -(void)setEmotions:(NSArray *)emotions
 {
     _emotions=emotions;
@@ -37,10 +51,6 @@
         [iconBtn addTarget:self action:@selector(iconBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:iconBtn];
     }
-//    UIButton *deleteBtn=[[UIButton alloc] init];
-//    [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
-//    [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
-//    [self addSubview:deleteBtn];
 
 }
 
@@ -54,18 +64,23 @@
     CGFloat iconBtnH=(self.height - marginBounds) / WBEmotionMaxRows;
     
     for (int i=0; i< self.emotions.count; i++) {
-        WBEmotionButton *iconBtn=self.subviews[i];
+        WBEmotionButton *iconBtn=self.subviews[i + 1];
         iconBtn.x=i % WBEmotionMaxCols * iconBtnW + marginBounds;
         iconBtn.y=i / WBEmotionMaxCols * iconBtnH + marginBounds;
         iconBtn.width=iconBtnW;
         iconBtn.height=iconBtnH;
     }
-//    UIButton *deleteBtn=[self.subviews lastObject];
-//    deleteBtn.x=self.width - (iconBtnW + marginBounds);
-//    deleteBtn.y=2 * iconBtnH +marginBounds;
-//    deleteBtn.width=iconBtnW;
-//    deleteBtn.height=iconBtnH;
+    self.deleteBtn.x=self.width - (iconBtnW + marginBounds);
+    self.deleteBtn.y=2 * iconBtnH +marginBounds;
+    self.deleteBtn.width=iconBtnW;
+    self.deleteBtn.height=iconBtnH;
 
+}
+
+/**监听删除按钮点击*/
+-(void)deleteClick
+{
+    [WBNotificationCenter postNotificationName:WBEmotionButtonDidDeleteNotification object:nil];
 }
 
 -(void)iconBtnClick:(WBEmotionButton *)button

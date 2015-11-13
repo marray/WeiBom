@@ -8,16 +8,16 @@
 
 #import "WBComposeViewController.h"
 #import "WBAccountManager.h"
-#import "WBTextView.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "WBComposeToolBar.h"
 #import "WBComposePhotosView.h"
 #import "WBComposeKeyboradView.h"
 #import "WBEmotion.h"
+#import "WBEmotionTextView.h"
 
 @interface WBComposeViewController ()<UITextViewDelegate,WBComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
-@property(nonatomic,weak) WBTextView *textView;
+@property(nonatomic,weak) WBEmotionTextView *textView;
 @property(nonatomic,weak) WBComposeToolBar *toolbar;
 @property(nonatomic,weak) WBComposePhotosView *photosView;
 @property(nonatomic,assign) BOOL isSwitchKeyborad;
@@ -100,7 +100,7 @@
  */
 -(void)setTextView
 {
-    WBTextView *textView=[[WBTextView alloc] init];
+    WBEmotionTextView *textView=[[WBEmotionTextView alloc] init];
     textView.frame=self.view.bounds;
     textView.font=[UIFont systemFontOfSize:14];
     textView.alwaysBounceVertical=YES;
@@ -115,8 +115,10 @@
     [WBNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
     //键盘frame改变的通知
     [WBNotificationCenter addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-
+    //表情选择的通知
     [WBNotificationCenter addObserver:self selector:@selector(emotionSelected:) name:WBEmotionButtonDidSelectNotification object:nil];
+    //文字删除的通知
+    [WBNotificationCenter addObserver:self selector:@selector(emotionDeleted) name:WBEmotionButtonDidDeleteNotification object:nil];
 }
 
 /**
@@ -169,43 +171,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/**
+ * 监听文字删除的事件
+ */
+-(void)emotionDeleted
+{
+    [self.textView deleteBackward];
+}
+
+/**
+  * 监听表情按钮点击后插入到TextView文字中的事件
+ */
 -(void)emotionSelected:(NSNotification *)notification
 {
     WBEmotion *emotion=notification.userInfo[emotionSelectedKey];
     
-    if (emotion.code) {  //Emoji表情
-        [self.textView insertText:emotion.code.emoji];
-    }else if(emotion.png){  //图片表情
-        
-        //之前文字附加
-        NSMutableAttributedString *attrStr=[[NSMutableAttributedString alloc] init];
-        [attrStr appendAttributedString:self.textView.attributedText];
-        
-        //图片表情附加
-        NSTextAttachment *attach=[[NSTextAttachment alloc] init];
-        attach.image=[UIImage imageNamed:emotion.png];
-        //设置图片插入的大小
-        CGFloat lineHight=self.textView.font.lineHeight;
-        attach.bounds=CGRectMake(0, -4, lineHight, lineHight);
-        NSAttributedString *imageStr=[NSAttributedString attributedStringWithAttachment:attach];
-        
-        //插入图片表情
-        NSUInteger location=self.textView.selectedRange.location;
-        [attrStr insertAttributedString:imageStr atIndex:location];
-        
-        self.textView.attributedText=attrStr;
-        
-        //设置字体
-        [attrStr addAttribute:NSFontAttributeName value:self.textView.font range:NSMakeRange(0, attrStr.length)];
-        
-        //添加完所有字符之后，移动光标位置到刚添加的表情图片后面一个位置
-        self.textView.selectedRange=NSMakeRange(location + 1, 0);
-    }
-    
-    /**
-      * self.textView.font只对 设置text时有用，对attributedText属性没有用
-      *
-     */
+    [self.textView insertTextEmotion:emotion];
 }
 
 /**
