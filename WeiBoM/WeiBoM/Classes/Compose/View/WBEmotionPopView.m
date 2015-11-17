@@ -20,11 +20,23 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"WBEmotionPopView" owner:nil options:nil] lastObject];
 }
 
--(void)setEmotion:(WBEmotion *)emotion
+
+-(void)showPopViewWithButton:(WBEmotionButton *)button
 {
-    _emotion=emotion;
+    if (button == nil) return;
+        
+    //添加表情放大界面显示数据源
+    self.emotionButton.emotion=button.emotion;
     
-    self.emotionButton.emotion=emotion;
+    //添加点击表情放大效果
+    UIWindow *window=[[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self];  //相对于最外层的window的尺寸
+    //转换坐标系
+    CGRect btnFrame=[button convertRect:button.bounds toView:nil];
+    
+    //设置表情放大显示位置
+    self.centerX=CGRectGetMidX(btnFrame);
+    self.y=CGRectGetMidY(btnFrame)-self.height;
 }
 
 

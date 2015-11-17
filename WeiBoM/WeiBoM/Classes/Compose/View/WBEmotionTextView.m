@@ -27,27 +27,15 @@
         attach.bounds=CGRectMake(0, -4, lineHight, lineHight);
         NSAttributedString *imageStr=[NSAttributedString attributedStringWithAttachment:attach];
         
-        //之前文字附加
-        NSMutableAttributedString *attrStr=[[NSMutableAttributedString alloc] init];
-        [attrStr appendAttributedString:self.attributedText];
+//        [self insertAttributedText:imageStr];
+        [self insertAttributedText:imageStr withBlock:^(NSMutableAttributedString *lastAtrStr) {
+            //设置字体
+            [lastAtrStr addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, lastAtrStr.length)];
+        }];
         
-        //插入图片表情
-        NSUInteger location=self.selectedRange.location;
-        [attrStr insertAttributedString:imageStr atIndex:location];
-        
-        //设置字体
-        [attrStr addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrStr.length)];
-        
-        self.attributedText=attrStr;
-        
-        //添加完所有字符之后，移动光标位置到刚添加的表情图片后面一个位置
-        self.selectedRange=NSMakeRange(location + 1, 0);
     }
     
-    /**
-     * self.textView.font只对 设置text时有用，对attributedText属性没有用
-     *
-     */
+    
 }
 
 @end

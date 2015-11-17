@@ -11,6 +11,7 @@
 #import "WBEmotion.h"
 #import "WBEmotionPopView.h"
 #import "WBEmotionButton.h"
+#import "WBEmotionTool.h"
 
 @interface WBEmotionPageView ()
 @property(nonatomic,strong) WBEmotionPopView *popView;
@@ -37,6 +38,8 @@
         [deleteBtn addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:deleteBtn];
         self.deleteBtn=deleteBtn;
+        
+        [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)]];
     }
     return self;
 }
@@ -77,6 +80,52 @@
 
 }
 
+/**
+ * 根据手势位置获取按钮
+ */
+-(WBEmotionButton *)buttonWithRecognizeLocation:(CGPoint)location
+{
+    for (int i=0; i< self.emotions.count; i++) {
+        WBEmotionButton *iconBtn=self.subviews[i + 1];
+        if (CGRectContainsPoint(iconBtn.frame, location)) {
+            return iconBtn;
+        }
+    }
+    return nil;
+}
+
+-(void)longPressGesture:(UIGestureRecognizer *)recognizer
+{
+    //获取手势位置
+    CGPoint location=[recognizer locationInView:recognizer.view];
+    //获取手势位置所在按钮
+    WBEmotionButton *button=[self buttonWithRecognizeLocation:location];
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateChanged:
+            //显示popView
+            [self.popView showPopViewWithButton:button];
+            
+            break;
+            
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:{
+            //手指松开后从界面上移除popView
+            [self.popView removeFromSuperview];
+            
+            if (button) {
+                //发出点击通知
+                [self postNotificationWithEmotion:button.emotion];
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
 /**监听删除按钮点击*/
 -(void)deleteClick
 {
@@ -85,28 +134,31 @@
 
 -(void)iconBtnClick:(WBEmotionButton *)button
 {
-    //添加表情放大界面显示数据源
-    self.popView.emotion=button.emotion;
+    //显示popView
+    [self.popView showPopViewWithButton:button];
     
-    //添加点击表情放大效果
-    UIWindow *window=[[UIApplication sharedApplication].windows lastObject];
-    [window addSubview:self.popView];  //相对于最外层的window的尺寸
-    //转换坐标系
-    CGRect btnFrame=[button convertRect:button.bounds toView:nil];
-    
-    //设置表情放大显示位置
-    self.popView.centerX=CGRectGetMidX(btnFrame);
-    self.popView.y=CGRectGetMidY(btnFrame)-self.popView.height;
-    
+    //延迟一段时间移除popview
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.popView removeFromSuperview];
     });
     
     //发出点击按钮的通知
-    NSMutableDictionary *useInfo=[NSMutableDictionary dictionary];
-    useInfo[emotionSelectedKey]=button.emotion;
-    [WBNotificationCenter postNotificationName:WBEmotionButtonDidSelectNotification object:nil userInfo:useInfo];
+    [self postNotificationWithEmotion:button.emotion];
     
+}
+
+/**
+ * 拿到表情模型 发出通知
+ */
+-(void)postNotificationWithEmotion:(WBEmotion *)emotion
+{
+    //点击的按钮存入沙盒 为最近使用的表情
+    [WBEmotionTool saveRecentEmotion:emotion];
+    
+    //发出点击按钮的通知
+    NSMutableDictionary *useInfo=[NSMutableDictionary dictionary];
+    useInfo[emotionSelectedKey]=emotion;
+    [WBNotificationCenter postNotificationName:WBEmotionButtonDidSelectNotification object:nil userInfo:useInfo];
 }
 
 @end

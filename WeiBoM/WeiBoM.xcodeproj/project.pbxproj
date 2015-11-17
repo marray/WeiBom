@@ -79,6 +79,8 @@
 		4CEFCEFC1BF1FAA800E1642B /* WBEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFCEFB1BF1FAA800E1642B /* WBEmotionPopView.xib */; };
 		4CEFCEFF1BF2034B00E1642B /* WBEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCEFE1BF2034B00E1642B /* WBEmotionButton.m */; };
 		4CEFCF021BF43A7C00E1642B /* WBEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCF011BF43A7C00E1642B /* WBEmotionTextView.m */; };
+		4CEFCF051BF9BE5600E1642B /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCF041BF9BE5600E1642B /* UITextView+Extension.m */; };
+		4CEFCF091BFB2B9900E1642B /* WBEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CEFCF081BFB2B9900E1642B /* WBEmotionTool.m */; };
 		4CF47AA01BD8BC9100CA18E6 /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */; };
 		4CF47AA31BD8C13F00CA18E6 /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF47AA21BD8C13F00CA18E6 /* WBStatusFrame.m */; };
 		4CF53D771BD5D46800D1895A /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF53D571BD5D46800D1895A /* MKAnnotationView+WebCache.m */; };
@@ -258,6 +260,10 @@
 		4CEFCEFE1BF2034B00E1642B /* WBEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionButton.m; sourceTree = "<group>"; };
 		4CEFCF001BF43A7C00E1642B /* WBEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionTextView.h; sourceTree = "<group>"; };
 		4CEFCF011BF43A7C00E1642B /* WBEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionTextView.m; sourceTree = "<group>"; };
+		4CEFCF031BF9BE5600E1642B /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
+		4CEFCF041BF9BE5600E1642B /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
+		4CEFCF071BFB2B9900E1642B /* WBEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionTool.h; sourceTree = "<group>"; };
+		4CEFCF081BFB2B9900E1642B /* WBEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionTool.m; sourceTree = "<group>"; };
 		4CF47A9E1BD8BC9100CA18E6 /* WBStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusCell.h; sourceTree = "<group>"; };
 		4CF47A9F1BD8BC9100CA18E6 /* WBStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusCell.m; sourceTree = "<group>"; };
 		4CF47AA11BD8C13F00CA18E6 /* WBStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusFrame.h; sourceTree = "<group>"; };
@@ -329,6 +335,7 @@
 		4C0053EF1BE34149002EDB45 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				4CEFCF061BFB2B7B00E1642B /* Tool */,
 				4CEFCEEE1BEC7B7600E1642B /* Model */,
 				4C09565D1BE880AB00160DDD /* View */,
 				4C0053F01BE34149002EDB45 /* Controller */,
@@ -606,6 +613,8 @@
 				4C0053E11BDF8378002EDB45 /* NSDate+Extension.m */,
 				4C0053E31BE0787C002EDB45 /* NSString+Extension.h */,
 				4C0053E41BE0787C002EDB45 /* NSString+Extension.m */,
+				4CEFCF031BF9BE5600E1642B /* UITextView+Extension.h */,
+				4CEFCF041BF9BE5600E1642B /* UITextView+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -802,6 +811,15 @@
 				4CEFCEF01BEC7BB400E1642B /* WBEmotion.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4CEFCF061BFB2B7B00E1642B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				4CEFCF071BFB2B9900E1642B /* WBEmotionTool.h */,
+				4CEFCF081BFB2B9900E1642B /* WBEmotionTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		4CF53D551BD5D46800D1895A /* SDWebImage */ = {
@@ -1020,6 +1038,7 @@
 				4CA078331BCB8EE500008320 /* UIView+Extension.m in Sources */,
 				4C0053E81BE0AFD3002EDB45 /* WBStatusPhotosView.m in Sources */,
 				4CA0783A1BCB8EE500008320 /* WBTest2ViewController.m in Sources */,
+				4CEFCF051BF9BE5600E1642B /* UITextView+Extension.m in Sources */,
 				4CF53D831BD5D46800D1895A /* UIImage+WebP.m in Sources */,
 				DE3FB98A1BD39A0300246EB9 /* WBAccountManager.m in Sources */,
 				4C0053F31BE34190002EDB45 /* WBComposeViewController.m in Sources */,
@@ -1061,6 +1080,7 @@
 				4C0053DF1BDF283C002EDB45 /* WBStatusToolBar.m in Sources */,
 				DE3FB9861BD38A7500246EB9 /* WBAccount.m in Sources */,
 				4CF53D791BD5D46800D1895A /* SDImageCache.m in Sources */,
+				4CEFCF091BFB2B9900E1642B /* WBEmotionTool.m in Sources */,
 				4CF53D781BD5D46800D1895A /* NSData+ImageContentType.m in Sources */,
 				4CEFCEF11BEC7BB400E1642B /* WBEmotion.m in Sources */,
 				4C1043DE1BCE6786007F22D6 /* WBNewFeatrueViewController.m in Sources */,

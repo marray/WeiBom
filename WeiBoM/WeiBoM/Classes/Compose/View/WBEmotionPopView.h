@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-@class WBEmotion;
+@class WBEmotion , WBEmotionButton;
+
 @interface WBEmotionPopView : UIView
 
+/**
+ * 创建一个popView对象
+ */
 +(instancetype)popView;
 
-@property(nonatomic,strong) WBEmotion *emotion;
+/**
+ * 通过一个按钮模型 显示一个popview
+ */
+-(void)showPopViewWithButton:(WBEmotionButton *)button;
 
 @end

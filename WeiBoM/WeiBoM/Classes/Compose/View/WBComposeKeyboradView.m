@@ -11,6 +11,7 @@
 #import "WBEmotionTabBar.h"
 #import "WBEmotion.h"
 #import "MJExtension.h"
+#import "WBEmotionTool.h"
 
 @interface WBComposeKeyboradView ()<WBEmotionTabBarDelegate>
 /**表情键盘上层内容*/
@@ -26,14 +27,14 @@
 
 @implementation WBComposeKeyboradView
 
--(WBEmotionListView *)recentListView
-{
-    if (!_recentListView) {
-        self.recentListView=[[WBEmotionListView alloc] init];
-        self.recentListView.backgroundColor=WBRandomColor;
-    }
-    return _recentListView;
-}
+//-(WBEmotionListView *)recentListView
+//{
+//    if (!_recentListView) {
+//        self.recentListView=[[WBEmotionListView alloc] init];
+//        self.recentListView.emotions=[WBEmotionTool recentEmotion];
+//    }
+//    return _recentListView;
+//}
 
 -(WBEmotionListView *)defaultListView
 {
@@ -119,6 +120,8 @@
     //添加要显示的界面
     switch (buttonType) {
         case WBEmotionTabBarButtonTypeRecent:  //最近
+            self.recentListView=[[WBEmotionListView alloc] init];
+            self.recentListView.emotions=[WBEmotionTool recentEmotion];
             [self.contentView addSubview:self.recentListView];
             break;
         case WBEmotionTabBarButtonTypeDefault:  //默认

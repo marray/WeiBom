@@ -35,6 +35,7 @@
         //添加pageControl
         UIPageControl *pageControl=[[UIPageControl alloc] init];
         pageControl.userInteractionEnabled=NO;  //设置不能点击
+        pageControl.hidesForSinglePage=YES;   //设置单页时隐藏pageControl
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKey:@"currentPageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKey:@"pageImage"];
         [self addSubview:pageControl];
