@@ -8,7 +8,7 @@
 #import "WBHomeViewController.h"
 #import "WBDropDownMenu.h"
 #import "WBTitleMenueViewController.h"
-#import "AFNetworking.h"
+#import "WBHttpTool.h"
 #import "WBAccountManager.h"
 #import "WBTitleButton.h"
 #import "UIImageView+WebCache.h"
@@ -18,6 +18,7 @@
 #import "WBLoadDataFooter.h"
 #import "WBStatusCell.h"
 #import "WBStatus.h"
+#import "MJRefresh.h"
 
 @interface WBHomeViewController ()<WBDropDownMenuDelegate>
 /**存每条微博的数组*/
@@ -60,15 +61,13 @@
 /**获取未读微博数 显示*/
 -(void)unReadWeiboRemind
 {
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-    
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
     params[@"uid"]=account.uid;
     
-    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *status=[responseObject[@"status"] description];  //NSNUmber 转成 NSString 用 description
+    [WBHttpTool get:@"https://rm.api.weibo.com/2/remind/unread_count.json" params:params success:^(id data) {
+        NSString *status=[data[@"status"] description];  //NSNUmber 转成 NSString 用 description
         
         if ([status isEqualToString:@"0"]) {
             self.tabBarItem.badgeValue=nil;
@@ -77,36 +76,44 @@
             self.tabBarItem.badgeValue=status;
             [UIApplication sharedApplication].applicationIconBadgeNumber=status.intValue;
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         WBLOG(@"%@",error);
     }];
-    
 }
 
 
 /** 添加上拉刷新 */
 -(void)refreshOldWeiBoData
 {
+    /**
+     *  WBLoadDataFooter *footer=[WBLoadDataFooter load];
+     *  footer.hidden=YES;
+     *  self.tableView.tableFooterView=footer;
+     */
     //添加上拉刷新代码
-    WBLoadDataFooter *footer=[WBLoadDataFooter load];
-    footer.hidden=YES;
-    self.tableView.tableFooterView=footer;
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreWeiboData)];
     
 }
 
 /** 刷新最新微博数据 */
 -(void)refreshNewWeiBoData
 {
-    //添加下拉刷新
-    UIRefreshControl *refresh=[[UIRefreshControl alloc] init];
-    [refresh addTarget:self action:@selector(refreshNewData:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refresh];
+//    //添加下拉刷新
+//    UIRefreshControl *refresh=[[UIRefreshControl alloc] init];
+//    [refresh addTarget:self action:@selector(refreshNewData:) forControlEvents:UIControlEventValueChanged];
+//    [self.tableView addSubview:refresh];
+//    
+//    /**启动时自动下拉刷新*/
+//    //刷新数据
+//    [refresh beginRefreshing];
+//    //手动刷新数据
+//    [self refreshNewData:refresh];
     
-    /**启动时自动下拉刷新*/
-    //刷新数据
-    [refresh beginRefreshing];
-    //手动刷新数据
-    [self refreshNewData:refresh];
+    //添加下拉刷新
+    [self.tableView addHeaderWithTarget:self action:@selector(refreshNewData)];
+    
+    //自动下拉
+    [self.tableView headerBeginRefreshing];
     
 }
 
@@ -126,8 +133,6 @@
 /** 加载更多微博数据*/
 -(void)loadMoreWeiboData
 {
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-    
     /** max_id	false	int64	若指定此参数，则返回ID小于或等于max_id的微博，默认为0。*/
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
@@ -138,8 +143,9 @@
         long long idstr=lastStatusFrame.status.idstr.longLongValue - 1;  //减一是因为有一条数据重复读取
         params[@"max_id"]=@(idstr);
     }
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+    
+    [WBHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id data) {
+        NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:data[@"statuses"]];
         //转换模型
         NSArray *statusFrameArray=[self statusFrameWithStatusArray:arrayStatus];
         
@@ -147,18 +153,20 @@
         
         [self.tableView reloadData];
         
-        self.tableView.tableFooterView.hidden=YES;
-       
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //结束刷新
+        [self.tableView footerEndRefreshing];
+
+    } failure:^(NSError *error) {
         WBLOG(@"%@",error);
-        self.tableView.tableFooterView.hidden=YES;
+        
+        [self.tableView footerEndRefreshing];
     }];
 }
 
+
 /** 下拉刷新新的微博数据*/
--(void)refreshNewData:(UIRefreshControl *)control
+-(void)refreshNewData
 {
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     /** since_id	false	int64	若指定此参数，则返回ID比since_id大的微博（即比since_id时间晚的微博），默认为0。*/
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
@@ -169,8 +177,8 @@
         params[@"since_id"]=firstStatusFrame.status.idstr;
     }
     
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+    [WBHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" params:params success:^(id data) {
+        NSArray *arrayStatus=[WBStatus objectArrayWithKeyValuesArray:data[@"statuses"]];
         //转换模型
         NSArray *statusFrameArray=[self statusFrameWithStatusArray:arrayStatus];
         
@@ -180,18 +188,22 @@
         
         [self.tableView reloadData];
         
-        [control endRefreshing];
+        //停止刷新
+        [self.tableView headerEndRefreshing];
         
         //提示刷新了多少条新数据
         NSUInteger count=arrayStatus.count;
         if (count) {
             [self showNewDataCount:count];
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         WBLOG(@"%@",error);
-        [control endRefreshing];
+        
+        [self.tableView headerEndRefreshing];
     }];
 }
+
+
 /**提示增加的新微博数*/
 -(void)showNewDataCount:(NSUInteger)count
 {
@@ -231,25 +243,25 @@
     /**
      access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
      uid	false	int64	需要查询的用户ID。*/
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
     
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
     params[@"uid"]=account.uid;
     
-    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        WBUser *user=[WBUser objectWithKeyValues:responseObject];
+    [WBHttpTool get:@"https://api.weibo.com/2/users/show.json" params:params success:^(id data) {
+        WBUser *user=[WBUser objectWithKeyValues:data];
         
         UIButton *btn=(UIButton *)self.navigationItem.titleView;
         [btn setTitle:user.name forState:UIControlStateNormal];
         
         account.name=user.name;
         [WBAccountManager save:account];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         WBLOG(@"%@",error);
     }];
 }
+
 
 /**设置导航栏位置*/
 -(void)setTitlePosition
@@ -344,21 +356,21 @@
 
 
 #pragma mark SctrollView
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.hidden == NO ) return;
-    
-    CGFloat contentY=scrollView.contentOffset.y;  //-64
-    CGFloat scrollY=scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height ;
-    
-    if (contentY > scrollY) {  //滚动到最后一个cell完全出现时加载数据
-        
-        self.tableView.tableFooterView.hidden=NO;
-        
-        [self loadMoreWeiboData]; //加载更多数据
-        
-    }
-    
-}
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.hidden == NO ) return;
+//    
+//    CGFloat contentY=scrollView.contentOffset.y;  //-64
+//    CGFloat scrollY=scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height ;
+//    
+//    if (contentY > scrollY) {  //滚动到最后一个cell完全出现时加载数据
+//        
+//        self.tableView.tableFooterView.hidden=NO;
+//        
+//        [self loadMoreWeiboData]; //加载更多数据
+//        
+//    }
+//    
+//}
 
 @end

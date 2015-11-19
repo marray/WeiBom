@@ -6,7 +6,7 @@
 // IDECodeSnippetUserSnippet: 1
 
 #import "WBOAthuViewController.h"
-#import "AFNetworking.h"
+#import "WBHttpTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "WBAccountManager.h"
 
@@ -80,8 +80,6 @@
      code	true	string	调用authorize获得的code值。
      redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
      */
-    AFHTTPRequestOperationManager *requestManager=[AFHTTPRequestOperationManager manager];
-//    requestManager.responseSerializer=[AFHTTPResponseSerializer serializer];
     
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"client_id"]=WBAppKey;
@@ -90,17 +88,16 @@
     params[@"code"]=code;
     params[@"redirect_uri"]=WBRedirectUrl;
 
-    [requestManager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [WBHttpTool post:@"https://api.weibo.com/oauth2/access_token" params:params success:^(id data) {
         [MBProgressHUD hideHUD];
         //对象存储到沙盒
-        WBAccount *account=[WBAccount accountWithDict:responseObject];
+        WBAccount *account=[WBAccount accountWithDict:data];
         [WBAccountManager save:account];
         
         //切换根控制器
         UIWindow *window=[UIApplication sharedApplication].keyWindow;
         [window changeRootViewController];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD hideHUD];
         WBLOG(@"ERROR:%@",error);
     }];

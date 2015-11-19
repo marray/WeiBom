@@ -8,7 +8,7 @@
 
 #import "WBComposeViewController.h"
 #import "WBAccountManager.h"
-#import "AFNetworking.h"
+#import "WBHttpTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "WBComposeToolBar.h"
 #import "WBComposePhotosView.h"
@@ -199,20 +199,20 @@
      status	true	string	要发布的微博文本内容，必须做URLencode，内容不超过140个汉字。
      pic	true	binary	要上传的图片，仅支持JPEG、GIF、PNG格式，图片大小小于5M。
      */
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-    
+    //参数设置
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
     params[@"status"]=self.textView.wholeText;
     
-    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    //发送请求
+    [WBHttpTool post:@"https://upload.api.weibo.com/2/statuses/upload.json" params:params constructingBodyWithBlock:^(id formData) {
         UIImage *image=[self.photosView.photos firstObject];
         NSData *binaryImage=UIImageJPEGRepresentation(image, 1.0);
         [formData appendPartWithFileData:binaryImage name:@"pic" fileName:@"test.jpg" mimeType:@"image/jpeg"];
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    } success:^(id data) {
         [MBProgressHUD showSuccess:@"发布成功"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发布失败"];
     }];
 
@@ -226,19 +226,19 @@
      access_token	false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
      status	true	string	要发布的微博文本内容，必须做URLencode，内容不超过140个汉字。
      */
-    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
-
+    //参数设置
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
     params[@"status"]=self.textView.wholeText;
 
-    [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //发送请求
+    [WBHttpTool post:@"https://api.weibo.com/2/statuses/update.json" params:params success:^(id data) {
         [MBProgressHUD showSuccess:@"发布成功"];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发布失败"];
     }];
+    
 }
 
 -(void)textDidChange
