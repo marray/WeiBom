@@ -37,5 +37,10 @@
     [encode encodeObject:self.code forKey:@"code"];
 }
 
+//重写方法
+-(BOOL)isEqual:(WBEmotion *)object
+{
+    return [self.chs isEqualToString:object.chs] || [self.code isEqualToString:object.code];
+}
 
 @end

@@ -10,8 +10,6 @@
 #import "WBAccountManager.h"
 #import "SDWebImageManager.h"
 
-#define WBVersionKey @"CFBundleVersion"
-
 
 @interface AppDelegate ()
 

@@ -50,6 +50,9 @@
 {
     _emotions=emotions;
     
+    //移除掉所有表情控件
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     NSUInteger page=(emotions.count + WBEmotionPageSize - 1)/WBEmotionPageSize;
     self.pageControl.numberOfPages=page;
     
@@ -69,6 +72,9 @@
         
         [self.scrollView addSubview:pageView];
     }
+    
+    //重新计算布局
+    [self setNeedsLayout];
 }
 
 -(void)layoutSubviews

@@ -13,4 +13,5 @@
 
 -(void)insertTextEmotion:(WBEmotion *)emotion;
 
+-(NSString *)wholeText;
 @end

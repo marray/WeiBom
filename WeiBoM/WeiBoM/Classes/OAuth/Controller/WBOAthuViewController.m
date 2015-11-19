@@ -29,7 +29,8 @@
      client_id	true	string	申请应用时分配的AppKey。
      redirect_uri	true	string	授权回调地址，站外应用需与设置的回调地址一致，站内应用需填写canvas page
      */
-    NSURL *url=[NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1707832585&redirect_uri=http://www.baidu.com"];
+    NSString *urlStr=[NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",WBAppKey,WBRedirectUrl];
+    NSURL *url=[NSURL URLWithString:urlStr];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [webview loadRequest:request];
     webview.delegate=self;
@@ -83,11 +84,11 @@
 //    requestManager.responseSerializer=[AFHTTPResponseSerializer serializer];
     
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
-    params[@"client_id"]=@"1707832585";
-    params[@"client_secret"]=@"7b6d1a6aee7ce1efeeb3d0ab826d000c";
+    params[@"client_id"]=WBAppKey;
+    params[@"client_secret"]=WBAppSecret;
     params[@"grant_type"]=@"authorization_code";
     params[@"code"]=code;
-    params[@"redirect_uri"]=@"http://www.baidu.com";
+    params[@"redirect_uri"]=WBRedirectUrl;
 
     [requestManager POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [MBProgressHUD hideHUD];

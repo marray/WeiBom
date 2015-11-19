@@ -204,7 +204,7 @@
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
-    params[@"status"]=self.textView.text;
+    params[@"status"]=self.textView.wholeText;
     
     [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         UIImage *image=[self.photosView.photos firstObject];
@@ -231,7 +231,7 @@
     WBAccount *account=[WBAccountManager account];
     NSMutableDictionary *params=[NSMutableDictionary dictionary];
     params[@"access_token"]=account.access_token;
-    params[@"status"]=self.textView.text;
+    params[@"status"]=self.textView.wholeText;
 
     [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD showSuccess:@"发布成功"];

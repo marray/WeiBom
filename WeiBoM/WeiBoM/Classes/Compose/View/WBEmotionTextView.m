@@ -8,6 +8,7 @@
 
 #import "WBEmotionTextView.h"
 #import "WBEmotion.h"
+#import "WBEmotionAttachment.h"
 
 @implementation WBEmotionTextView
 
@@ -20,8 +21,9 @@
     }else if(emotion.png){  //图片表情
         
         //图片表情附加
-        NSTextAttachment *attach=[[NSTextAttachment alloc] init];
-        attach.image=[UIImage imageNamed:emotion.png];
+        WBEmotionAttachment *attach=[[WBEmotionAttachment alloc] init];
+        attach.emotion=emotion;
+        
         //设置图片插入的大小
         CGFloat lineHight=self.font.lineHeight;
         attach.bounds=CGRectMake(0, -4, lineHight, lineHight);
@@ -36,6 +38,25 @@
     }
     
     
+}
+
+-(NSString *)wholeText
+{
+    NSMutableString *wholeText=[NSMutableString string];
+    
+    //遍历文本中所有对象
+    [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
+        
+        WBEmotionAttachment *attachment=attrs[@"NSAttachment"];
+        if (attachment) {
+            [wholeText appendString:attachment.emotion.chs];
+        }else{
+            NSAttributedString *str=[self.attributedText attributedSubstringFromRange:range];
+            [wholeText appendString:str.string];
+        }
+        
+    }];
+    return wholeText;
 }
 
 @end

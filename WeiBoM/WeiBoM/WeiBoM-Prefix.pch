@@ -24,6 +24,7 @@
 #import "NSString+Extension.h"
 #import "NSString+Emoji.h"
 #import "UITextView+Extension.h"
+#import "WBConst.h"
 
 #define WBNotificationCenter [NSNotificationCenter defaultCenter]
 
@@ -37,10 +38,5 @@
 #define WBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 #define WBRandomColor WBColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
-
-#define WBEmotionButtonDidSelectNotification @"WBEmotionButtonDidSelectNotification"
-#define emotionSelectedKey @"emotionSelectedKey"
-
-#define WBEmotionButtonDidDeleteNotification @"WBEmotionButtonDidDeleteNotification"
 
 #endif

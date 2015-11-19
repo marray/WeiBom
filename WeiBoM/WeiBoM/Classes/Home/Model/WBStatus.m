@@ -83,5 +83,13 @@
     }
 }
 
+//-(NSString *)fullText
+//{
+//    [self.text enumerateSubstringsInRange:NSMakeRange(0, self.text.length) options:0 usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+//        WBLOG(@"substring:%@---substringRange:%@---enclosingRange:%@",substring,NSStringFromRange(substringRange),NSStringFromRange(enclosingRange));
+//    }];
+//    return self.text;
+//}
+
 
 @end

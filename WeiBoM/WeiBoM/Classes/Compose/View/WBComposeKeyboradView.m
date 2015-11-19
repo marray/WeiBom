@@ -27,14 +27,15 @@
 
 @implementation WBComposeKeyboradView
 
-//-(WBEmotionListView *)recentListView
-//{
-//    if (!_recentListView) {
-//        self.recentListView=[[WBEmotionListView alloc] init];
-//        self.recentListView.emotions=[WBEmotionTool recentEmotion];
-//    }
-//    return _recentListView;
-//}
+-(WBEmotionListView *)recentListView
+{
+    if (!_recentListView) {
+        self.recentListView=[[WBEmotionListView alloc] init];
+        //加载最近列表数据
+        self.recentListView.emotions=[WBEmotionTool recentEmotion];
+    }
+    return _recentListView;
+}
 
 -(WBEmotionListView *)defaultListView
 {
@@ -85,6 +86,9 @@
         [self addSubview:tabBar];
         self.tabBar=tabBar;
         
+        //表情选择的通知
+        [WBNotificationCenter addObserver:self selector:@selector(emotionSelected) name:WBEmotionButtonDidSelectNotification object:nil];
+        
     }
     return self;
 }
@@ -112,6 +116,17 @@
     
 }
 
+-(void)dealloc
+{
+    [WBNotificationCenter removeObserver:self];
+}
+
+-(void)emotionSelected
+{
+    //刷新最近列表数据
+    self.recentListView.emotions=[WBEmotionTool recentEmotion];
+}
+
 #pragma  mark -WBEmotionTabBarDelegate
 -(void)emotionTabBar:(WBEmotionTabBar *)tabBar withButtonType:(WBEmotionTabBarButtonType)buttonType
 {
@@ -120,8 +135,6 @@
     //添加要显示的界面
     switch (buttonType) {
         case WBEmotionTabBarButtonTypeRecent:  //最近
-            self.recentListView=[[WBEmotionListView alloc] init];
-            self.recentListView.emotions=[WBEmotionTool recentEmotion];
             [self.contentView addSubview:self.recentListView];
             break;
         case WBEmotionTabBarButtonTypeDefault:  //默认

@@ -11,6 +11,7 @@
 #import "WBNewFeatrueViewController.h"
 
 #define WBVersionKey @"CFBundleVersion"
+
 @implementation UIWindow (Extension)
 
 -(void)changeRootViewController
