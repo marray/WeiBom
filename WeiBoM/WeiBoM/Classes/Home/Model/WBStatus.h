@@ -1,10 +1,9 @@
+// 
+// WBStatus.h
 //
-//  WBStatus.h
-//  WeiBoM
-//
-//  Created by Michael on 10/20/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 238391BF-B84C-48C1-8ED6-93F0097A433F
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 @class WBUser;

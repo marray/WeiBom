@@ -1,10 +1,9 @@
+// 
+// WBStatusFrame.m
 //
-//  WBStatusFrame.m
-//  WeiBoM
-//
-//  Created by Michael on 10/22/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 0FEE743E-DE2C-4295-A47E-FD24CC6D701B
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBStatusFrame.h"
 #import "WBStatus.h"

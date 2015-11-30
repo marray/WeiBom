@@ -1,10 +1,9 @@
+// 
+// WBEmotionTabBar.h
 //
-//  WBEmotionTabBar.h
-//  WeiBoM
-//
-//  Created by Michael on 11/5/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: ED1E382B-EADF-4873-AC9D-2C9C7A3FCE6C
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 @class WBEmotionTabBar;

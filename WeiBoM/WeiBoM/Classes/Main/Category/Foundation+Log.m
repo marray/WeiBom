@@ -1,3 +1,9 @@
+// WeiBoM/WeiBoM/Classes/Main/Category/Foundation+Log
+// 
+//
+// IDECodeSnippetIdentifier: D2BA196E-D1F7-4CE8-9051-F3E59DB5CB09
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 

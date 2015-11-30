@@ -1,10 +1,9 @@
+// 
+// WBComposeToolBar.m
 //
-//  WBComposeToolBar.m
-//  WeiBoM
-//
-//  Created by Michael on 11/3/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 90B5D58F-7F3F-4AB8-B006-81273A1F1433
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBComposeToolBar.h"
 

@@ -1,10 +1,9 @@
+// 
+// WBEmotionPopView.h
 //
-//  WBEmotionPopView.h
-//  WeiBoM
-//
-//  Created by Michael on 11/10/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: B5BC3A37-F7B7-4097-871C-8ED3B8D665BE
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 @class WBEmotion , WBEmotionButton;

@@ -1,10 +1,9 @@
+// 
+// WBPhoto.m
 //
-//  WBPhoto.m
-//  WeiBoM
-//
-//  Created by Michael on 10/23/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 029AACC6-47C0-4DCD-A041-70B28613CDD4
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBPhoto.h"
 

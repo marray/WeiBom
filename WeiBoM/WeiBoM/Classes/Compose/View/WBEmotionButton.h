@@ -1,10 +1,9 @@
+// 
+// WBEmotionButton.h
 //
-//  WBEmotionButton.h
-//  WeiBoM
-//
-//  Created by Michael on 11/10/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: DC0285B6-FA1A-467F-B7EE-8EDF94A9EBA0
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 @class WBEmotion;

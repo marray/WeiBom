@@ -1,10 +1,9 @@
+// 
+// WBEmotion.h
 //
-//  WBEmotion.h
-//  WeiBoM
-//
-//  Created by Michael on 11/6/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: E14DCF6E-0D8B-4513-837C-D8D0050FA466
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 

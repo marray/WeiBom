@@ -1,10 +1,9 @@
+// 
+// WBStatusFrame.h
 //
-//  WBStatusFrame.h
-//  WeiBoM
-//
-//  Created by Michael on 10/22/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: D88D0456-8900-42F1-897C-469433211FCC
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 

@@ -1,10 +1,9 @@
+// 
+// WBEmotionTabBar.m
 //
-//  WBEmotionTabBar.m
-//  WeiBoM
-//
-//  Created by Michael on 11/5/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: F373C03A-AE29-47DE-B0D4-42428985AA1D
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBEmotionTabBar.h"
 #import "WBComposeEmotionTabBarButton.h"

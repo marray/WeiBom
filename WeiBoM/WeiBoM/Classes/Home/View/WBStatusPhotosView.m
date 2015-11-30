@@ -1,10 +1,9 @@
+// 
+// WBStatusPhotosView.m
 //
-//  WBStatusPhotosView.m
-//  WeiBoM
-//
-//  Created by Michael on 10/28/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 252FF2E2-7D1C-43FD-8DAC-13BAC35B1745
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBStatusPhotosView.h"
 #import "WBPhoto.h"

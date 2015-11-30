@@ -1,10 +1,9 @@
+// 
+// WBEmotionAttachment.m
 //
-//  WBEmotionAttachment.m
-//  WeiBoM
-//
-//  Created by Michael on 11/18/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 128444E8-E26C-4AC4-A629-00DCE8A4A685
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBEmotionAttachment.h"
 #import "WBEmotion.h"

@@ -1,10 +1,9 @@
+// 
+// NSString+Emoji.h
 //
-//  NSString+Emoji.h
-//  黑马微博
-//
-//  Created by MJ Lee on 14/7/12.
-//  Copyright (c) 2014年 heima. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 766DF6EC-7057-4194-B858-DA762367CCBD
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 

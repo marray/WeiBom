@@ -1,10 +1,9 @@
+// 
+// NSDate+Extension.m
 //
-//  NSDate+Extension.m
-//  WeiBoM
-//
-//  Created by Michael on 10/27/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: D0054ACF-A6D4-4F0E-B453-E5E1A3BDD58B
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "NSDate+Extension.h"
 

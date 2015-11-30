@@ -1,10 +1,9 @@
+// 
+// WBLoadDataFooter.m
 //
-//  WBLoadDataFooter.m
-//  WeiBoM
-//
-//  Created by Michael on 10/20/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: C5689724-29C6-40F8-89D9-74C519CD2F12
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBLoadDataFooter.h"
 

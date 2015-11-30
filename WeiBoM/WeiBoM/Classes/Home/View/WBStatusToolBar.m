@@ -1,10 +1,9 @@
+// 
+// WBStatusToolBar.m
 //
-//  WBStatusToolBar.m
-//  WeiBoM
-//
-//  Created by Michael on 10/27/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 7D90DDD8-A598-4011-988B-0EEEE1508D37
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBStatusToolBar.h"
 #import "WBStatus.h"

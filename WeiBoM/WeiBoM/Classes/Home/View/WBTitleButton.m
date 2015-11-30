@@ -1,10 +1,9 @@
+// 
+// WBTitleButton.m
 //
-//  WBTitleButton.m
-//  WeiBoM
-//
-//  Created by Michael on 10/19/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 6E46EAFC-BB7D-4772-99CF-24849781F11D
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBTitleButton.h"
 

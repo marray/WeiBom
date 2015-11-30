@@ -1,10 +1,9 @@
+// 
+// WBEmotionTextView.h
 //
-//  WBEmotionTextView.h
-//  WeiBoM
-//
-//  Created by Michael on 11/12/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 565E6CB8-D996-4F05-BED0-07563EFE14EB
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBTextView.h"
 @class WBEmotion;

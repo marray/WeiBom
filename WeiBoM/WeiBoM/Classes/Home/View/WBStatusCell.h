@@ -1,10 +1,9 @@
+// 
+// WBStatusCell.h
 //
-//  WBStatusCell.h
-//  WeiBoM
-//
-//  Created by Michael on 10/22/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 2B6DD821-680A-4743-9CDE-9083F55CD1B9
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 @class WBStatusFrame;

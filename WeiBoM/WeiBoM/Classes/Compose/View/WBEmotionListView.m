@@ -1,10 +1,9 @@
+// 
+// WBEmotionListView.m
 //
-//  WBEmotionListView.m
-//  WeiBoM
-//
-//  Created by Michael on 11/5/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 3EC8B7C3-C01C-4D82-B919-B15A0D16AE5F
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBEmotionListView.h"
 #import "MJExtension.h"

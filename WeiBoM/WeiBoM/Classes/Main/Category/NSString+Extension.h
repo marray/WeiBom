@@ -1,10 +1,9 @@
+// 
+// NSString+Extension.h
 //
-//  NSString+Extension.h
-//  WeiBoM
-//
-//  Created by Michael on 10/28/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 1AED199C-6301-4DC8-86EB-09E3F6DCD8D4
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 

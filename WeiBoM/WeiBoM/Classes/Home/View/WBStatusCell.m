@@ -1,10 +1,9 @@
+// 
+// WBStatusCell.m
 //
-//  WBStatusCell.m
-//  WeiBoM
-//
-//  Created by Michael on 10/22/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: A11E1815-588A-4892-A714-C32008327DCE
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBStatusCell.h"
 #import "WBStatus.h"

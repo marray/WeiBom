@@ -1,3 +1,9 @@
+// WeiBoM/WeiBoM/Classes/Compose/View/WBComposeEmotionTabBarButton
+// 
+//
+// IDECodeSnippetIdentifier: 370A45A8-43C2-4896-BAB0-05CDB0A3F18D
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 //
 //  WBComposeEmotionTabBarButton.m

@@ -1,10 +1,9 @@
+// 
+// WBEmotionPageView.h
 //
-//  WBEmotionPageView.h
-//  WeiBoM
-//
-//  Created by Michael on 11/9/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: E78C6C86-BAAA-428E-A1FE-B01F7E414C39
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

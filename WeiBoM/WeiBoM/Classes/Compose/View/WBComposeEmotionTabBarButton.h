@@ -1,10 +1,9 @@
+// 
+// WBComposeEmotionTabBarButton.h
 //
-//  WBComposeEmotionTabBarButton.h
-//  WeiBoM
-//
-//  Created by Michael on 11/5/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: A37BA619-9A54-44BB-BA5B-E47696B44413
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

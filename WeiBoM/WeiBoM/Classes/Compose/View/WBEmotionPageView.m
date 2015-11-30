@@ -1,3 +1,9 @@
+// WeiBoM/WeiBoM/Classes/Compose/View/WBEmotionPageView
+// 
+//
+// IDECodeSnippetIdentifier: 252892EA-8803-4F6A-98E7-0FD49FEE7881
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 //
 //  WBEmotionPageView.m

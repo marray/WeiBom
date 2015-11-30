@@ -1,10 +1,9 @@
+// 
+// UITextView+Extension.h
 //
-//  UITextView+Extension.h
-//  WeiBoM
-//
-//  Created by Michael on 11/16/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 39911D86-8052-4949-ADD0-686D31D39F2A
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 

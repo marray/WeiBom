@@ -1,10 +1,9 @@
+// 
+// WBUser.h
 //
-//  WBUser.h
-//  WeiBoM
-//
-//  Created by Michael on 10/20/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 02F599CF-1744-4BD3-BCCE-0A4F97E8F621
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <Foundation/Foundation.h>
 

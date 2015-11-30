@@ -1,10 +1,9 @@
+// 
+// WBComposePhotosView.m
 //
-//  WBComposePhotosView.m
-//  WeiBoM
-//
-//  Created by Michael on 11/4/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 75E75CFB-9617-487F-B074-6A7539DD169C
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBComposePhotosView.h"
 

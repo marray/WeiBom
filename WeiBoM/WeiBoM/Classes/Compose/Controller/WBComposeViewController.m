@@ -1,10 +1,9 @@
+// 
+// WBComposeViewController.m
 //
-//  WBComposeViewController.m
-//  WeiBoM
-//
-//  Created by Michael on 10/30/15.
-//  Copyright © 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 8B6FAB5D-E951-475B-9D95-E9C0B7A61033
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import "WBComposeViewController.h"
 #import "WBAccountManager.h"

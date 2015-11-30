@@ -1,10 +1,9 @@
+// 
+// WBComposeKeyboradView.h
 //
-//  WBComposeKeyboradView.h
-//  WeiBoM
-//
-//  Created by Michael on 11/5/15.
-//  Copyright (c) 2015 agIce. All rights reserved.
-//
+// IDECodeSnippetIdentifier: 7F262F17-13A3-40E4-859B-833066DA880B
+// IDECodeSnippetLanguage: Xcode.SourceCodeLanguage.Objective-C
+// IDECodeSnippetUserSnippet: 1
 
 #import <UIKit/UIKit.h>
 
